@@ -14,6 +14,7 @@
 		410E9C94221B37D600F77FAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410E9C92221B37D600F77FAD /* LaunchScreen.storyboard */; };
 		410E9C9F221B37D700F77FAD /* HakodateRamenMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E9C9E221B37D700F77FAD /* HakodateRamenMapTests.swift */; };
 		410E9CAA221B37D700F77FAD /* HakodateRamenMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E9CA9221B37D700F77FAD /* HakodateRamenMapUITests.swift */; };
+		410E9CB8221B3D4600F77FAD /* map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410E9CB7221B3D4600F77FAD /* map.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		410E9CA5221B37D700F77FAD /* HakodateRamenMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HakodateRamenMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		410E9CA9221B37D700F77FAD /* HakodateRamenMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HakodateRamenMapUITests.swift; sourceTree = "<group>"; };
 		410E9CAB221B37D700F77FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		410E9CB7221B3D4600F77FAD /* map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = map.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		410E9C88221B37D200F77FAD /* HakodateRamenMap */ = {
 			isa = PBXGroup;
 			children = (
+				410E9CB9221B3D4E00F77FAD /* map */,
 				410E9C89221B37D200F77FAD /* AppDelegate.swift */,
 				410E9C8B221B37D200F77FAD /* ViewController.swift */,
 				410E9C8D221B37D200F77FAD /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				410E9CAB221B37D700F77FAD /* Info.plist */,
 			);
 			path = HakodateRamenMapUITests;
+			sourceTree = "<group>";
+		};
+		410E9CB9221B3D4E00F77FAD /* map */ = {
+			isa = PBXGroup;
+			children = (
+				410E9CB7221B3D4600F77FAD /* map.storyboard */,
+			);
+			path = map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +243,7 @@
 				410E9C94221B37D600F77FAD /* LaunchScreen.storyboard in Resources */,
 				410E9C91221B37D600F77FAD /* Assets.xcassets in Resources */,
 				410E9C8F221B37D200F77FAD /* Main.storyboard in Resources */,
+				410E9CB8221B3D4600F77FAD /* map.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
