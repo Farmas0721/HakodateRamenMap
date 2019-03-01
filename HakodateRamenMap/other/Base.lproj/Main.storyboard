@@ -9,30 +9,30 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Storyboard Reference-->
+        <!--map-->
         <scene sceneID="H36-9Z-N3i">
             <objects>
-                <viewControllerPlaceholder id="bl2-hb-nfN" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="map" id="bl2-hb-nfN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="vDe-dZ-XhA"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aB8-vh-VGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="484" y="-326"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--timeline-->
         <scene sceneID="gxG-U5-dJa">
             <objects>
-                <viewControllerPlaceholder id="eKx-je-FV8" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="timeline" id="eKx-je-FV8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="omW-di-rdB"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KFL-Sf-vGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="452" y="-148"/>
+            <point key="canvasLocation" x="484" y="-125"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--mypage-->
         <scene sceneID="nsY-1e-LLg">
             <objects>
-                <viewControllerPlaceholder id="RPm-Tz-Qn3" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="mypage" id="RPm-Tz-Qn3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="AzI-Y8-Mfn"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSi-gW-JCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
