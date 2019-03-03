@@ -1,29 +1,17 @@
 //
-//  login.swift
+//  NewAccountViewController.swift
 //  HakodateRamenMap
 //
-//  Created by Fuuya Yamada on 2019/03/02.
-//  Copyright © 2019 asahi. All rights reserved.
+//  Created by 中村　朝陽 on 2019/03/03.
+//  Copyright © 2019年 asahi. All rights reserved.
 //
 
 import UIKit
 
+class NewAccountViewController: UIViewController {
 
-class Login: UIViewController {
-    
-    
-    @IBOutlet weak var userName: UITextField!
-    @IBOutlet weak var passWord: UITextField!
-    
-    @IBAction func loginButton(_ sender: Any) {
-    }
-    
-    @IBAction func newAccountButton(_ sender: Any) {
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -32,7 +20,10 @@ class Login: UIViewController {
         
     }
     
-
+    @IBAction func returnPage(_ sender: Any) {
+            navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
