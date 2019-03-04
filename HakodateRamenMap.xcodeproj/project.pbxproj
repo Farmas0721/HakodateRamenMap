@@ -15,6 +15,7 @@
 		410E9C9F221B37D700F77FAD /* HakodateRamenMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E9C9E221B37D700F77FAD /* HakodateRamenMapTests.swift */; };
 		410E9CAA221B37D700F77FAD /* HakodateRamenMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E9CA9221B37D700F77FAD /* HakodateRamenMapUITests.swift */; };
 		410E9CB8221B3D4600F77FAD /* map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410E9CB7221B3D4600F77FAD /* map.storyboard */; };
+		41E868D0222CE62000DF3001 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41E868CF222CE62000DF3001 /* GoogleService-Info.plist */; };
 		4D33BC303596062AFAF38B6A /* Pods_HakodateRamenMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89EB8B485AB1B39BF7F42D2 /* Pods_HakodateRamenMapUITests.framework */; };
 		5F0E93F326D4E323D6950AC2 /* Pods_HakodateRamenMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4D332DBA7DBE22B8365D25 /* Pods_HakodateRamenMap.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		E5ED153FFB58EA4FD2FBDEF6 /* Pods_HakodateRamenMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DD408AB3F49E2E179AB8D3 /* Pods_HakodateRamenMapTests.framework */; };
@@ -63,6 +64,7 @@
 		410E9CA9221B37D700F77FAD /* HakodateRamenMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HakodateRamenMapUITests.swift; sourceTree = "<group>"; };
 		410E9CAB221B37D700F77FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		410E9CB7221B3D4600F77FAD /* map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = map.storyboard; sourceTree = "<group>"; };
+		41E868CF222CE62000DF3001 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		470C303285A879AA3977DFE5 /* Pods-HakodateRamenMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapTests.debug.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapTests/Pods-HakodateRamenMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		68FF3D8FE3BC141DF59C85DA /* Pods-HakodateRamenMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapTests.release.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapTests/Pods-HakodateRamenMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		B89EB8B485AB1B39BF7F42D2 /* Pods_HakodateRamenMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HakodateRamenMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +157,7 @@
 			children = (
 				410E9C95221B37D600F77FAD /* Info.plist */,
 				410E9C92221B37D600F77FAD /* LaunchScreen.storyboard */,
+				41E868CF222CE62000DF3001 /* GoogleService-Info.plist */,
 				410E9C90221B37D600F77FAD /* Assets.xcassets */,
 				E856B31D22299235007BDF1E /* login */,
 				410E9CB9221B3D4E00F77FAD /* map */,
@@ -338,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				410E9C94221B37D600F77FAD /* LaunchScreen.storyboard in Resources */,
+				41E868D0222CE62000DF3001 /* GoogleService-Info.plist in Resources */,
 				E856B31C22299145007BDF1E /* mypage.storyboard in Resources */,
 				410E9C91221B37D600F77FAD /* Assets.xcassets in Resources */,
 				410E9C8F221B37D200F77FAD /* Main.storyboard in Resources */,
