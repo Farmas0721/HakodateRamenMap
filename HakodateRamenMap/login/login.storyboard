@@ -165,7 +165,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3TT-iP-6mx" customClass="TextFieldSettings" customModule="HakodateRamenMap" customModuleProvider="target">
-                                <rect key="frame" x="16" y="350" width="343" height="30"/>
+                                <rect key="frame" x="16" y="327" width="343" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -180,7 +180,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ybp-YM-I7N" customClass="TextFieldSettings" customModule="HakodateRamenMap" customModuleProvider="target">
-                                <rect key="frame" x="16" y="431" width="343" height="30"/>
+                                <rect key="frame" x="16" y="419" width="343" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -194,6 +194,26 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xf0-s8-350" customClass="ButtonSettings" customModule="HakodateRamenMap" customModuleProvider="target">
+                                <rect key="frame" x="7" y="488" width="361" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.67843137249999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="アカウント作成">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radious">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createAccount:" destination="r1P-zE-Cxt" eventType="touchUpInside" id="S62-yb-Xo7"/>
+                                    <action selector="loginButton:" destination="9uX-n3-mrh" eventType="touchUpInside" id="0zN-nw-KuP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.82536881350000002" green="0.5488424905" blue="0.0037769055989999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -203,6 +223,11 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="hnx-gQ-PZl"/>
+                    <connections>
+                        <outlet property="conformPassword" destination="ybp-YM-I7N" id="k4o-Qr-b6Y"/>
+                        <outlet property="emailAddress" destination="QzZ-bm-Ebb" id="keX-Fo-NPy"/>
+                        <outlet property="password" destination="3TT-iP-6mx" id="sPc-0w-yUY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0h-Cy-Jmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="Oaj-aW-91N">
