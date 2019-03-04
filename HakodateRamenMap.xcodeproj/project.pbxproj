@@ -71,6 +71,9 @@
 		41E868D1222CE76000DF3001 /* inputForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = inputForm.swift; sourceTree = "<group>"; };
 		41E868D3222CE76800DF3001 /* loginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginButton.swift; sourceTree = "<group>"; };
 		41E868D5222CE77100DF3001 /* NewAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAccountViewController.swift; sourceTree = "<group>"; };
+		41E868D7222D262E00DF3001 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41E868D9222D265300DF3001 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41E868DB222D265900DF3001 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		470C303285A879AA3977DFE5 /* Pods-HakodateRamenMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapTests.debug.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapTests/Pods-HakodateRamenMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		68FF3D8FE3BC141DF59C85DA /* Pods-HakodateRamenMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapTests.release.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapTests/Pods-HakodateRamenMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		B89EB8B485AB1B39BF7F42D2 /* Pods_HakodateRamenMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HakodateRamenMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +132,9 @@
 		40936AD389D469964C2E4C1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41E868DB222D265900DF3001 /* FirebaseCore.framework */,
+				41E868D9222D265300DF3001 /* FirebaseAuth.framework */,
+				41E868D7222D262E00DF3001 /* FirebaseAuth.framework */,
 				0A4D332DBA7DBE22B8365D25 /* Pods_HakodateRamenMap.framework */,
 				06DD408AB3F49E2E179AB8D3 /* Pods_HakodateRamenMapTests.framework */,
 				B89EB8B485AB1B39BF7F42D2 /* Pods_HakodateRamenMapUITests.framework */,
