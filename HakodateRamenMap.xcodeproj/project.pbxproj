@@ -16,6 +16,9 @@
 		410E9CAA221B37D700F77FAD /* HakodateRamenMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E9CA9221B37D700F77FAD /* HakodateRamenMapUITests.swift */; };
 		410E9CB8221B3D4600F77FAD /* map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410E9CB7221B3D4600F77FAD /* map.storyboard */; };
 		41E868D0222CE62000DF3001 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41E868CF222CE62000DF3001 /* GoogleService-Info.plist */; };
+		41E868D2222CE76000DF3001 /* inputForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E868D1222CE76000DF3001 /* inputForm.swift */; };
+		41E868D4222CE76800DF3001 /* loginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E868D3222CE76800DF3001 /* loginButton.swift */; };
+		41E868D6222CE77100DF3001 /* NewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E868D5222CE77100DF3001 /* NewAccountViewController.swift */; };
 		4D33BC303596062AFAF38B6A /* Pods_HakodateRamenMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89EB8B485AB1B39BF7F42D2 /* Pods_HakodateRamenMapUITests.framework */; };
 		5F0E93F326D4E323D6950AC2 /* Pods_HakodateRamenMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4D332DBA7DBE22B8365D25 /* Pods_HakodateRamenMap.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		E5ED153FFB58EA4FD2FBDEF6 /* Pods_HakodateRamenMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DD408AB3F49E2E179AB8D3 /* Pods_HakodateRamenMapTests.framework */; };
@@ -65,6 +68,9 @@
 		410E9CAB221B37D700F77FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		410E9CB7221B3D4600F77FAD /* map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = map.storyboard; sourceTree = "<group>"; };
 		41E868CF222CE62000DF3001 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		41E868D1222CE76000DF3001 /* inputForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = inputForm.swift; sourceTree = "<group>"; };
+		41E868D3222CE76800DF3001 /* loginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginButton.swift; sourceTree = "<group>"; };
+		41E868D5222CE77100DF3001 /* NewAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAccountViewController.swift; sourceTree = "<group>"; };
 		470C303285A879AA3977DFE5 /* Pods-HakodateRamenMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapTests.debug.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapTests/Pods-HakodateRamenMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		68FF3D8FE3BC141DF59C85DA /* Pods-HakodateRamenMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapTests.release.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapTests/Pods-HakodateRamenMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		B89EB8B485AB1B39BF7F42D2 /* Pods_HakodateRamenMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HakodateRamenMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +222,9 @@
 		E856B31D22299235007BDF1E /* login */ = {
 			isa = PBXGroup;
 			children = (
+				41E868D5222CE77100DF3001 /* NewAccountViewController.swift */,
+				41E868D1222CE76000DF3001 /* inputForm.swift */,
+				41E868D3222CE76800DF3001 /* loginButton.swift */,
 				E856B32222299325007BDF1E /* Login.swift */,
 				E856B32422299331007BDF1E /* login.storyboard */,
 			);
@@ -466,8 +475,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E856B321222992C3007BDF1E /* Map.swift in Sources */,
+				41E868D4222CE76800DF3001 /* loginButton.swift in Sources */,
 				E856B32322299325007BDF1E /* Login.swift in Sources */,
 				410E9C8C221B37D200F77FAD /* ViewController.swift in Sources */,
+				41E868D2222CE76000DF3001 /* inputForm.swift in Sources */,
+				41E868D6222CE77100DF3001 /* NewAccountViewController.swift in Sources */,
 				E856B316222990F8007BDF1E /* TimeLine.swift in Sources */,
 				E856B31A22299134007BDF1E /* MyPage.swift in Sources */,
 				410E9C8A221B37D200F77FAD /* AppDelegate.swift in Sources */,
