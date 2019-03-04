@@ -15,6 +15,9 @@
 		410E9C9F221B37D700F77FAD /* HakodateRamenMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E9C9E221B37D700F77FAD /* HakodateRamenMapTests.swift */; };
 		410E9CAA221B37D700F77FAD /* HakodateRamenMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E9CA9221B37D700F77FAD /* HakodateRamenMapUITests.swift */; };
 		410E9CB8221B3D4600F77FAD /* map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410E9CB7221B3D4600F77FAD /* map.storyboard */; };
+		4D33BC303596062AFAF38B6A /* Pods_HakodateRamenMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89EB8B485AB1B39BF7F42D2 /* Pods_HakodateRamenMapUITests.framework */; };
+		5F0E93F326D4E323D6950AC2 /* Pods_HakodateRamenMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4D332DBA7DBE22B8365D25 /* Pods_HakodateRamenMap.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		E5ED153FFB58EA4FD2FBDEF6 /* Pods_HakodateRamenMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DD408AB3F49E2E179AB8D3 /* Pods_HakodateRamenMapTests.framework */; };
 		E856B316222990F8007BDF1E /* TimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856B315222990F8007BDF1E /* TimeLine.swift */; };
 		E856B3182229910E007BDF1E /* timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E856B3172229910E007BDF1E /* timeline.storyboard */; };
 		E856B31A22299134007BDF1E /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856B31922299134007BDF1E /* MyPage.swift */; };
@@ -42,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06DD408AB3F49E2E179AB8D3 /* Pods_HakodateRamenMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HakodateRamenMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A4D332DBA7DBE22B8365D25 /* Pods_HakodateRamenMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HakodateRamenMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		15ECDD1C8DC5BE89482739E7 /* Pods-HakodateRamenMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMap.release.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMap/Pods-HakodateRamenMap.release.xcconfig"; sourceTree = "<group>"; };
+		17864CD31DBE1DF0D966E997 /* Pods-HakodateRamenMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMap.debug.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMap/Pods-HakodateRamenMap.debug.xcconfig"; sourceTree = "<group>"; };
 		410E9C86221B37D200F77FAD /* HakodateRamenMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HakodateRamenMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		410E9C89221B37D200F77FAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		410E9C8B221B37D200F77FAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +63,11 @@
 		410E9CA9221B37D700F77FAD /* HakodateRamenMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HakodateRamenMapUITests.swift; sourceTree = "<group>"; };
 		410E9CAB221B37D700F77FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		410E9CB7221B3D4600F77FAD /* map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = map.storyboard; sourceTree = "<group>"; };
+		470C303285A879AA3977DFE5 /* Pods-HakodateRamenMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapTests.debug.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapTests/Pods-HakodateRamenMapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		68FF3D8FE3BC141DF59C85DA /* Pods-HakodateRamenMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapTests.release.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapTests/Pods-HakodateRamenMapTests.release.xcconfig"; sourceTree = "<group>"; };
+		B89EB8B485AB1B39BF7F42D2 /* Pods_HakodateRamenMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HakodateRamenMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC565CDF15C1CFC021ED509F /* Pods-HakodateRamenMapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapUITests.release.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapUITests/Pods-HakodateRamenMapUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C752988B5957CE81E6EC2F89 /* Pods-HakodateRamenMapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapUITests.debug.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapUITests/Pods-HakodateRamenMapUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E856B315222990F8007BDF1E /* TimeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeLine.swift; path = HakodateRamenMap/mypage/TimeLine.swift; sourceTree = SOURCE_ROOT; };
 		E856B3172229910E007BDF1E /* timeline.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = timeline.storyboard; sourceTree = "<group>"; };
 		E856B31922299134007BDF1E /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
@@ -70,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F0E93F326D4E323D6950AC2 /* Pods_HakodateRamenMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5ED153FFB58EA4FD2FBDEF6 /* Pods_HakodateRamenMapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,12 +98,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D33BC303596062AFAF38B6A /* Pods_HakodateRamenMapUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		112F90B9E8BA73FA74968DF6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				17864CD31DBE1DF0D966E997 /* Pods-HakodateRamenMap.debug.xcconfig */,
+				15ECDD1C8DC5BE89482739E7 /* Pods-HakodateRamenMap.release.xcconfig */,
+				470C303285A879AA3977DFE5 /* Pods-HakodateRamenMapTests.debug.xcconfig */,
+				68FF3D8FE3BC141DF59C85DA /* Pods-HakodateRamenMapTests.release.xcconfig */,
+				C752988B5957CE81E6EC2F89 /* Pods-HakodateRamenMapUITests.debug.xcconfig */,
+				BC565CDF15C1CFC021ED509F /* Pods-HakodateRamenMapUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		40936AD389D469964C2E4C1D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A4D332DBA7DBE22B8365D25 /* Pods_HakodateRamenMap.framework */,
+				06DD408AB3F49E2E179AB8D3 /* Pods_HakodateRamenMapTests.framework */,
+				B89EB8B485AB1B39BF7F42D2 /* Pods_HakodateRamenMapUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		410E9C7D221B37D100F77FAD = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +135,8 @@
 				410E9C9D221B37D700F77FAD /* HakodateRamenMapTests */,
 				410E9CA8221B37D700F77FAD /* HakodateRamenMapUITests */,
 				410E9C87221B37D200F77FAD /* Products */,
+				112F90B9E8BA73FA74968DF6 /* Pods */,
+				40936AD389D469964C2E4C1D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,9 +236,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 410E9CAE221B37D700F77FAD /* Build configuration list for PBXNativeTarget "HakodateRamenMap" */;
 			buildPhases = (
+				E92096A9712D91F76661657A /* [CP] Check Pods Manifest.lock */,
 				410E9C82221B37D200F77FAD /* Sources */,
 				410E9C83221B37D200F77FAD /* Frameworks */,
 				410E9C84221B37D200F77FAD /* Resources */,
+				EB3E2DFB1A65B737D32014E3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -213,6 +255,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 410E9CB1221B37D700F77FAD /* Build configuration list for PBXNativeTarget "HakodateRamenMapTests" */;
 			buildPhases = (
+				0493080C118D07B87C69BEDD /* [CP] Check Pods Manifest.lock */,
 				410E9C96221B37D700F77FAD /* Sources */,
 				410E9C97221B37D700F77FAD /* Frameworks */,
 				410E9C98221B37D700F77FAD /* Resources */,
@@ -231,6 +274,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 410E9CB4221B37D700F77FAD /* Build configuration list for PBXNativeTarget "HakodateRamenMapUITests" */;
 			buildPhases = (
+				9BDA2C940F300CEAAB8426FC /* [CP] Check Pods Manifest.lock */,
 				410E9CA1221B37D700F77FAD /* Sources */,
 				410E9CA2221B37D700F77FAD /* Frameworks */,
 				410E9CA3221B37D700F77FAD /* Resources */,
@@ -318,6 +362,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0493080C118D07B87C69BEDD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HakodateRamenMapTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BDA2C940F300CEAAB8426FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HakodateRamenMapUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E92096A9712D91F76661657A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HakodateRamenMap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB3E2DFB1A65B737D32014E3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HakodateRamenMap/Pods-HakodateRamenMap-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HakodateRamenMap/Pods-HakodateRamenMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		410E9C82221B37D200F77FAD /* Sources */ = {
@@ -502,6 +639,7 @@
 		};
 		410E9CAF221B37D700F77FAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17864CD31DBE1DF0D966E997 /* Pods-HakodateRamenMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -520,6 +658,7 @@
 		};
 		410E9CB0221B37D700F77FAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15ECDD1C8DC5BE89482739E7 /* Pods-HakodateRamenMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -538,6 +677,7 @@
 		};
 		410E9CB2221B37D700F77FAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 470C303285A879AA3977DFE5 /* Pods-HakodateRamenMapTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -559,6 +699,7 @@
 		};
 		410E9CB3221B37D700F77FAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68FF3D8FE3BC141DF59C85DA /* Pods-HakodateRamenMapTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -580,6 +721,7 @@
 		};
 		410E9CB5221B37D700F77FAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C752988B5957CE81E6EC2F89 /* Pods-HakodateRamenMapUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -600,6 +742,7 @@
 		};
 		410E9CB6221B37D700F77FAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC565CDF15C1CFC021ED509F /* Pods-HakodateRamenMapUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
