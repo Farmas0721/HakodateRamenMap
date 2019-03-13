@@ -9,71 +9,58 @@
 import UIKit
 import MapKit
 
-class Map: UIViewController {
-    //マップビュー
+class Map: UIViewController ,MKMapViewDelegate{
     
-    @IBOutlet weak var myMap: MKMapView!
-    //ツールバー
+    var anolist = Array<MKPointAnnotation>()
+   
     
-    @IBOutlet weak var toolBar: UIToolbar!
-    var defaultColor:UIColor!
+    @IBOutlet weak var ramenmap: MKMapView!
     
-    //横浜の領域を表示
-    @IBAction func gospot(_ sender: Any) {
-        //緯度と経度
-        let ido = 35.454954
-        let keido = 139.6313859
-        //中央を表示する領域
-        let center = CLLocationCoordinate2D(latitude : ido, longitude : keido)
-        //スパン（約2.22km*2.22kmの範囲)
-        let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
-        //表示する領域
-        let theRegion = MKCoordinateRegion(center: center, span: span)
-        //領域の地図を表示する
-        myMap.setRegion(theRegion,animated: true)
-        
-    }
+   
+    @IBAction func LongPressPin(_ sender: UILongPressGestureRecognizer) {
     
-    @IBAction func changemap(_ sender: UISegmentedControl) {
-        //地図のタイプを切り替え
-        switch sender.selectedSegmentIndex {
-        case 0 :
-            myMap.mapType = .standard
-            myMap.camera.pitch = 0.0
-            //ツールバーを標準化
-            toolBar.tintColor = defaultColor
-            toolBar.alpha = 1.0
-        case 1 :
-            myMap.mapType = .satellite
-            toolBar.tintColor = UIColor.black
-            toolBar.alpha = 1.0
-        case 2 :
-            myMap.mapType = .hybrid
-            toolBar.tintColor = UIColor.black
-            toolBar.alpha = 0.8
-        case 3 :
-            myMap.mapType = .standard
-            toolBar.tintColor = defaultColor
-            toolBar.alpha = 1.0
-            //3Dビュー
-            myMap.camera.pitch = 70 //俯角(見下ろす角度)
-            myMap.camera.altitude = 700 //標高
-            
-        default :
-            break
+    guard sender.state == UIGestureRecognizer.State.ended else{
+            return
         }
+        let pressPoint = sender.location(in: ramenmap)
+        let pressCoordinate = ramenmap.convert(pressPoint,toCoordinateFrom: ramenmap)
+        let ano = MKPointAnnotation()
+        ano.coordinate = pressCoordinate
+        anolist.append(ano)
+        mymap.addAnnotation(ano)
         
     }
+    func mapView(_ mapView: MKMapView, viewFor ano:MKAnnotation) -> MKAnnotationView? {
+        let pinview = MKPinAnnotationView()
+        pinview.animatesDrop = true
+        pinview.isDraggable = true
+        pinview.pinTintColor = UIColor.orange
+        pinview.canShowCallout = true
+        return pinview
+    }
+    
+    
+    
+    
     
     
     override func viewDidLoad() {
+        let ano = MKPointAnnotation()
+        let center = CLLocationCoordinate2D(latitude: 41.7687933, longitude:140.7288103)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let region = MKCoordinateRegion(center: center, span: span)
         super.viewDidLoad()
-        defaultColor = toolBar.tintColor
-        //スケールを表示する
-        myMap.showsScale = true
+        let bg = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
+        bg.image = UIImage(named: "背景.png")
+        bg.layer.zPosition = -1
+        self.view.addSubview(bg)
+        ramenmap.delegate = self
+        ramenmap.addAnnotation(ano)
+        ramenmap.setRegion(region, animated: true)
         
     }
     
     
 }
+
 
