@@ -14,7 +14,11 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+<<<<<<< HEAD
                BlueprintIdentifier = "1D654B637B799C389EA84A619B2A21C8"
+=======
+               BlueprintIdentifier = "6AE4A3D573DED275B034E20506596C62"
+>>>>>>> fix/frameworks
                BuildableName = "FirebaseAuth.framework"
                BlueprintName = "FirebaseAuth"
                ReferencedContainer = "container:Pods.xcodeproj">

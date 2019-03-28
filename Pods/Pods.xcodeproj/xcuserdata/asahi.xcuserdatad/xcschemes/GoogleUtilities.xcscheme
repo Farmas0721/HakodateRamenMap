@@ -14,7 +14,11 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+<<<<<<< HEAD
                BlueprintIdentifier = "1AF00832DC7DDEA01C8815110B12BBA1"
+=======
+               BlueprintIdentifier = "8D7F5D5DD528D21A72DC87ADA5B12E2D"
+>>>>>>> fix/frameworks
                BuildableName = "GoogleUtilities.framework"
                BlueprintName = "GoogleUtilities"
                ReferencedContainer = "container:Pods.xcodeproj">

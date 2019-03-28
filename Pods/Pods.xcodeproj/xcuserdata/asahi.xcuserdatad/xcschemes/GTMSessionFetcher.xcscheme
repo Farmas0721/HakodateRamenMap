@@ -14,7 +14,11 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+<<<<<<< HEAD
                BlueprintIdentifier = "78536CCDE28A42E18B6C4E0C0DE048AA"
+=======
+               BlueprintIdentifier = "D676E21115185671D7258A56944ABE98"
+>>>>>>> fix/frameworks
                BuildableName = "GTMSessionFetcher.framework"
                BlueprintName = "GTMSessionFetcher"
                ReferencedContainer = "container:Pods.xcodeproj">

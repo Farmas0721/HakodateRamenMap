@@ -14,7 +14,11 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+<<<<<<< HEAD
                BlueprintIdentifier = "D8B3501098D37DC4D4F367662D85FF86"
+=======
+               BlueprintIdentifier = "B53D977A951AFC38B21751B706C1DF83"
+>>>>>>> fix/frameworks
                BuildableName = "GoogleAppMeasurement"
                BlueprintName = "GoogleAppMeasurement"
                ReferencedContainer = "container:Pods.xcodeproj">
