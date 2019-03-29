@@ -26,10 +26,6 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="acount" translatesAutoresizingMaskIntoConstraints="NO" id="sxK-sc-fuQ">
-                        <rect key="frame" x="16" y="14" width="43" height="41"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqp-wA-6mT">
                         <rect key="frame" x="73" y="24" width="43" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -44,19 +40,20 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KWH-SJ-2Af">
+                        <rect key="frame" x="9" y="11" width="56" height="52"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="content" destination="JbI-gi-cAc" id="isI-T3-Nc7"/>
                 <outlet property="date" destination="jWc-yf-5Bi" id="wKy-wI-J5r"/>
-                <outlet property="myphoto" destination="sxK-sc-fuQ" id="i5P-04-A0A"/>
+                <outlet property="myphoto" destination="KWH-SJ-2Af" id="dEq-A3-2VD"/>
                 <outlet property="name" destination="cqp-wA-6mT" id="Yp9-oO-v1J"/>
             </connections>
             <point key="canvasLocation" x="170.40000000000001" y="167.76611694152925"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="acount" width="40" height="40"/>
-    </resources>
 </document>
