@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-/*class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
+class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet var table: UITableView!
     
@@ -134,7 +134,7 @@ import FirebaseAuth
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toView" {
-            let view = segue.destination as! ViewController
+            let view = segue.destination as! tlController
             if let snap = self.selectedSnap {
                 view.selectedSnap = snap
             }
@@ -168,4 +168,4 @@ import FirebaseAuth
     }
     */
 
-}*/
+}
