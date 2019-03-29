@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
+/*class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet var table: UITableView!
     
@@ -168,4 +168,4 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     }
     */
 
-}
+}*/
