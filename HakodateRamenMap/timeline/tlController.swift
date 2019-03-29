@@ -40,7 +40,7 @@ class tlController: UIViewController{
     
     func logout() {
         do {
-            //do-try-catchの中で、FIRAuth.auth()?.signOut()を呼ぶだけで、ログアウトが完了
+            //do-try-catchの中で、Auth.auth().signOut()を呼ぶだけで、ログアウトが完了
             try Auth.auth().signOut()
             
             //先頭のNavigationControllerに遷移

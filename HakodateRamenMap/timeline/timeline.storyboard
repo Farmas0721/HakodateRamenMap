@@ -33,7 +33,13 @@
                         <viewLayoutGuide key="safeArea" id="eKk-dR-xvg"/>
                     </view>
                     <tabBarItem key="tabBarItem" image="timelineicon" id="mee-RL-Lk8"/>
-                    <navigationItem key="navigationItem" id="hJo-aI-JZi"/>
+                    <navigationItem key="navigationItem" id="hJo-aI-JZi">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="45Q-TY-yg8">
+                            <connections>
+                                <action selector="addTask:" destination="Bgg-8t-och" id="Tps-7W-rB8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="table" destination="ERd-aa-HFt" id="GOu-UY-T0z"/>
@@ -63,6 +69,9 @@
                                 <rect key="frame" x="164" y="399" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="post:" destination="HMJ-Hz-XuN" eventType="touchUpInside" id="TFI-Ib-Wfr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
