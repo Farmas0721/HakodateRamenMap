@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class tlController: UIViewController{
+@IBDesignable class tlController: UIViewController{
     
     let ref = Database.database().reference()
     var isCreate = true //データの作成か更新かを判定、trueなら作成、falseなら更新
