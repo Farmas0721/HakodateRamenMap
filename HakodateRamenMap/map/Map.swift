@@ -29,6 +29,7 @@ class Map: UIViewController ,MKMapViewDelegate{
         ramenmap.addAnnotation(ano)
         
     }
+    
     func mapView(_ mapView: MKMapView, viewFor ano:MKAnnotation) -> MKAnnotationView? {
         let pinview = MKPinAnnotationView()
         pinview.animatesDrop = true
@@ -44,12 +45,12 @@ class Map: UIViewController ,MKMapViewDelegate{
         self.navigationController?.navigationBar.barTintColor = .orange
         self.navigationController?.navigationBar.tintColor = .white
 
-       //let ano = MKPointAnnotation()
+        let ano = MKPointAnnotation()
         let center = CLLocationCoordinate2D(latitude: 41.7687933, longitude:140.7288103)
         let span : MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region : MKCoordinateRegion = MKCoordinateRegion(center: center, span: span)
         
-        //ramenmap.addAnnotation(ano)
+        ramenmap.addAnnotation(ano)
         ramenmap.setRegion(region, animated: true)
     }
     
