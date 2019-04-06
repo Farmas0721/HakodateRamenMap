@@ -13,7 +13,6 @@ class Map: UIViewController ,MKMapViewDelegate{
     
     var anolist = Array<MKPointAnnotation>()
    
-    
     @IBOutlet weak var ramenmap: MKMapView!
     
    
@@ -27,7 +26,7 @@ class Map: UIViewController ,MKMapViewDelegate{
         let ano = MKPointAnnotation()
         ano.coordinate = pressCoordinate
         anolist.append(ano)
-        mymap.addAnnotation(ano)
+        ramenmap.addAnnotation(ano)
         
     }
     func mapView(_ mapView: MKMapView, viewFor ano:MKAnnotation) -> MKAnnotationView? {
@@ -39,25 +38,19 @@ class Map: UIViewController ,MKMapViewDelegate{
         return pinview
     }
     
-    
-    
-    
-    
-    
     override func viewDidLoad() {
-        let ano = MKPointAnnotation()
-        let center = CLLocationCoordinate2D(latitude: 41.7687933, longitude:140.7288103)
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-        let region = MKCoordinateRegion(center: center, span: span)
         super.viewDidLoad()
-        let bg = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
-        bg.image = UIImage(named: "背景.png")
-        bg.layer.zPosition = -1
-        self.view.addSubview(bg)
-        ramenmap.delegate = self
-        ramenmap.addAnnotation(ano)
-        ramenmap.setRegion(region, animated: true)
         
+        self.navigationController?.navigationBar.barTintColor = .orange
+        self.navigationController?.navigationBar.tintColor = .white
+
+       //let ano = MKPointAnnotation()
+        let center = CLLocationCoordinate2D(latitude: 41.7687933, longitude:140.7288103)
+        let span : MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let region : MKCoordinateRegion = MKCoordinateRegion(center: center, span: span)
+        
+        //ramenmap.addAnnotation(ano)
+        ramenmap.setRegion(region, animated: true)
     }
     
     
