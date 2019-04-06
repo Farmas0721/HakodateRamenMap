@@ -27,7 +27,9 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         
         table.delegate = self //デリゲートをセット
         table.dataSource = self //デリゲートをセット
-
+        
+        self.navigationController?.navigationBar.barTintColor = .orange
+        self.navigationController?.navigationBar.tintColor = .white
 
         // Do any additional setup after loading the view.
     }
