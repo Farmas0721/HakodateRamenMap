@@ -8,12 +8,14 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 @IBDesignable class tlController: UIViewController{
     
     let ref = Database.database().reference()
     var isCreate = true //データの作成か更新かを判定、trueなら作成、falseなら更新
    
+    @IBOutlet weak var ramenImage: UIImageView!
     @IBOutlet weak var doneLabel: UIButton!
     @IBOutlet weak var textField: UITextField!
     var selectedSnap: DataSnapshot! //ListViewControllerからのデータの受け取りのための変数
@@ -51,7 +53,10 @@ import Firebase
         }
         
     }
-
+    @IBAction func selectedPhoto(_ sender: Any) {
+        selectPickerImage()
+    }
+    
     @IBAction func post(_ sender: UIButton) {
         if isCreate {
             //投稿のためのメソッド
@@ -89,14 +94,34 @@ import Firebase
         ref.child((Auth.auth().currentUser?.uid)!).child("\(self.selectedSnap.key)").updateChildValues(["user": (Auth.auth().currentUser?.uid)!,"content": self.textField.text!, "date": ServerValue.timestamp()])
     }
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    upload(){
+    
     }
-    */
 
+}
+
+extension tlController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func selectPickerImage(){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            // 写真を選ぶビュー
+            let pickerView = UIImagePickerController()
+            // 写真の選択元をカメラロールにする
+            // 「.camera」にすればカメラを起動できる
+            pickerView.sourceType = .photoLibrary
+            // デリゲート
+            pickerView.delegate = self
+            // ビューに表示
+            self.present(pickerView, animated: true)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // 選択した写真を取得する
+        let image = info[.originalImage] as! UIImage
+        ramenImage.image = image
+        // 写真を選ぶビューを引っ込める
+        self.dismiss(animated: true)
+    }
+    
 }

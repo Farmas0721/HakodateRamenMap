@@ -9,6 +9,7 @@ target 'HakodateRamenMap' do
   pod 'Firebase/Database'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'FirebaseStorage'
   target 'HakodateRamenMapTests' do
     inherit! :search_paths
     # Pods for testing
