@@ -17,13 +17,13 @@ import FirebaseStorage
    
     @IBOutlet weak var ramenImage: UIImageView!
     @IBOutlet weak var doneLabel: UIButton!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var nameText: UITextField!
     var selectedSnap: DataSnapshot! //ListViewControllerからのデータの受け取りのための変数
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.delegate = self as? UITextFieldDelegate //デリゲートをセット
+        nameText.delegate = self as? UITextFieldDelegate //デリゲートをセット
         // Do any additional setup after loading the view.
     }
     
@@ -35,7 +35,7 @@ import FirebaseStorage
         //受け取ったselectedSnapを辞書型に変換
         let item = snap.value as! Dictionary<String, AnyObject>
         //textFieldに受け取ったデータのcontentを表示
-        textField.text = item["content"] as? String
+        nameText.text = item["content"] as? String
         //isCreateをfalseにし、更新するためであることを明示
         isCreate = false
     }
@@ -61,6 +61,7 @@ import FirebaseStorage
         if isCreate {
             //投稿のためのメソッド
             create()
+            upload()
         }else {
             //更新するためのメソッド
             update()
@@ -76,7 +77,7 @@ import FirebaseStorage
     //データの送信のメソッド
     func create() {
         //何もしない
-        guard let text = textField.text else { return }
+        guard let text = nameText.text else { return }
         
         //ロートからログインしているユーザーのIDをchildにしてデータを作成
         //childByAutoId()でユーザーIDの下に、IDを自動生成してその中にデータを入れる
@@ -91,15 +92,24 @@ import FirebaseStorage
         //ユーザーIDからのchildを受け取ったデータのIDに指定
         //updateChildValueを使って更新
         ref.keepSynced(true)
-        ref.child((Auth.auth().currentUser?.uid)!).child("\(self.selectedSnap.key)").updateChildValues(["user": (Auth.auth().currentUser?.uid)!,"content": self.textField.text!, "date": ServerValue.timestamp()])
+        ref.child((Auth.auth().currentUser?.uid)!).child("\(self.selectedSnap.key)").updateChildValues(["user": (Auth.auth().currentUser?.uid)!,"content": self.nameText.text!, "date": ServerValue.timestamp()])
     }
     
-
-    upload(){
-    
+    func upload(){
+        let storage = Storage.storage()
+        let storageRef = storage.reference(forURL: "gs://hakodateramenapp.appspot.com/RamenImage/")
+        let name = nameText.text!
+        let data = ramenImage.image!.pngData()
+        let reference = storageRef.child(name + ".jpg")
+        reference.putData(data!, metadata: nil, completion: { metaData, error in
+            print(metaData!)
+        })
+        dismiss(animated: true, completion: nil)
     }
-
+    
 }
+
+
 
 extension tlController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func selectPickerImage(){
@@ -125,3 +135,4 @@ extension tlController:UIImagePickerControllerDelegate, UINavigationControllerDe
     }
     
 }
+

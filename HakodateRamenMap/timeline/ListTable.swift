@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
 
 class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
 
@@ -88,9 +89,9 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         //今回は、childでユーザーIDを指定することで、ユーザーが投稿したデータの一つ上のchildまで指定することになる
         ref.child((Auth.auth().currentUser?.uid)!).observe(.value, with: {(snapShots) in
             if snapShots.children.allObjects is [DataSnapshot] {
-                print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
+               // print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
                 
-                print("snapShot...\(snapShots)") //読み込んだデータをプリント
+              //  print("snapShot...\(snapShots)") //読み込んだデータをプリント
                 
                 self.snap = snapShots
                 
@@ -101,7 +102,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     
     func reload(snap: DataSnapshot) {
         if snap.exists() {
-            print(snap)
+           // print(snap)
             //FIRDataSnapshotが存在するか確認
             contentArray.removeAll()
             //1つになっているFIRDataSnapshotを分割し、配列に入れる
@@ -156,8 +157,21 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     
     func delete(deleteIndexPath indexPath: IndexPath) {
         ref.child((Auth.auth().currentUser?.uid)!).child(contentArray[indexPath.row].key).removeValue()
-        contentArray.remove(at: indexPath.row)
+       /*
+        let storage = Storage.storage()
+        let storageRef = storage.reference(forURL: "gs://hakodateramenapp.appspot.com/RamenImage/")
+        let desertRef = storageRef.child(name + ".jpg")
+        desertRef.delete { error in
+            if error != nil {
+                print("////////Uh-oh, an error occurred!/////")
+            } else {
+                print("////////File deleted successfully/////")
+            }
+        }*/
+        
+            self.contentArray.remove(at: indexPath.row)
     }
+    
 
     
     /*
