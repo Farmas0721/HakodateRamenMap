@@ -14,11 +14,14 @@ import FirebaseStorage
     
     let ref = Database.database().reference()
     var isCreate = true //データの作成か更新かを判定、trueなら作成、falseなら更新
+    let storageRef = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com")
    
     @IBOutlet weak var ramenImage: UIImageView!
     @IBOutlet weak var doneLabel: UIButton!
     @IBOutlet weak var nameText: UITextField!
     var selectedSnap: DataSnapshot! //ListViewControllerからのデータの受け取りのための変数
+    
+    var ActivityIndicator: UIActivityIndicatorView!//くるくる
 
     
     override func viewDidLoad() {
@@ -58,14 +61,14 @@ import FirebaseStorage
     }
     
     @IBAction func post(_ sender: UIButton) {
-        if isCreate {
+        if self.isCreate {
             //投稿のためのメソッド
-            create()
-            upload()
+            self.create()
+            self.upload()
         }else {
             //更新するためのメソッド
-            update()
-        }
+            self.update()
+         }
         _ = self.navigationController?.popViewController(animated: true)
     }
     
@@ -96,19 +99,17 @@ import FirebaseStorage
     }
     
     func upload(){
-        let storage = Storage.storage()
-        let storageRef = storage.reference(forURL: "gs://hakodateramenapp.appspot.com/RamenImage/")
+        let photoRef = storageRef.child("RamenImage")
         let name = nameText.text!
         let data = ramenImage.image!.pngData()
-        let reference = storageRef.child(name + ".jpg")
+        let reference = photoRef.child(name + ".jpg")
         reference.putData(data!, metadata: nil, completion: { metaData, error in
-            print(metaData!)
+            print("uploadのとき\(metaData!)")
         })
         dismiss(animated: true, completion: nil)
     }
     
 }
-
 
 
 extension tlController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
