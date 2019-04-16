@@ -24,7 +24,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     let ref = Database.database().reference()
     let storage = Storage.storage()
     
-    var photo:UIImage!
+    var photo:UIImageView?
     var name:String = ""
     
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         table.delegate = self //デリゲートをセット
         table.dataSource = self //デリゲートをセット
         
-        self.navigationController?.navigationBar.barTintColor = .orange
+        self.navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 247, green: 0, blue: 37, alpha: 1)
         self.navigationController?.navigationBar.tintColor = .white
         // Do any additional setup after loading the view.
         table.reloadData()
@@ -42,8 +42,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-         self.read()
-         self.imageRead()
+        self.read()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -75,7 +74,8 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         //contentという添字で保存していた投稿内容を表示
         cell.content.text = String(describing: content["content"]!)
         name = String(describing: content["content"]!)
-        cell.ramenphoto.image = photo
+        imageRead(name: name)
+        cell.ramenphoto = photo
         print("cellに表示＝＝\(String(describing: photo))")
         //dateという添字で保存していた投稿時間をtimeという定数に代入
         let time = content["date"] as! TimeInterval
@@ -106,16 +106,13 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         })
     }
     
-    func imageRead() {
+  //画像ダウンロード
+    func imageRead(name: String){
         let gsReference = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com").child("RamenImage")
-        gsReference.child(name + ".jpg").getData(maxSize: 10 * 1028 * 1028) { (data, error) in
-            if error != nil {
-                print("cellの表示する時のload\(String(describing: error?.localizedDescription))")
-            }else {
-                self.photo = UIImage(data: data!)
-            }
-        }
-        table.reloadData()
+        let reference = gsReference.child(name + ".jpg")
+      //  let placeholderImage = UIImage(named: "ramens.jpg")
+        photo?.sd_setImage(with: reference, placeholderImage: nil)//placeholderImage
+        print("////////ダウンロード///////\(photo)")
     }
     
     func reload(snap: DataSnapshot) {

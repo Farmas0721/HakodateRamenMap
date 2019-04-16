@@ -18,7 +18,7 @@ import FirebaseStorage
    
     @IBOutlet weak var ramenImage: UIImageView!
     @IBOutlet weak var doneLabel: UIButton!
-    @IBOutlet weak var nameText: UITextField!
+    @IBOutlet weak var nameText: timelineForm!
     var selectedSnap: DataSnapshot! //ListViewControllerからのデータの受け取りのための変数
     
     var ActivityIndicator: UIActivityIndicatorView!//くるくる
