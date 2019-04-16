@@ -9,14 +9,16 @@
 import UIKit
 import MapKit
 import CoreLocation
-class Map: UIViewController ,MKMapViewDelegate{
+class Map: UIViewController ,MKMapViewDelegate,UIPopoverControllerDelegate{
     
     let titlelist: [String] = ["ラーメン炙","らぁめん工房かりんとう"]
+    let regionlist: [String] = ["北海道函館市美原5丁目39-1","北海道函館市花園町24-21"]
    
     @IBOutlet weak var ramenmap: MKMapView!
     
    
-    @IBAction func LongPressPin(_ sender: UILongPressGestureRecognizer) {
+    
+    @IBAction func LongPress(_ sender: UILongPressGestureRecognizer) {
     
     guard sender.state == UIGestureRecognizer.State.ended else{
             return
@@ -28,11 +30,10 @@ class Map: UIViewController ,MKMapViewDelegate{
         ramenmap.addAnnotation(ano)
         
     }
-    func addAno(_ num:Int,_ latitude:CLLocationDegrees,_ longitude: CLLocationDegrees,_ title:String,_ subtitle:String){
+    func addAno(_ latitude:CLLocationDegrees,_ longitude: CLLocationDegrees,_ title:String,_ subtitle:String){
        
          let anno = MKPointAnnotation()
         // 緯度経度を指定
-        anno.index(ofAccessibilityElement: num)
         anno.coordinate = CLLocationCoordinate2DMake(latitude,longitude)
         // タイトル、サブタイトルを設定
         anno.title = title
@@ -44,30 +45,25 @@ class Map: UIViewController ,MKMapViewDelegate{
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation)
     -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
         let pinview = MKPinAnnotationView(annotation: annotation, reuseIdentifier:nil)
-         let stackView = UIStackView()
-        let titlelabel:UILabel = UILabel()
         
         pinview.animatesDrop = true
-        pinview.isDraggable = true
         pinview.pinTintColor = UIColor.orange
-        pinview.canShowCallout = true
         
         //左ボタンをアノテーションビューに追加する。
-        let button = UIButton()
-        button.frame = CGRect(x:0,y:0,width:100,height:50)
-        button.setTitle("詳細を表示", for: .normal)
-        button.setTitleColor(UIColor.black, for:.normal)
-        button.backgroundColor = UIColor.yellow
-        pinview.leftCalloutAccessoryView = button
-        pinview.detailCalloutAccessoryView = stackView
+         pinview.canShowCallout = true
+        pinview.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.infoLight)
+        
         return pinview
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addAno(1,41.8268,140.7518,"ラーメン炙" ,"北海道函館市美原5丁目39-1")
-        addAno(2,41.7913,140.7794,"らぁめん工房かりんとう","北海道函館市花園町24-21")
+        addAno(41.8268,140.7518,titlelist[0] ,regionlist[0])
+        addAno(41.7913,140.7794,titlelist[1],regionlist[1])
         self.navigationController?.navigationBar.barTintColor = .orange
         self.navigationController?.navigationBar.tintColor = .white
 
@@ -86,13 +82,18 @@ class Map: UIViewController ,MKMapViewDelegate{
 
     //吹き出しアクササリー押下時の呼び出しメソッド
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let storyboard = UIStoryboard(name: "Map", bundle: nil)
+        //viewにつけた名前を指定
+        let vc = storyboard.instantiateViewController(withIdentifier: "DatailData")
+        //popoverを指定する
+        vc.modalPresentationStyle = UIModalPresentationStyle.popover
         
-        if(control == view.leftCalloutAccessoryView) {
-            //左のボタンが押された場合はピンの色をランダムに変更する。
-     func change(_ sender:UIButton) {
-                let next = storyboard!.instantiateViewController(withIdentifier: "timeline")
-                self.present(next,animated: true, completion: nil)
-            }
+        present(vc, animated: true, completion: nil)
+        
+        let popoverPresentationController = vc.popoverPresentationController
+        popoverPresentationController?.sourceView = view
+        popoverPresentationController?.sourceRect = view.bounds
+     
     }
 }
-}
+
