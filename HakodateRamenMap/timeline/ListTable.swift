@@ -30,11 +30,10 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         table.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        
         table.delegate = self //デリゲートをセット
         table.dataSource = self //デリゲートをセット
         
-        self.navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 247, green: 0, blue: 37, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
         self.navigationController?.navigationBar.tintColor = .white
         // Do any additional setup after loading the view.
         table.reloadData()
@@ -42,6 +41,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
         self.read()
     }
     

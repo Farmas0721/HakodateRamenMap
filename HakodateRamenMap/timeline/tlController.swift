@@ -26,7 +26,9 @@ import FirebaseStorage
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
         nameText.delegate = self as? UITextFieldDelegate //デリゲートをセット
+        view.backgroundColor =  UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
         // Do any additional setup after loading the view.
     }
     
