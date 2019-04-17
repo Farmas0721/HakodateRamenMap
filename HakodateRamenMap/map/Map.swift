@@ -81,18 +81,13 @@ class Map: UIViewController ,MKMapViewDelegate,UIPopoverControllerDelegate{
     }
 
     //吹き出しアクササリー押下時の呼び出しメソッド
-    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let storyboard = UIStoryboard(name: "Map", bundle: nil)
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let storyboard = UIStoryboard(name: "map", bundle: nil)
         //viewにつけた名前を指定
-        let vc = storyboard.instantiateViewController(withIdentifier: "DatailData")
-        //popoverを指定する
-        vc.modalPresentationStyle = UIModalPresentationStyle.popover
+        let vc = storyboard.instantiateViewController(withIdentifier: "DetailData")
+        self.navigationController?.pushViewController(vc, animated: true)
         
-        present(vc, animated: true, completion: nil)
-        
-        let popoverPresentationController = vc.popoverPresentationController
-        popoverPresentationController?.sourceView = view
-        popoverPresentationController?.sourceRect = view.bounds
+        print(control)
      
     }
 }
