@@ -21,9 +21,6 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BnD-wO-L8i">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="sei-zf-x2C" appends="YES" id="uA3-l0-IaF"/>
-                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -43,11 +40,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aaw-UI-Vb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="sei-zf-x2C">
-                    <connections>
-                        <action selector="LongPress:" destination="463-Sl-cS0" id="SV8-HF-bdt"/>
-                    </connections>
-                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="746.39999999999998" y="-104.7976011994003"/>
         </scene>

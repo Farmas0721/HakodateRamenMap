@@ -18,28 +18,17 @@ class Map: UIViewController ,MKMapViewDelegate,UIPopoverControllerDelegate{
     
    
     
-    @IBAction func LongPress(_ sender: UILongPressGestureRecognizer) {
-    
-    guard sender.state == UIGestureRecognizer.State.ended else{
-            return
-        }
-        let pressPoint = sender.location(in: ramenmap)
-        let pressCoordinate = ramenmap.convert(pressPoint,toCoordinateFrom: ramenmap)
-        let ano = MKPointAnnotation()
-        ano.coordinate = pressCoordinate
-        ramenmap.addAnnotation(ano)
-        
-    }
+    //マップ上にあらかじめピンを立てる
     func addAno(_ latitude:CLLocationDegrees,_ longitude: CLLocationDegrees,_ title:String,_ subtitle:String){
        
-         let anno = MKPointAnnotation()
+         let ano = MKPointAnnotation()
         // 緯度経度を指定
-        anno.coordinate = CLLocationCoordinate2DMake(latitude,longitude)
+        ano.coordinate = CLLocationCoordinate2DMake(latitude,longitude)
         // タイトル、サブタイトルを設定
-        anno.title = title
-        anno.subtitle = subtitle
+        ano.title = title
+        ano.subtitle = subtitle
         // mapViewに追加
-        self.ramenmap.addAnnotation(anno)
+        self.ramenmap.addAnnotation(ano)
         ramenmap.delegate = self
     }
     
@@ -53,7 +42,7 @@ class Map: UIViewController ,MKMapViewDelegate,UIPopoverControllerDelegate{
         pinview.animatesDrop = true
         pinview.pinTintColor = UIColor.orange
         
-        //左ボタンをアノテーションビューに追加する。
+        //右ボタンをアノテーションビューに追加する。
          pinview.canShowCallout = true
         pinview.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.infoLight)
         
