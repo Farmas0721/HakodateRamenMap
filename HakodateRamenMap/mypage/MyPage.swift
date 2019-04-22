@@ -10,6 +10,10 @@ import UIKit
 
 class MyPage: UIViewController {
 
+    var sidebarView = sidebarViewController()
+    @IBAction func button(_ sender: Any) {
+        sidebarView.showSidebar(animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
