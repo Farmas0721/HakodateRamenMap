@@ -10,8 +10,19 @@ import UIKit
 
 class MyPage: UIViewController {
 
+    var sidebarView = sidebarViewController()
+    
+    @IBAction func button(_ sender: Any) {
+        addChild(sidebarView)
+        view.addSubview(sidebarView.view)
+        sidebarView.didMove(toParent: self)
+        sidebarView.showSidebar(animated: true)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sidebarView.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -27,4 +38,33 @@ class MyPage: UIViewController {
     }
     */
 
+}
+
+extension MyPage: sidebarViewControllerDelegate {
+    func sidebarVIewController(_ sidebarViewController: sidebarViewController, didSelectRowAt indexPath: IndexPath) {
+        sidebarView.hideSidebar(animated: true, completion: nil)
+    }
+    
+    func sidebarViewControllerRequestShow(_ sidebarViewController: sidebarViewController, animated: Bool) {
+    }
+    
+    func numberOfSection(in sidebarViewController: sidebarViewController) -> Int {
+        return 1
+    }
+    
+    func tableView(_ sidebarViewController: sidebarViewController, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ sidebarViewController: sidebarViewController, cellForRowAt indexPath: IndexPath, _ cell: UITableViewCell) -> UITableViewCell {
+        cell.backgroundColor = UIColor.orange
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "HAKODATE ラーメンマップ"
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+        }else {
+            cell.textLabel?.text = "Item \(indexPath.row)"
+        }
+        return cell
+    }
+    
 }
