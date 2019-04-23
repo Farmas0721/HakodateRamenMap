@@ -105,8 +105,16 @@ import FirebaseStorage
         let name = nameText.text!
         let data = ramenImage.image!.pngData()
         let reference = photoRef.child(name + ".jpg")
-        reference.putData(data!, metadata: nil, completion: { metaData, error in
-            print("uploadのとき\(metaData!)")
+        let meta = StorageMetadata()
+        meta.contentType = "image/jpeg"
+        reference.putData(data!, metadata: meta, completion: { metaData, error in
+            reference.downloadURL { url, error in
+                if let error = error {
+                    // Handle any errors
+                } else {
+                    getUrl = url!
+                }
+            }
         })
         dismiss(animated: true, completion: nil)
     }

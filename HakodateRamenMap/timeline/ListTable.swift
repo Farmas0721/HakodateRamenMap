@@ -12,6 +12,8 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseUI
 
+var getUrl:URL?
+
 class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet var table: UITableView!
@@ -100,19 +102,18 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
               //  print("snapShot...\(snapShots)") //読み込んだデータをプリント
                 
                 self.snap = snapShots
-                
             }
             self.reload(snap: self.snap)
         })
     }
     
   //画像ダウンロード
-    func imageRead(name: String){
+    func imageRead(name: String,imageView: UIImageView?){
         let gsReference = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com").child("RamenImage")
-        let reference = gsReference.child(name + ".jpg")
-      //  let placeholderImage = UIImage(named: "ramens.jpg")
+        let reference = gsReference.child("ramen.jpg")
+        let placeholderImage = UIImage(named: "ramens.jpg")
+        print("画像ダウンロード")
         photo?.sd_setImage(with: reference, placeholderImage: nil)//placeholderImage
-        print("////////ダウンロード///////\(photo)")
     }
     
     func reload(snap: DataSnapshot) {
