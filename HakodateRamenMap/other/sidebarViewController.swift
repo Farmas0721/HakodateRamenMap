@@ -9,7 +9,6 @@
 import UIKit
 
 protocol sidebarViewControllerDelegate: class {
-    
     func sidebarViewControllerRequestShow(_ sidebarViewController: sidebarViewController, animated: Bool)
     func sidebarVIewController(_ sidebarViewController: sidebarViewController, didSelectRowAt indexPath: IndexPath)
 }
@@ -46,10 +45,14 @@ class sidebarViewController: UIViewController {
         rootView.frame = rootRect
         rootView.backgroundColor = UIColor.white
         rootView.autoresizingMask = .flexibleHeight
+        view.addSubview(rootView)
         
         tableView.frame = rootView.bounds
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Default")
+        rootView.addSubview(tableView)
+        tableView.reloadData()
         }
     
     func showSidebar(animated : Bool){

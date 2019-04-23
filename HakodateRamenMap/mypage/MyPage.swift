@@ -11,11 +11,18 @@ import UIKit
 class MyPage: UIViewController {
 
     var sidebarView = sidebarViewController()
+    
     @IBAction func button(_ sender: Any) {
+        addChild(sidebarView)
+        view.addSubview(sidebarView.view)
+        sidebarView.didMove(toParent: self)
         sidebarView.showSidebar(animated: true)
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sidebarView.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -31,4 +38,15 @@ class MyPage: UIViewController {
     }
     */
 
+}
+
+extension MyPage: sidebarViewControllerDelegate {
+    
+    func sidebarVIewController(_ sidebarViewController: sidebarViewController, didSelectRowAt indexPath: IndexPath) {
+        sidebarView.hideSidebar(animated: true, completion: nil)
+    }
+    
+    func sidebarViewControllerRequestShow(_ sidebarViewController: sidebarViewController, animated: Bool) {
+        
+    }
 }
