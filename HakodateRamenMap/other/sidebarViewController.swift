@@ -11,6 +11,9 @@ import UIKit
 protocol sidebarViewControllerDelegate: class {
     func sidebarViewControllerRequestShow(_ sidebarViewController: sidebarViewController, animated: Bool)
     func sidebarVIewController(_ sidebarViewController: sidebarViewController, didSelectRowAt indexPath: IndexPath)
+    func numberOfSection(in sidebarViewController: sidebarViewController) -> Int
+    func tableView(_ sidebarViewController: sidebarViewController, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ sidebarViewController: sidebarViewController, cellForRowAt indexPath: IndexPath, _ cell: UITableViewCell) -> UITableViewCell
 }
 
 class sidebarViewController: UIViewController {
@@ -52,7 +55,12 @@ class sidebarViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Default")
         rootView.addSubview(tableView)
+        tableViewCustom()
         tableView.reloadData()
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(backgroundTapped(sender:)))
+        tapGestureRecognizer.delegate = self
+        view.addGestureRecognizer(tapGestureRecognizer)
         }
     
     func showSidebar(animated : Bool){
@@ -69,33 +77,53 @@ class sidebarViewController: UIViewController {
         if animated {
             UIView.animate(withDuration: 0.3, animations:{
                 self.rootViewRatio = 0
-            }, completion: { finished in
-                self.willMove(toParent: nil)
-                self.removeFromParent()
-                self.view.removeFromSuperview()
-                completion?(finished)
                 
+            }, completion: { finished in
+                completion?(finished)
             })
         } else {
             rootViewRatio = 0
             completion?(true)
         }
+        
+    }
+    
+    @objc private func backgroundTapped(sender: UITapGestureRecognizer){
+        hideSidebar(animated: true, completion: { (_) in
+            self.willMove(toParent: nil)
+            self.removeFromParent()
+            self.view.removeFromSuperview()
+        })
+    }
+    
+    private func tableViewCustom(){
+        tableView.backgroundColor = UIColor.orange
+        tableView.separatorStyle = .none
+    }
+}
+
+extension sidebarViewController: UIGestureRecognizerDelegate {
+    internal func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        let location = gestureRecognizer.location(in: tableView)
+        if tableView.indexPathForRow(at: location) != nil {
+            return false
+        }
+        return true
     }
 }
 
 extension sidebarViewController: UITableViewDataSource, UITableViewDelegate {
         func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
+            return self.delegate!.numberOfSection(in: self)
         }
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 2
+            return self.delegate!.tableView(self, numberOfRowsInSection: section)
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Default", for: indexPath)
-            cell.textLabel?.text = "Item \(indexPath.row)"
-            return cell
+            return self.delegate!.tableView(self, cellForRowAt: indexPath, cell)
         }
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
