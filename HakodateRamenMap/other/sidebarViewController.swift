@@ -64,6 +64,7 @@ class sidebarViewController: UIViewController {
         }
     
     func showSidebar(animated : Bool){
+        navigationController?.setNavigationBarHidden(true, animated: true)
         if animated {
             UIView.animate(withDuration: 0.3) {
                 self.rootViewRatio = 1.0
@@ -85,7 +86,7 @@ class sidebarViewController: UIViewController {
             rootViewRatio = 0
             completion?(true)
         }
-        
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @objc private func backgroundTapped(sender: UITapGestureRecognizer){
