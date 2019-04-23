@@ -76,7 +76,6 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         //contentという添字で保存していた投稿内容を表示
         cell.content.text = String(describing: content["content"]!)
         name = String(describing: content["content"]!)
-        imageRead(name: name)
         cell.ramenphoto = photo
         print("cellに表示＝＝\(String(describing: photo))")
         //dateという添字で保存していた投稿時間をtimeという定数に代入
@@ -108,7 +107,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     }
     
   //画像ダウンロード
-    func imageRead(name: String,imageView: UIImageView?){
+      func imageRead(name: String,imageView: UIImageView?){
         let gsReference = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com").child("RamenImage")
         let reference = gsReference.child("ramen.jpg")
         let placeholderImage = UIImage(named: "ramens.jpg")
