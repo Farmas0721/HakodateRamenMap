@@ -12,18 +12,39 @@ class MyPage: UIViewController {
 
     var sidebarView = sidebarViewController()
     
-    @IBAction func button(_ sender: Any) {
+    @IBOutlet var username: UITextField!
+    @IBOutlet var Follownum: UILabel!
+    @IBOutlet var Followernum: UILabel!
+    @IBOutlet var profileImage: UIButton!
+    
+    var imagePicker = UIImagePickerController()
+    
+    @IBAction func tapImage(_ sender: Any) {
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+
+    }
+    
+    @IBAction func followpage(_ sender: Any) {
+        
+    }
+    
+    @IBAction func followerpage(_ sender: Any) {
+        
+    }
+    
+    @IBAction func openSIdeber(_ sender: Any) {
         addChild(sidebarView)
         view.addSubview(sidebarView.view)
         sidebarView.didMove(toParent: self)
         sidebarView.showSidebar(animated: true)
-        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sidebarView.delegate = self
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -67,4 +88,30 @@ extension MyPage: sidebarViewControllerDelegate {
         return cell
     }
     
+}
+
+extension MyPage: UIImagePickerControllerDelegate ,UINavigationControllerDelegate{
+    
+    //画像が選択された時に呼ばれる.
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[.originalImage] as? UIImage {
+            
+            //ボタンの背景に選択した画像を設定
+            profileImage.setImage(image, for: .normal)
+            
+        }else{
+            print("Error")
+        }
+        
+        // モーダルビューを閉じる
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    //画像選択がキャンセルされた時に呼ばれる.
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+        // モーダルビューを閉じる
+        self.dismiss(animated: true, completion: nil)
+    }
 }

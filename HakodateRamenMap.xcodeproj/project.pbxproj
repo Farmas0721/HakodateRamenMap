@@ -248,8 +248,8 @@
 		E856B314222990BC007BDF1E /* mypage */ = {
 			isa = PBXGroup;
 			children = (
-				E856B31922299134007BDF1E /* MyPage.swift */,
 				E856B31B22299145007BDF1E /* mypage.storyboard */,
+				E856B31922299134007BDF1E /* MyPage.swift */,
 			);
 			path = mypage;
 			sourceTree = "<group>";
