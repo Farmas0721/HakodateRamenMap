@@ -22,6 +22,14 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <gestureRecognizers/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9W-qK-nPY">
+                                <rect key="frame" x="264" y="483" width="67" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Taptracking:" destination="463-Sl-cS0" eventType="touchUpInside" id="1Tm-Fv-73Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
@@ -37,6 +45,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ramenmap" destination="BnD-wO-L8i" id="gQt-r9-cuQ"/>
+                        <outlet property="tracking" destination="w9W-qK-nPY" id="tQJ-JG-IlJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aaw-UI-Vb5" userLabel="First Responder" sceneMemberID="firstResponder"/>

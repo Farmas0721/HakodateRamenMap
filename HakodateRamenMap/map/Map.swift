@@ -9,14 +9,15 @@
 import UIKit
 import MapKit
 import CoreLocation
-class Map: UIViewController ,MKMapViewDelegate,UIPopoverControllerDelegate{
-    
+class Map: UIViewController ,MKMapViewDelegate,CLLocationManagerDelegate{
+    var location = CLLocationManager()
     let titlelist: [String] = ["ラーメン炙","らぁめん工房かりんとう"]
     let regionlist: [String] = ["北海道函館市美原5丁目39-1","北海道函館市花園町24-21"]
    
     @IBOutlet weak var ramenmap: MKMapView!
     
-   
+    @IBOutlet weak var tracking: UIBarButtonItem!
+    
     
     //マップ上にあらかじめピンを立てる
     func addAno(_ latitude:CLLocationDegrees,_ longitude: CLLocationDegrees,_ title:String,_ subtitle:String){
@@ -31,9 +32,13 @@ class Map: UIViewController ,MKMapViewDelegate,UIPopoverControllerDelegate{
         self.ramenmap.addAnnotation(ano)
         ramenmap.delegate = self
     }
+    func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool){
+        tracking.image = UIImage(named: "trackingnone")
+    }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation)
     -> MKAnnotationView? {
+    
         if annotation is MKUserLocation {
             return nil
         }
@@ -48,7 +53,32 @@ class Map: UIViewController ,MKMapViewDelegate,UIPopoverControllerDelegate{
         
         return pinview
     }
+    func locationManager(_ manager: CLLocationManager,didChangeAuthorization status: CLAuthorizationStatus){
+        switch status{
+        case .authorizedAlways, .authorizedWhenInUse :
+            location.startUpdatingLocation()
+            tracking.isEnabled = true
+        default:
+            location.stopUpdatingLocation()
+            ramenmap.setUserTrackingMode(.none, animated: true)
+            tracking.image = UIImage(named: "trackingnone")
+            tracking.isEnabled = false
+        }
+    }
     
+    @IBAction func Taptracking(_ sender: UIBarButtonItem) {
+        switch ramenmap.userTrackingMode{
+        case .none:
+            ramenmap.setUserTrackingMode(.follow,animated: true)
+            tracking.image = UIImage(named: "trackingheading")
+        case .follow:
+            ramenmap.setUserTrackingMode(.followWithHeading, animated: true)
+            tracking.image = UIImage(named: "trackingheading")
+        case .followWithHeading:
+            ramenmap.setUserTrackingMode(.none, animated: true)
+            tracking.image = UIImage(named: "trackingnone")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         addAno(41.8268,140.7518,titlelist[0] ,regionlist[0])
@@ -60,7 +90,9 @@ class Map: UIViewController ,MKMapViewDelegate,UIPopoverControllerDelegate{
         let center = CLLocationCoordinate2D(latitude: 41.7687933, longitude:140.7288103)
         let span : MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
         let region : MKCoordinateRegion = MKCoordinateRegion(center: center, span: span)
-        
+        location.requestWhenInUseAuthorization()
+        location.delegate = self
+        ramenmap.showsScale = true
         ramenmap.addAnnotation(ano)
         ramenmap.setRegion(region, animated: true)
         ramenmap.delegate = self
