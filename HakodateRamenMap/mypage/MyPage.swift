@@ -1,8 +1,8 @@
 //
-//  MyPage.swift
+//  Mypage.swift
 //  HakodateRamenMap
 //
-//  Created by Fuuya Yamada on 2019/03/02.
+//  Created by 佐々木真矢 on 2019/03/03.
 //  Copyright © 2019 asahi. All rights reserved.
 //
 
@@ -17,12 +17,19 @@ class MyPage: UIViewController {
     @IBOutlet var Followernum: UILabel!
     @IBOutlet var profileImage: UIButton!
     
-    var imagePicker = UIImagePickerController()
-    
     @IBAction func tapImage(_ sender: Any) {
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.delegate = self
-        present(imagePicker, animated: true, completion: nil)
+        // カメラロールが利用可能か？
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            // 写真を選ぶビュー
+            let pickerView = UIImagePickerController()
+            // 写真の選択元をカメラロールにする
+            // 「.camera」にすればカメラを起動できる
+            pickerView.sourceType = .photoLibrary
+            // デリゲート
+            pickerView.delegate = self
+            // ビューに表示
+            self.present(pickerView, animated: true)
+        }
 
     }
     
@@ -44,21 +51,29 @@ class MyPage: UIViewController {
         super.viewDidLoad()
         
         sidebarView.delegate = self
+      view.backgroundColor = UIColor.orange
+        profileimage.backgroundColor = rgba
+        username.backgroundColor = UIColor.clear
+        profileimage.setTitleColor(UIColor.cyan, for: UIControl.State.normal)          // Do any additional setup after loading the view.
         
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func usernameShouldReturn(username: UITextField) -> Bool {
+        username.resignFirstResponder()
+        return true
     }
-    */
-
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension MyPage: sidebarViewControllerDelegate {
@@ -115,3 +130,4 @@ extension MyPage: UIImagePickerControllerDelegate ,UINavigationControllerDelegat
         self.dismiss(animated: true, completion: nil)
     }
 }
+
