@@ -22,7 +22,7 @@ class NewAccountViewController: UIViewController {
                 
                 Auth.auth().createUser(withEmail: emailAddress.text!, password: password.text!) { (authResult, error) in
                     // ...
-                    guard let user = authResult?.user else { return }
+                    guard (authResult?.user) != nil else { return }
                 }
                 
                 navigationController?.popViewController(animated: true)
