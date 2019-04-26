@@ -51,10 +51,10 @@ class MyPage: UIViewController {
         super.viewDidLoad()
         
         sidebarView.delegate = self
-      view.backgroundColor = UIColor.orange
-        profileimage.backgroundColor = rgba
+        view.backgroundColor = UIColor.orange
+        profileImage.backgroundColor = rgba
         username.backgroundColor = UIColor.clear
-        profileimage.setTitleColor(UIColor.cyan, for: UIControl.State.normal)          // Do any additional setup after loading the view.
+        profileImage.setTitleColor(UIColor.cyan, for: UIControl.State.normal)          // Do any additional setup after loading the view.
         
         // Do any additional setup after loading the view.
     }
