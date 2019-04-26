@@ -27,11 +27,10 @@ class Login: UIViewController {
                             self.showMessagePrompt(error.localizedDescription)
                             return
                         }
-                        self.showMessagePrompt("OK. Your Account is logined")
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         //get isInitial view
-                        let viewController = storyboard.instantiateInitialViewController()
-                        self.present(viewController!, animated: true, completion: nil)
+                        let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainTab")
+                        self.present(mainViewController, animated: true, completion: nil)
                         //self.navigationController!.popViewController(animated: true)
                     }
                     // [END_EXCLUDE]

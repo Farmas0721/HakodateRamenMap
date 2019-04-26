@@ -42,7 +42,7 @@
         <!--View Controller-->
         <scene sceneID="WIj-Pp-bNV">
             <objects>
-                <tabBarController id="G5H-oL-hh4" customClass="ViewController" customModule="HakodateRamenMap" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTab" id="G5H-oL-hh4" customClass="ViewController" customModule="HakodateRamenMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Npr-jy-py5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
