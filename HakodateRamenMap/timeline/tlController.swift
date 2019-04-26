@@ -18,18 +18,20 @@ import FirebaseStorage
    
     @IBOutlet weak var ramenImage: UIImageView!
     @IBOutlet weak var doneLabel: UIButton!
-    @IBOutlet weak var nameText: timelineForm!
-    var selectedSnap: DataSnapshot! //ListViewControllerからのデータの受け取りのための変数
+    @IBOutlet weak var storeName: UITextField!
+    @IBOutlet weak var taste: UITextField!
+    @IBOutlet weak var ramenValue: UITextField!
     
-    var ActivityIndicator: UIActivityIndicatorView!//くるくる
+    var selectedSnap: DataSnapshot! //ListViewControllerからのデータの受け取りのための変数
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
-        nameText.delegate = self as? UITextFieldDelegate //デリゲートをセット
+        storeName.delegate = self as? UITextFieldDelegate
+        taste.delegate = self as? UITextFieldDelegate
+        ramenValue.delegate = self as? UITextFieldDelegate
         view.backgroundColor =  UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +42,7 @@ import FirebaseStorage
         //受け取ったselectedSnapを辞書型に変換
         let item = snap.value as! Dictionary<String, AnyObject>
         //textFieldに受け取ったデータのcontentを表示
-        nameText.text = item["content"] as? String
+        storeName.text = item["content"] as? String
         //isCreateをfalseにし、更新するためであることを明示
         isCreate = false
     }
@@ -82,14 +84,16 @@ import FirebaseStorage
     //データの送信のメソッド
     func create() {
         //何もしない
-        guard let text = nameText.text else { return }
+        guard let name = storeName.text else { return }
+        guard let taste = taste.text else { return }
+        guard let ramenvalue = ramenValue.text else { return }
         
         //ロートからログインしているユーザーのIDをchildにしてデータを作成
         //childByAutoId()でユーザーIDの下に、IDを自動生成してその中にデータを入れる
         //setValueでデータを送信する。第一引数に送信したいデータを辞書型で入れる
         //今回は記入内容と一緒にユーザーIDと時間を入れる
         //FIRServerValue.timestamp()で現在時間を取る
-        self.ref.child((Auth.auth().currentUser?.uid)!).childByAutoId().setValue(["user": (Auth.auth().currentUser?.uid)!, "content": text, "date": ServerValue.timestamp()])
+        self.ref.child((Auth.auth().currentUser?.uid)!).childByAutoId().setValue(["user": (Auth.auth().currentUser?.uid)!, "storeName": name, "taste":taste, "ramenValue":ramenvalue, "date": ServerValue.timestamp()])
     }
     
     func update() {
@@ -97,12 +101,12 @@ import FirebaseStorage
         //ユーザーIDからのchildを受け取ったデータのIDに指定
         //updateChildValueを使って更新
         ref.keepSynced(true)
-        ref.child((Auth.auth().currentUser?.uid)!).child("\(self.selectedSnap.key)").updateChildValues(["user": (Auth.auth().currentUser?.uid)!,"content": self.nameText.text!, "date": ServerValue.timestamp()])
+        ref.child((Auth.auth().currentUser?.uid)!).child("\(self.selectedSnap.key)").updateChildValues(["user": (Auth.auth().currentUser?.uid)!, "storeName": storeName.text!, "taste":taste.text!, "ramenValue":ramenValue.text!, "date": ServerValue.timestamp()])
     }
     
     func upload(){
         let photoRef = storageRef.child("RamenImage")
-        let name = nameText.text!
+        let name = storeName.text!
         let data = ramenImage.image!.pngData()
         let reference = photoRef.child(name + ".jpg")
         let meta = StorageMetadata()
@@ -113,6 +117,7 @@ import FirebaseStorage
                     // Handle any errors
                 } else {
                     getUrl = url!
+                    print(getUrl)
                 }
             }
         })

@@ -14,7 +14,6 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var content: UILabel!
     @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var myphoto: UIImageView!
     @IBOutlet weak var ramenphoto: UIImageView!
     
     

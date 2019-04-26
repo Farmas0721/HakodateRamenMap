@@ -139,8 +139,10 @@
                     </view>
                     <connections>
                         <outlet property="doneLabel" destination="Ro7-hF-8ax" id="ida-jM-ZRc"/>
-                        <outlet property="nameText" destination="zMT-w0-RR4" id="KQ9-RE-7QL"/>
                         <outlet property="ramenImage" destination="EFC-Uh-p2g" id="qIi-zy-heK"/>
+                        <outlet property="ramenValue" destination="L4c-s6-d95" id="0Mu-OJ-hYF"/>
+                        <outlet property="storeName" destination="zMT-w0-RR4" id="q6Q-Bj-OvR"/>
+                        <outlet property="taste" destination="Upu-oM-mLE" id="uAJ-oi-ntw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTt-3D-4Vh" userLabel="First Responder" sceneMemberID="firstResponder"/>

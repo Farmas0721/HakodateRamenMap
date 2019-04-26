@@ -76,8 +76,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         //contentという添字で保存していた投稿内容を表示
         cell.content.text = String(describing: content["content"]!)
         name = String(describing: content["content"]!)
-        cell.ramenphoto = photo
-        print("cellに表示＝＝\(String(describing: photo))")
+        cell.ramenphoto.image = UIImage(named: name + ".png")
         //dateという添字で保存していた投稿時間をtimeという定数に代入
         let time = content["date"] as! TimeInterval
         //getDate関数を使って、時間をtimestampから年月日に変換して表示
@@ -91,7 +90,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     }
     
     
-    func read()  {
+    func read() {
         //FIRDataEventTypeを.Valueにすることにより、なにかしらの変化があった時に、実行
         //今回は、childでユーザーIDを指定することで、ユーザーが投稿したデータの一つ上のchildまで指定することになる
         ref.child((Auth.auth().currentUser?.uid)!).observe(.value, with: {(snapShots) in
