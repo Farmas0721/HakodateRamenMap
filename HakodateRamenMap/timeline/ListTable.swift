@@ -74,8 +74,8 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         //itemの中身を辞書型に変換
         let content = item.value as! Dictionary<String, AnyObject>
         //contentという添字で保存していた投稿内容を表示
-        cell.content.text = String(describing: content["content"]!)
-        name = String(describing: content["content"]!)
+        cell.content.text = String(describing: content["storeName"]!)
+        name = String(describing: content["storeName"]!)
         cell.ramenphoto.image = UIImage(named: name + ".png")
         //dateという添字で保存していた投稿時間をtimeという定数に代入
         let time = content["date"] as! TimeInterval
@@ -93,7 +93,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     func read() {
         //FIRDataEventTypeを.Valueにすることにより、なにかしらの変化があった時に、実行
         //今回は、childでユーザーIDを指定することで、ユーザーが投稿したデータの一つ上のchildまで指定することになる
-        ref.child((Auth.auth().currentUser?.uid)!).observe(.value, with: {(snapShots) in
+        ref.child("timeline").child((Auth.auth().currentUser?.uid)!).observe(.value, with: {(snapShots) in
             if snapShots.children.allObjects is [DataSnapshot] {
                // print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
                 
@@ -123,7 +123,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
                 contentArray.append(item as! DataSnapshot)
             }
             // ローカルのデータベースを更新
-            ref.child((Auth.auth().currentUser?.uid)!).keepSynced(true)
+            ref.child("timeline").child((Auth.auth().currentUser?.uid)!).keepSynced(true)
             //テーブルビューをリロード
             table.reloadData()
         }
@@ -169,7 +169,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     }
     
     func delete(deleteIndexPath indexPath: IndexPath) {
-        ref.child((Auth.auth().currentUser?.uid)!).child(contentArray[indexPath.row].key).removeValue()
+        ref.child("timeline").child((Auth.auth().currentUser?.uid)!).child(contentArray[indexPath.row].key).removeValue()
         self.contentArray.remove(at: indexPath.row)
     }
         /*

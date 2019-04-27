@@ -42,7 +42,7 @@ import FirebaseStorage
         //受け取ったselectedSnapを辞書型に変換
         let item = snap.value as! Dictionary<String, AnyObject>
         //textFieldに受け取ったデータのcontentを表示
-        storeName.text = item["content"] as? String
+        storeName.text = item["storeName"] as? String
         //isCreateをfalseにし、更新するためであることを明示
         isCreate = false
     }
@@ -93,7 +93,7 @@ import FirebaseStorage
         //setValueでデータを送信する。第一引数に送信したいデータを辞書型で入れる
         //今回は記入内容と一緒にユーザーIDと時間を入れる
         //FIRServerValue.timestamp()で現在時間を取る
-        self.ref.child((Auth.auth().currentUser?.uid)!).childByAutoId().setValue(["user": (Auth.auth().currentUser?.uid)!, "storeName": name, "taste":taste, "ramenValue":ramenvalue, "date": ServerValue.timestamp()])
+        self.ref.child("timeline").child((Auth.auth().currentUser?.uid)!).childByAutoId().setValue(["user": (Auth.auth().currentUser?.uid)!, "storeName": name, "taste":taste, "ramenValue":ramenvalue, "date": ServerValue.timestamp()])
     }
     
     func update() {
@@ -101,7 +101,7 @@ import FirebaseStorage
         //ユーザーIDからのchildを受け取ったデータのIDに指定
         //updateChildValueを使って更新
         ref.keepSynced(true)
-        ref.child((Auth.auth().currentUser?.uid)!).child("\(self.selectedSnap.key)").updateChildValues(["user": (Auth.auth().currentUser?.uid)!, "storeName": storeName.text!, "taste":taste.text!, "ramenValue":ramenValue.text!, "date": ServerValue.timestamp()])
+        ref.child("timeline").child((Auth.auth().currentUser?.uid)!).child("\(self.selectedSnap.key)").updateChildValues(["user": (Auth.auth().currentUser?.uid)!, "storeName": storeName.text!, "taste":taste.text!, "ramenValue":ramenValue.text!, "date": ServerValue.timestamp()])
     }
     
     func upload(){
