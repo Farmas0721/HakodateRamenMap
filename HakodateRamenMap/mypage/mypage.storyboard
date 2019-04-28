@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6W9-Uj-yr0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6W9-Uj-yr0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -88,10 +88,11 @@
                             <outletCollection property="gestureRecognizers" destination="2K1-Zr-uQA" appends="YES" id="rtz-eP-Ror"/>
                         </connections>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="mypageicon" id="Xl7-RM-tWv"/>
                     <navigationItem key="navigationItem" id="hvJ-ry-40z">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="Q8T-Xu-5g9">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lJf-Xh-wDb">
-                                <rect key="frame" x="0.0" y="64" width="46" height="30"/>
+                                <rect key="frame" x="16" y="7" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -100,6 +101,7 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Followernum" destination="BAj-lT-unt" id="q86-Om-fcG"/>
                         <outlet property="Follownum" destination="mOf-Yo-OOa" id="Vpl-Xg-Aup"/>
@@ -202,4 +204,7 @@
             <point key="canvasLocation" x="-127.2" y="35.532233883058474"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mypageicon" width="20" height="20"/>
+    </resources>
 </document>
