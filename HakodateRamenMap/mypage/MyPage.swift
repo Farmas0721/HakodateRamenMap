@@ -50,6 +50,7 @@ class MyPage: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let rgba = UIColor(red: 210/255, green: 255/255, blue: 255/255, alpha: 1.0) // ボタン背景色設定
+        self.navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
         sidebarView.delegate = self
         view.backgroundColor = UIColor.orange
         profileImage.backgroundColor = rgba

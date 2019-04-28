@@ -53,7 +53,7 @@ class Map: UIViewController ,MKMapViewDelegate,UIPopoverControllerDelegate{
         super.viewDidLoad()
         addAno(41.8268,140.7518,titlelist[0] ,regionlist[0])
         addAno(41.7913,140.7794,titlelist[1],regionlist[1])
-        self.navigationController?.navigationBar.barTintColor = .orange
+        self.navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
         self.navigationController?.navigationBar.tintColor = .white
 
         let ano = MKPointAnnotation()
