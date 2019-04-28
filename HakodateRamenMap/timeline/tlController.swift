@@ -8,21 +8,30 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 @IBDesignable class tlController: UIViewController{
     
     let ref = Database.database().reference()
     var isCreate = true //データの作成か更新かを判定、trueなら作成、falseなら更新
+    let storageRef = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com")
    
+    @IBOutlet weak var ramenImage: UIImageView!
     @IBOutlet weak var doneLabel: UIButton!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var storeName: UITextField!
+    @IBOutlet weak var taste: UITextField!
+    @IBOutlet weak var ramenValue: UITextField!
+    
     var selectedSnap: DataSnapshot! //ListViewControllerからのデータの受け取りのための変数
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.delegate = self as? UITextFieldDelegate //デリゲートをセット
-        // Do any additional setup after loading the view.
+        self.tabBarController?.tabBar.isHidden = true
+        storeName.delegate = self as? UITextFieldDelegate
+        taste.delegate = self as? UITextFieldDelegate
+        ramenValue.delegate = self as? UITextFieldDelegate
+        view.backgroundColor =  UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +42,7 @@ import Firebase
         //受け取ったselectedSnapを辞書型に変換
         let item = snap.value as! Dictionary<String, AnyObject>
         //textFieldに受け取ったデータのcontentを表示
-        textField.text = item["content"] as? String
+        storeName.text = item["storeName"] as? String
         //isCreateをfalseにし、更新するためであることを明示
         isCreate = false
     }
@@ -51,15 +60,19 @@ import Firebase
         }
         
     }
-
+    @IBAction func selectedPhoto(_ sender: Any) {
+        selectPickerImage()
+    }
+    
     @IBAction func post(_ sender: UIButton) {
-        if isCreate {
+        if self.isCreate {
             //投稿のためのメソッド
-            create()
+            self.create()
+            self.upload()
         }else {
             //更新するためのメソッド
-            update()
-        }
+            self.update()
+         }
         _ = self.navigationController?.popViewController(animated: true)
     }
     
@@ -71,14 +84,16 @@ import Firebase
     //データの送信のメソッド
     func create() {
         //何もしない
-        guard let text = textField.text else { return }
+        guard let name = storeName.text else { return }
+        guard let taste = taste.text else { return }
+        guard let ramenvalue = ramenValue.text else { return }
         
         //ロートからログインしているユーザーのIDをchildにしてデータを作成
         //childByAutoId()でユーザーIDの下に、IDを自動生成してその中にデータを入れる
         //setValueでデータを送信する。第一引数に送信したいデータを辞書型で入れる
         //今回は記入内容と一緒にユーザーIDと時間を入れる
         //FIRServerValue.timestamp()で現在時間を取る
-        self.ref.child((Auth.auth().currentUser?.uid)!).childByAutoId().setValue(["user": (Auth.auth().currentUser?.uid)!, "content": text, "date": ServerValue.timestamp()])
+        self.ref.child("timeline").child((Auth.auth().currentUser?.uid)!).childByAutoId().setValue(["user": (Auth.auth().currentUser?.uid)!, "storeName": name, "taste":taste, "ramenValue":ramenvalue, "date": ServerValue.timestamp()])
     }
     
     func update() {
@@ -86,17 +101,54 @@ import Firebase
         //ユーザーIDからのchildを受け取ったデータのIDに指定
         //updateChildValueを使って更新
         ref.keepSynced(true)
-        ref.child((Auth.auth().currentUser?.uid)!).child("\(self.selectedSnap.key)").updateChildValues(["user": (Auth.auth().currentUser?.uid)!,"content": self.textField.text!, "date": ServerValue.timestamp()])
+        ref.child("timeline").child((Auth.auth().currentUser?.uid)!).child("\(self.selectedSnap.key)").updateChildValues(["user": (Auth.auth().currentUser?.uid)!, "storeName": storeName.text!, "taste":taste.text!, "ramenValue":ramenValue.text!, "date": ServerValue.timestamp()])
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func upload(){
+        let photoRef = storageRef.child("RamenImage")
+        let name = storeName.text!
+        let data = ramenImage.image!.pngData()
+        let reference = photoRef.child(name + ".jpg")
+        let meta = StorageMetadata()
+        meta.contentType = "image/jpeg"
+        reference.putData(data!, metadata: meta, completion: { metaData, error in
+            reference.downloadURL { url, error in
+                if let error = error {
+                    // Handle any errors
+                } else {
+                    getUrl = url!
+                    print(getUrl)
+                }
+            }
+        })
+        dismiss(animated: true, completion: nil)
     }
-    */
-
+    
 }
+
+
+extension tlController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func selectPickerImage(){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            // 写真を選ぶビュー
+            let pickerView = UIImagePickerController()
+            // 写真の選択元をカメラロールにする
+            // 「.camera」にすればカメラを起動できる
+            pickerView.sourceType = .photoLibrary
+            // デリゲート
+            pickerView.delegate = self
+            // ビューに表示
+            self.present(pickerView, animated: true)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // 選択した写真を取得する
+        let image = info[.originalImage] as! UIImage
+        ramenImage.image = image
+        // 写真を選ぶビューを引っ込める
+        self.dismiss(animated: true)
+    }
+    
+}
+

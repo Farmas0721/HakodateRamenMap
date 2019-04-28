@@ -9,6 +9,10 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
+import FirebaseUI
+
+var getUrl:URL?
 
 class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
 
@@ -20,26 +24,27 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     var selectedSnap: DataSnapshot!
     
     let ref = Database.database().reference()
+    let storage = Storage.storage()
+    
+    var photo:UIImageView?
+    var name:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         table.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        
         table.delegate = self //デリゲートをセット
         table.dataSource = self //デリゲートをセット
         
-        self.navigationController?.navigationBar.barTintColor = .orange
+        self.navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
         self.navigationController?.navigationBar.tintColor = .white
-
         // Do any additional setup after loading the view.
+        table.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-         self.read()
-        //Cellの高さを調節
-    //    table.estimatedRowHeight = 56
-    //    table.rowHeight = UITableView.automaticDimension
+        self.tabBarController?.tabBar.isHidden = false
+        self.read()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -69,7 +74,9 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         //itemの中身を辞書型に変換
         let content = item.value as! Dictionary<String, AnyObject>
         //contentという添字で保存していた投稿内容を表示
-        cell.content.text = String(describing: content["content"]!)
+        cell.content.text = String(describing: content["storeName"]!)
+        name = String(describing: content["storeName"]!)
+        cell.ramenphoto.image = UIImage(named: name + ".png")
         //dateという添字で保存していた投稿時間をtimeという定数に代入
         let time = content["date"] as! TimeInterval
         //getDate関数を使って、時間をtimestampから年月日に変換して表示
@@ -83,25 +90,32 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     }
     
     
-    func read()  {
+    func read() {
         //FIRDataEventTypeを.Valueにすることにより、なにかしらの変化があった時に、実行
         //今回は、childでユーザーIDを指定することで、ユーザーが投稿したデータの一つ上のchildまで指定することになる
-        ref.child((Auth.auth().currentUser?.uid)!).observe(.value, with: {(snapShots) in
+        ref.child("timeline").child((Auth.auth().currentUser?.uid)!).observe(.value, with: {(snapShots) in
             if snapShots.children.allObjects is [DataSnapshot] {
-                print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
+               // print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
                 
-                print("snapShot...\(snapShots)") //読み込んだデータをプリント
+              //  print("snapShot...\(snapShots)") //読み込んだデータをプリント
                 
                 self.snap = snapShots
-                
             }
             self.reload(snap: self.snap)
         })
     }
     
+  //画像ダウンロード
+      func imageRead(name: String,imageView: UIImageView?){
+        let gsReference = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com").child("RamenImage")
+        let reference = gsReference.child("ramen.jpg")
+        let placeholderImage = UIImage(named: "ramens.jpg")
+        print("画像ダウンロード")
+        photo?.sd_setImage(with: reference, placeholderImage: nil)//placeholderImage
+    }
+    
     func reload(snap: DataSnapshot) {
         if snap.exists() {
-            print(snap)
             //FIRDataSnapshotが存在するか確認
             contentArray.removeAll()
             //1つになっているFIRDataSnapshotを分割し、配列に入れる
@@ -109,7 +123,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
                 contentArray.append(item as! DataSnapshot)
             }
             // ローカルのデータベースを更新
-            ref.child((Auth.auth().currentUser?.uid)!).keepSynced(true)
+            ref.child("timeline").child((Auth.auth().currentUser?.uid)!).keepSynced(true)
             //テーブルビューをリロード
             table.reloadData()
         }
@@ -155,9 +169,21 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     }
     
     func delete(deleteIndexPath indexPath: IndexPath) {
-        ref.child((Auth.auth().currentUser?.uid)!).child(contentArray[indexPath.row].key).removeValue()
-        contentArray.remove(at: indexPath.row)
+        ref.child("timeline").child((Auth.auth().currentUser?.uid)!).child(contentArray[indexPath.row].key).removeValue()
+        self.contentArray.remove(at: indexPath.row)
     }
+        /*
+        let storage = Storage.storage()
+        let storageRef = storage.reference(forURL: "gs://hakodateramenapp.appspot.com/RamenImage/")
+        let desertRef = storageRef.child(name + ".jpg")
+        desertRef.delete { error in
+            if error != nil {
+                print("////////Uh-oh, an error occurred!/////")
+            } else {
+                print("////////File deleted successfully/////")
+            }
+        }*/
+    
 
     
     /*
