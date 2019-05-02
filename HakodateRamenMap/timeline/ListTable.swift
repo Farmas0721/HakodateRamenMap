@@ -26,7 +26,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     let ref = Database.database().reference()
     let storage = Storage.storage()
     
-    var photo:UIImageView?
+    var photo = UIImageView()
     var name:String = ""
     
     override func viewDidLoad() {
@@ -39,6 +39,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         self.navigationController?.navigationBar.tintColor = .white
         // Do any additional setup after loading the view.
         table.reloadData()
+        imageRead(name: "", imageView: photo)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,6 +78,12 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         cell.content.text = String(describing: content["storeName"]!)
         name = String(describing: content["storeName"]!)
         cell.ramenphoto.image = UIImage(named: name + ".png")
+        
+        //直入れ
+        let gsReference = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com").child("RamenImage")
+        let reference = gsReference.child("ramen.jpg")
+        cell.ramenphoto.sd_setImage(with: reference)
+        
         //dateという添字で保存していた投稿時間をtimeという定数に代入
         let time = content["date"] as! TimeInterval
         //getDate関数を使って、時間をtimestampから年月日に変換して表示
@@ -106,12 +113,23 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     }
     
   //画像ダウンロード
-      func imageRead(name: String,imageView: UIImageView?){
+    func imageRead(name: String,imageView: UIImageView?){
         let gsReference = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com").child("RamenImage")
         let reference = gsReference.child("ramen.jpg")
-        let placeholderImage = UIImage(named: "ramens.jpg")
+        let placeholderImage = UIImage()
         print("画像ダウンロード")
-        photo?.sd_setImage(with: reference, placeholderImage: nil)//placeholderImage
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        reference.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error = error {
+                // Uh-oh, an error occurred!
+                print(error)
+            } else {
+                // Data for "images/island.jpg" is returned
+                let image = UIImage(data: data!)
+            }
+        }
+        //画像をセット
+        self.photo.sd_setImage(with: reference, placeholderImage: nil)
     }
     
     func reload(snap: DataSnapshot) {
@@ -172,17 +190,6 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         ref.child("timeline").child((Auth.auth().currentUser?.uid)!).child(contentArray[indexPath.row].key).removeValue()
         self.contentArray.remove(at: indexPath.row)
     }
-        /*
-        let storage = Storage.storage()
-        let storageRef = storage.reference(forURL: "gs://hakodateramenapp.appspot.com/RamenImage/")
-        let desertRef = storageRef.child(name + ".jpg")
-        desertRef.delete { error in
-            if error != nil {
-                print("////////Uh-oh, an error occurred!/////")
-            } else {
-                print("////////File deleted successfully/////")
-            }
-        }*/
     
 
     
