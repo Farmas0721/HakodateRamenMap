@@ -28,4 +28,8 @@ class ListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setPhotoImage(image: UIImage){
+        self.ramenphoto.image = image
+    }
 }

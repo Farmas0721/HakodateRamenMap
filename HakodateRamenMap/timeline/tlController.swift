@@ -31,6 +31,7 @@ import FirebaseStorage
         storeName.delegate = self as? UITextFieldDelegate
         taste.delegate = self as? UITextFieldDelegate
         ramenValue.delegate = self as? UITextFieldDelegate
+        
         view.backgroundColor =  UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
     }
     
