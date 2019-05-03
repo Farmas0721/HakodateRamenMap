@@ -60,22 +60,20 @@ import FirebaseStorage
         }
         
     }
-    @IBAction func selectedPhoto(_ sender: Any) {
-        selectPickerImage()
-    }
+
     
     @IBAction func post(_ sender: UIButton) {
         if self.isCreate {
             //投稿のためのメソッド
             self.create()
-            self.upload()
+            //self.upload()
         }else {
             //更新するためのメソッド
             self.update()
          }
-        _ = self.navigationController?.popViewController(animated: true)
+        self.performSegue(withIdentifier: "toTl", sender: nil)
     }
-    
+    //returnでキーボード閉じる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -113,15 +111,20 @@ import FirebaseStorage
         meta.contentType = "image/jpeg"
         reference.putData(data!, metadata: meta, completion: { metaData, error in
             reference.downloadURL { url, error in
-                if let error = error {
+                if error != nil {
                     // Handle any errors
                 } else {
                     getUrl = url!
-                    print(getUrl)
+                    print(getUrl!)
                 }
             }
         })
-        dismiss(animated: true, completion: nil)
+      //  dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func tapImage(_ sender: UITapGestureRecognizer) {
+        print("タップ")
+        selectPickerImage()
     }
     
 }
