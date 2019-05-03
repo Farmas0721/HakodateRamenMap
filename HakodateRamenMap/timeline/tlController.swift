@@ -124,7 +124,8 @@ import FirebaseStorage
     
     @IBAction func tapImage(_ sender: UITapGestureRecognizer) {
         print("タップ")
-        selectPickerImage()
+        dispAlert()
+        //selectPickerImage()
     }
     
 }
@@ -153,5 +154,32 @@ extension tlController:UIImagePickerControllerDelegate, UINavigationControllerDe
         self.dismiss(animated: true)
     }
     
+    
 }
 
+extension tlController{
+    func dispAlert() {
+        let alert: UIAlertController = UIAlertController(title: "表示方法", message: "どちらか選んでね", preferredStyle:  UIAlertController.Style.actionSheet)
+        
+        let camera: UIAlertAction = UIAlertAction(title: "写真を撮る", style: UIAlertAction.Style.default, handler:{
+            (action: UIAlertAction!) -> Void in
+            print("camera")
+        })
+        
+        let library: UIAlertAction = UIAlertAction(title: "カメラロール", style: UIAlertAction.Style.default, handler:{
+            (action: UIAlertAction!) -> Void in
+            print("defaultAction_2")
+        })
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "cancel", style: UIAlertAction.Style.cancel, handler:{
+            (action: UIAlertAction!) -> Void in
+            print("cancelAction")
+        })
+        
+        alert.addAction(cancelAction)
+        alert.addAction(camera)
+        alert.addAction(library)
+        
+        present(alert, animated: true, completion: nil)
+    }
+}
