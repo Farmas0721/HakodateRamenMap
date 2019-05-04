@@ -12,7 +12,6 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseUI
 
-var getUrl:URL?
 
 class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
 
@@ -27,7 +26,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     let storage = Storage.storage()
     
     var photo = UIImageView()
-    var name:String = ""
+    var urlIamge:URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +38,6 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         self.navigationController?.navigationBar.tintColor = .white
         // Do any additional setup after loading the view.
         table.reloadData()
-        imageRead(name: "", imageView: photo)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,19 +74,18 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         let content = item.value as! Dictionary<String, AnyObject>
         //contentという添字で保存していた投稿内容を表示
         cell.content.text = String(describing: content["storeName"]!)
-        name = String(describing: content["storeName"]!)
-        cell.ramenphoto.image = UIImage(named: name + ".png")
-        
+        let urlstring = String(describing:content["imageID"]!)
+        let urlimage = URL(string: urlstring)
+        print("urliamge=\(urlimage!)")
         //直入れ
-        let gsReference = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com").child("RamenImage")
-        let reference = gsReference.child("ramen.jpg")
-        cell.ramenphoto.sd_setImage(with: reference)
+        //let gsReference = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com").child("RamenImage")
+        //let reference = gsReference.child("image.jpg")
+        cell.ramenphoto.sd_setImage(with: urlimage)
         
         //dateという添字で保存していた投稿時間をtimeという定数に代入
         let time = content["date"] as! TimeInterval
         //getDate関数を使って、時間をtimestampから年月日に変換して表示
         cell.date.text = self.getDate(number: time/1000)
-        
         return cell
     }
     
@@ -112,25 +109,28 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         })
     }
     
-  //画像ダウンロード
-    func imageRead(name: String,imageView: UIImageView?){
-        let gsReference = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com").child("RamenImage")
-        let reference = gsReference.child("ramen.jpg")
-        let placeholderImage = UIImage()
-        print("画像ダウンロード")
-        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-        reference.getData(maxSize: 1 * 1024 * 1024) { data, error in
-            if let error = error {
-                // Uh-oh, an error occurred!
-                print(error)
+    
+  /*  func imageRead(){
+        let userID = Auth.auth().currentUser?.uid
+        if let user = userID {
+            
+        let imageURL = self.ref.child("imageID/\(user)/profile")
+        //print(imageURL)
+        imageURL.observe(DataEventType.value, with: { (snapshot) in
+            let url = snapshot.value as? String
+            if url == nil {
+                print("ファイルなし")
             } else {
-                // Data for "images/island.jpg" is returned
-                let image = UIImage(data: data!)
+                //ダウンロードURLを取得し、ImageViewに反映
+               let strURL = URL(string: url!)
+                self.urlIamge = strURL
+                //print(strURL!)
             }
+         })
         }
-        //画像をセット
-        self.photo.sd_setImage(with: reference, placeholderImage: nil)
     }
+ */
+    
     
     func reload(snap: DataSnapshot) {
         if snap.exists() {

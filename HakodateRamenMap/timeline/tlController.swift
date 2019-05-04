@@ -12,7 +12,7 @@ import FirebaseStorage
 
 @IBDesignable class tlController: UIViewController{
     
-    let ref = Database.database().reference()
+    var ref = Database.database().reference()
     var isCreate = true //データの作成か更新かを判定、trueなら作成、falseなら更新
     let storageRef = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com")
    
@@ -66,12 +66,13 @@ import FirebaseStorage
         if self.isCreate {
             //投稿のためのメソッド
             self.create()
-            //self.upload()
+            //self.upload(image: ramenImage.image!)
         }else {
             //更新するためのメソッド
             self.update()
          }
-        self.performSegue(withIdentifier: "toTl", sender: nil)
+        _ = self.navigationController?.popViewController(animated: true)
+        //self.performSegue(withIdentifier: "toTl", sender: nil)
     }
     //returnでキーボード閉じる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -86,12 +87,28 @@ import FirebaseStorage
         guard let taste = taste.text else { return }
         guard let ramenvalue = ramenValue.text else { return }
         
-        //ロートからログインしているユーザーのIDをchildにしてデータを作成
-        //childByAutoId()でユーザーIDの下に、IDを自動生成してその中にデータを入れる
-        //setValueでデータを送信する。第一引数に送信したいデータを辞書型で入れる
-        //今回は記入内容と一緒にユーザーIDと時間を入れる
-        //FIRServerValue.timestamp()で現在時間を取る
-        self.ref.child("timeline").child((Auth.auth().currentUser?.uid)!).childByAutoId().setValue(["user": (Auth.auth().currentUser?.uid)!, "storeName": name, "taste":taste, "ramenValue":ramenvalue, "date": ServerValue.timestamp()])
+        let image = ramenImage.image!
+        
+        let photoRef = storageRef.child("RamenImage")
+        let imageRef = photoRef.child("ramen.jpg")
+        let meta = StorageMetadata()
+        meta.contentType = "image/jpeg"
+        let user = (Auth.auth().currentUser?.uid)!
+        let imageData = image.jpegData(compressionQuality: 1.0)!
+        imageRef.putData(imageData, metadata: meta) { metadata, error in
+            if error != nil {
+                print("Uh-oh, an error occurred!")
+            } else {
+                //URL型をNSstring型に変更
+                imageRef.downloadURL { (url, err) in
+                    let data = url?.absoluteString
+                    self.ref.keepSynced(true)
+                    self.ref.child("timeline").child(user).childByAutoId().setValue(["user": (Auth.auth().currentUser?.uid)!, "storeName": name, "taste":taste, "ramenValue":ramenvalue, "date": ServerValue.timestamp(),"imageID":data!])
+                }
+                print("成功！")
+            }
+        }
+        
     }
     
     func update() {
@@ -102,28 +119,30 @@ import FirebaseStorage
         ref.child("timeline").child((Auth.auth().currentUser?.uid)!).child("\(self.selectedSnap.key)").updateChildValues(["user": (Auth.auth().currentUser?.uid)!, "storeName": storeName.text!, "taste":taste.text!, "ramenValue":ramenValue.text!, "date": ServerValue.timestamp()])
     }
     
-    func upload(){
-        let photoRef = storageRef.child("RamenImage")
-        let name = storeName.text!
-        let data = ramenImage.image!.pngData()
-        let reference = photoRef.child(name + ".jpg")
-        let meta = StorageMetadata()
-        meta.contentType = "image/jpeg"
-        reference.putData(data!, metadata: meta, completion: { metaData, error in
-            reference.downloadURL { url, error in
-                if error != nil {
-                    // Handle any errors
-                } else {
-                    getUrl = url!
-                    print(getUrl!)
-                }
-            }
-        })
-      //  dismiss(animated: true, completion: nil)
-    }
+//    func upload(image: UIImage){
+//        let photoRef = storageRef.child("RamenImage")
+//        let imageRef = photoRef.child("image.jpg")
+//        let meta = StorageMetadata()
+//        meta.contentType = "image/jpeg"
+//        let user = (Auth.auth().currentUser?.uid)!
+//        let imageData = image.jpegData(compressionQuality: 1.0)!
+//        imageRef.putData(imageData, metadata: meta) { metadata, error in
+//            if error != nil {
+//                print("Uh-oh, an error occurred!")
+//            } else {
+//                //URL型をNSstring型に変更
+//                imageRef.downloadURL { (url, err) in
+//                    let data = url?.absoluteString
+//                    self.ref.keepSynced(true)
+//                    //self.ref.child("imageID").child(user).updateChildValues(["imageID":data!])
+//                }
+//                print("成功！")
+//            }
+//        }
+//    }
     
     @IBAction func tapImage(_ sender: UITapGestureRecognizer) {
-        print("タップ")
+        //print("タップ")
         dispAlert()
         //selectPickerImage()
     }
@@ -132,6 +151,7 @@ import FirebaseStorage
 
 
 extension tlController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    //library
     func selectPickerImage(){
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             // 写真を選ぶビュー
@@ -149,9 +169,33 @@ extension tlController:UIImagePickerControllerDelegate, UINavigationControllerDe
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // 選択した写真を取得する
         let image = info[.originalImage] as! UIImage
+        ramenImage.contentMode = .scaleAspectFit
         ramenImage.image = image
         // 写真を選ぶビューを引っ込める
         self.dismiss(animated: true)
+    }
+    
+    
+    //camera
+    func startCamera() {
+        let sourceType:UIImagePickerController.SourceType =
+            UIImagePickerController.SourceType.camera
+        // カメラが利用可能かチェック
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerController.SourceType.camera){
+            // インスタンスの作成
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+        }
+        else{
+            print("errorrrrrrr")
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
     
     
@@ -163,17 +207,16 @@ extension tlController{
         
         let camera: UIAlertAction = UIAlertAction(title: "写真を撮る", style: UIAlertAction.Style.default, handler:{
             (action: UIAlertAction!) -> Void in
-            print("camera")
+            self.startCamera()
         })
         
         let library: UIAlertAction = UIAlertAction(title: "カメラロール", style: UIAlertAction.Style.default, handler:{
             (action: UIAlertAction!) -> Void in
-            print("defaultAction_2")
+            self.selectPickerImage()
         })
         
         let cancelAction: UIAlertAction = UIAlertAction(title: "cancel", style: UIAlertAction.Style.cancel, handler:{
             (action: UIAlertAction!) -> Void in
-            print("cancelAction")
         })
         
         alert.addAction(cancelAction)
