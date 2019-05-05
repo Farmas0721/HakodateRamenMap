@@ -11,9 +11,9 @@ import FirebaseStorage
 
 class ListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var name: UILabel!
+
+    @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var content: UILabel!
-    @IBOutlet weak var date: UILabel!
     @IBOutlet weak var ramenphoto: UIImageView!
     
     
@@ -25,7 +25,8 @@ class ListTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        content.font = UIFont.systemFont(ofSize: 24)
+        //content.textColor = UIColor.white
         // Configure the view for the selected state
     }
     

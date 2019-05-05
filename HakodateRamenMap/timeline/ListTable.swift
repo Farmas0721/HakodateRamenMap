@@ -36,7 +36,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         
         self.navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
         self.navigationController?.navigationBar.tintColor = .white
-        // Do any additional setup after loading the view.
+
         table.reloadData()
     }
     
@@ -44,6 +44,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
         self.read()
+        table.reloadData()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -76,21 +77,17 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         cell.content.text = String(describing: content["storeName"]!)
         let urlstring = String(describing:content["imageID"]!)
         let urlimage = URL(string: urlstring)
-        print("urliamge=\(urlimage!)")
-        //直入れ
-        //let gsReference = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com").child("RamenImage")
-        //let reference = gsReference.child("image.jpg")
+        //print("urliamge=\(urlimage!)")
         cell.ramenphoto.sd_setImage(with: urlimage)
-        
         //dateという添字で保存していた投稿時間をtimeという定数に代入
-        let time = content["date"] as! TimeInterval
+        //let time = content["date"] as! TimeInterval
         //getDate関数を使って、時間をtimestampから年月日に変換して表示
-        cell.date.text = self.getDate(number: time/1000)
+        //cell.date.text = self.getDate(number: time/1000)
         return cell
     }
     
     func tableView(_ table: UITableView,heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return  200
+        return  300
     }
     
     
@@ -159,9 +156,9 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         //ルートからのchildをユーザーのIDに指定
         //ユーザーIDからのchildを選択されたCellのデータのIDに指定
         self.selectedSnap = contentArray[indexPath.row]
-        self.transition()
+        self.performSegue(withIdentifier: "toDetail", sender: nil)
     }
-    
+    //celltapした時
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.didSelectRow(selectedIndexPath: indexPath)
     }
@@ -173,9 +170,15 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
                 view.selectedSnap = snap
             }
         }
+        if segue.identifier == "toDetail" {
+            let view = segue.destination as! Detail
+            if let snap = self.selectedSnap {
+                view.detailSnap = snap
+            }
+        }
     }
     
-    ///dalete///
+    ///delete///
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         //デリートボタンを追加
         if editingStyle == .delete {
@@ -203,4 +206,10 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     }
     */
 
+}
+
+extension UIColor {
+    class func rgba(red: Int, green: Int, blue: Int, alpha: CGFloat) -> UIColor{
+        return UIColor(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: alpha)
+ }
 }

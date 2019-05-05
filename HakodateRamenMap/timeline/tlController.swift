@@ -33,19 +33,21 @@ import FirebaseStorage
         ramenValue.delegate = self as? UITextFieldDelegate
         view.backgroundColor =  UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
     }
-    
+/*
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //selectedSnapがnilならその後の処理をしない
         guard let snap = self.selectedSnap else { return }
         
-        //受け取ったselectedSnapを辞書型に変換
+       //受け取ったselectedSnapを辞書型に変換
         let item = snap.value as! Dictionary<String, AnyObject>
         //textFieldに受け取ったデータのcontentを表示
         storeName.text = item["storeName"] as? String
-        //isCreateをfalseにし、更新するためであることを明示
+        isCreateをfalseにし、更新するためであることを明示
         isCreate = false
+
     }
+*/
     
     func logout() {
         do {
@@ -67,10 +69,10 @@ import FirebaseStorage
             //投稿のためのメソッド
             self.create()
             //self.upload(image: ramenImage.image!)
-        }else {
+        }/*else {
             //更新するためのメソッド
             self.update()
-         }
+         }*/
         _ = self.navigationController?.popViewController(animated: true)
         //self.performSegue(withIdentifier: "toTl", sender: nil)
     }
