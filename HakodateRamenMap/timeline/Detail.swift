@@ -23,7 +23,6 @@ class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     
     let ref = Database.database().reference()
     let storage = Storage.storage()
-    var store = ""
     
     var detailSnap: DataSnapshot! //ListTableからのデータの受け取りのための変数
 
@@ -33,11 +32,13 @@ class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         // Do any additional setup after loading the view.
         detailTable.delegate = self as UITableViewDelegate
         detailTable.dataSource = self as UITableViewDataSource
+        
         detailTable.register(UITableViewCell.self, forCellReuseIdentifier: "nameCell")
         detailTable.register(UITableViewCell.self, forCellReuseIdentifier: "imageCell")
         detailTable.register(UITableViewCell.self, forCellReuseIdentifier: "storeNameCell")
         detailTable.register(UITableViewCell.self, forCellReuseIdentifier: "tasteCell")
         detailTable.register(UITableViewCell.self, forCellReuseIdentifier: "valueCell")
+        
         detailTable.reloadData()
     }
 
@@ -67,7 +68,7 @@ class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
             imagecell.imageView!.sd_setImage(with: urlimage)
             return imagecell
           case 2:
-            namecell.textLabel?.text = item["storeName"] as? String
+            storecell.textLabel?.text = item["storeName"] as? String
             return storecell
           case 3:
             tastecell.textLabel?.text = item["taste"] as? String
