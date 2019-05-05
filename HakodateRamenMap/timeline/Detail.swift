@@ -39,17 +39,19 @@ class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         detailTable.register(UITableViewCell.self, forCellReuseIdentifier: "tasteCell")
         detailTable.register(UITableViewCell.self, forCellReuseIdentifier: "valueCell")
         
+        detailTable.sectionHeaderHeight = 340
+        detailTable.rowHeight = 65
+        
         detailTable.reloadData()
     }
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let namecell = tableView.dequeueReusableCell(withIdentifier: "nameCell", for: indexPath)
-        let imagecell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath)
         let storecell = tableView.dequeueReusableCell(withIdentifier: "storeNameCell", for: indexPath)
         let tastecell = tableView.dequeueReusableCell(withIdentifier: "tasteCell", for: indexPath)
         let valuecell = tableView.dequeueReusableCell(withIdentifier: "valueCell", for: indexPath)
@@ -59,21 +61,16 @@ class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         let item = detailSnap.value as! Dictionary<String, AnyObject>
           switch indexPath.row{
           case 0:
-            namecell.textLabel?.text = item["storeName"] as? String
-            //cell.imageView?.image =
+            namecell.textLabel?.text = "Fuya"
+            namecell.imageView?.image = UIImage(named: "acount")
             return namecell
           case 1:
-            let urlstring = String(describing: item["imageID"]!)
-            let urlimage = URL(string: urlstring)
-            imagecell.imageView!.sd_setImage(with: urlimage)
-            return imagecell
-          case 2:
             storecell.textLabel?.text = item["storeName"] as? String
             return storecell
-          case 3:
+          case 2:
             tastecell.textLabel?.text = item["taste"] as? String
             return tastecell
-          case 4:
+          case 3:
             valuecell.textLabel?.text = item["ramenValue"] as? String
             return valuecell
           default:
@@ -82,6 +79,18 @@ class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    //header Image
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let rimage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        rimage.contentMode = UIView.ContentMode.center
+        rimage.layer.position = CGPoint(x: self.view.frame.width/2, y: 100.0)
+        
+        let item = detailSnap.value as! Dictionary<String, AnyObject>
+        let urlstring = String(describing: item["imageID"]!)
+        let urlimage = URL(string: urlstring)
+        rimage.sd_setImage(with: urlimage)
+        return rimage
+    }
 
     /*
     // MARK: - Navigation
