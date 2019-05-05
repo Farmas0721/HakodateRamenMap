@@ -25,6 +25,8 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     let ref = Database.database().reference()
     let storage = Storage.storage()
     
+    var sidebarView = sidebarViewController()
+    
     var photo = UIImageView()
     var urlIamge:URL?
     
@@ -33,9 +35,12 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         table.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         table.delegate = self //デリゲートをセット
         table.dataSource = self //デリゲートをセット
+        sidebarView.delegate = self
         
         self.navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
         self.navigationController?.navigationBar.tintColor = .white
+        self.navigationItem.title = "タイムライン"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
 
         table.reloadData()
     }
@@ -68,9 +73,10 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //xibとカスタムクラスで作成したCellのインスタンスを作成
         let cell = table.dequeueReusableCell(withIdentifier: "cell") as! ListTableViewCell
+        let calc = contentArray.count - indexPath.row - 1
         
         //配列の該当のデータをitemという定数に代入
-        let item = contentArray[indexPath.row]
+        let item = contentArray[calc]
         //itemの中身を辞書型に変換
         let content = item.value as! Dictionary<String, AnyObject>
         //contentという添字で保存していた投稿内容を表示
@@ -155,7 +161,8 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     func didSelectRow(selectedIndexPath indexPath: IndexPath) {
         //ルートからのchildをユーザーのIDに指定
         //ユーザーIDからのchildを選択されたCellのデータのIDに指定
-        self.selectedSnap = contentArray[indexPath.row]
+        let calc = contentArray.count - indexPath.row - 1
+        self.selectedSnap = contentArray[calc]
         self.performSegue(withIdentifier: "toDetail", sender: nil)
     }
     //celltapした時
@@ -190,26 +197,52 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     }
     
     func delete(deleteIndexPath indexPath: IndexPath) {
-        ref.child("timeline").child((Auth.auth().currentUser?.uid)!).child(contentArray[indexPath.row].key).removeValue()
-        self.contentArray.remove(at: indexPath.row)
+        let calc = contentArray.count - indexPath.row - 1
+        ref.child("timeline").child((Auth.auth().currentUser?.uid)!).child(contentArray[calc].key).removeValue()
+        self.contentArray.remove(at: calc)
     }
     
 
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func sidebar(_ sender: UIBarButtonItem) {
+        addChild(sidebarView)
+        view.addSubview(sidebarView.view)
+        sidebarView.didMove(toParent: self)
+        sidebarView.showSidebar(animated: true)
     }
-    */
-
+    
 }
 
 extension UIColor {
     class func rgba(red: Int, green: Int, blue: Int, alpha: CGFloat) -> UIColor{
         return UIColor(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: alpha)
  }
+}
+
+extension ListTable: sidebarViewControllerDelegate {
+    func sidebarVIewController(_ sidebarViewController: sidebarViewController, didSelectRowAt indexPath: IndexPath) {
+        sidebarView.hideSidebar(animated: true, completion: nil)
+    }
+    
+    func sidebarViewControllerRequestShow(_ sidebarViewController: sidebarViewController, animated: Bool) {
+    }
+    
+    func numberOfSection(in sidebarViewController: sidebarViewController) -> Int {
+        return 1
+    }
+    
+    func tableView(_ sidebarViewController: sidebarViewController, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ sidebarViewController: sidebarViewController, cellForRowAt indexPath: IndexPath, _ cell: UITableViewCell) -> UITableViewCell {
+        cell.backgroundColor = UIColor.orange
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "HAKODATE ラーメンマップ"
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+        }else {
+            cell.textLabel?.text = "Item \(indexPath.row)"
+        }
+        return cell
+    }
+    
 }

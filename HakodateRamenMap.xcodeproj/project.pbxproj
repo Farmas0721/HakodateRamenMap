@@ -706,13 +706,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CXL7F9J64Z;
+				DEVELOPMENT_TEAM = 65Z68H8WQ6;
 				INFOPLIST_FILE = HakodateRamenMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = asahi.HakodateRamenMap;
+				PRODUCT_BUNDLE_IDENTIFIER = asahi.HakodateRamenMa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HakodateRamenMap/ObjectiveC/HakodateRamenMap-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -728,13 +728,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CXL7F9J64Z;
+				DEVELOPMENT_TEAM = 65Z68H8WQ6;
 				INFOPLIST_FILE = HakodateRamenMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = asahi.HakodateRamenMap;
+				PRODUCT_BUNDLE_IDENTIFIER = asahi.HakodateRamenMa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HakodateRamenMap/ObjectiveC/HakodateRamenMap-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;

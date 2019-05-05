@@ -35,6 +35,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" image="timelineicon" id="mee-RL-Lk8"/>
                     <navigationItem key="navigationItem" id="hJo-aI-JZi">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="sidebar" style="plain" id="4bR-xl-psH">
+                            <connections>
+                                <action selector="sidebar:" destination="Bgg-8t-och" id="NW1-aM-h3B"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="45Q-TY-yg8">
                             <connections>
                                 <action selector="addTask:" destination="Bgg-8t-och" id="Tps-7W-rB8"/>
@@ -177,6 +182,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="sto:" destination="HMJ-Hz-XuN" eventType="editingDidEndOnExit" id="Elc-0Y-Ya8"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="味" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Upu-oM-mLE">
                                 <rect key="frame" x="74" y="193" width="266" height="47"/>
@@ -188,6 +196,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="tas:" destination="HMJ-Hz-XuN" eventType="editingDidEndOnExit" id="mEV-kJ-oka"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="値段" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L4c-s6-d95">
                                 <rect key="frame" x="74" y="273" width="266" height="47"/>
@@ -199,13 +210,16 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="value:" destination="HMJ-Hz-XuN" eventType="editingDidEnd" id="Wtd-9C-t8B"/>
+                                </connections>
                             </textField>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EFC-Uh-p2g">
-                                <rect key="frame" x="78" y="434" width="259" height="183"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EFC-Uh-p2g">
+                                <rect key="frame" x="57" y="412" width="300" height="250"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="183" id="maL-7j-78g"/>
+                                    <constraint firstAttribute="height" constant="250" id="aXw-8Z-8qQ"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="IMx-qL-R7w" appends="YES" id="oCy-0X-ozl"/>
@@ -215,7 +229,7 @@
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Upu-oM-mLE" firstAttribute="leading" secondItem="L4c-s6-d95" secondAttribute="leading" id="2Hf-gp-SNo"/>
-                            <constraint firstItem="EFC-Uh-p2g" firstAttribute="top" secondItem="Rm1-4O-pCP" secondAttribute="top" constant="434" id="S9x-HT-wYz"/>
+                            <constraint firstItem="EFC-Uh-p2g" firstAttribute="leading" secondItem="6PV-Ne-TGx" secondAttribute="leading" constant="57" id="2vi-Of-OIv"/>
                             <constraint firstItem="Upu-oM-mLE" firstAttribute="top" secondItem="Rm1-4O-pCP" secondAttribute="top" constant="193" id="Wip-OJ-jgT"/>
                             <constraint firstItem="6PV-Ne-TGx" firstAttribute="trailing" secondItem="Ro7-hF-8ax" secondAttribute="trailing" constant="44" id="e5q-9c-xGZ"/>
                             <constraint firstItem="6PV-Ne-TGx" firstAttribute="bottom" secondItem="Ro7-hF-8ax" secondAttribute="bottom" constant="72" id="fty-wV-jrH"/>
@@ -223,8 +237,8 @@
                             <constraint firstItem="Ro7-hF-8ax" firstAttribute="leading" secondItem="6PV-Ne-TGx" secondAttribute="leading" constant="287" id="hqZ-Pv-EKm"/>
                             <constraint firstItem="Upu-oM-mLE" firstAttribute="top" secondItem="zMT-w0-RR4" secondAttribute="bottom" constant="32" id="kCO-M6-Rf6"/>
                             <constraint firstItem="L4c-s6-d95" firstAttribute="top" secondItem="Upu-oM-mLE" secondAttribute="bottom" constant="33" id="mov-VU-soA"/>
-                            <constraint firstItem="EFC-Uh-p2g" firstAttribute="centerX" secondItem="L4c-s6-d95" secondAttribute="centerX" id="muX-4Z-Jlk"/>
-                            <constraint firstItem="EFC-Uh-p2g" firstAttribute="leading" secondItem="6PV-Ne-TGx" secondAttribute="leading" constant="78" id="qpK-dg-vim"/>
+                            <constraint firstItem="Ro7-hF-8ax" firstAttribute="top" secondItem="EFC-Uh-p2g" secondAttribute="bottom" constant="39" id="t24-qM-84r"/>
+                            <constraint firstItem="EFC-Uh-p2g" firstAttribute="centerX" secondItem="L4c-s6-d95" secondAttribute="centerX" id="vMC-7d-CpK"/>
                             <constraint firstItem="zMT-w0-RR4" firstAttribute="centerX" secondItem="Rm1-4O-pCP" secondAttribute="centerX" id="yFT-3s-96d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6PV-Ne-TGx"/>
@@ -267,6 +281,7 @@
     </scenes>
     <resources>
         <image name="post" width="40" height="40"/>
+        <image name="sidebar" width="20" height="20"/>
         <image name="timelineicon" width="20" height="20"/>
     </resources>
 </document>

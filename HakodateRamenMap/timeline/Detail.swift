@@ -66,6 +66,7 @@ class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
             return namecell
           case 1:
             storecell.textLabel?.text = item["storeName"] as? String
+            storecell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
             return storecell
           case 2:
             tastecell.textLabel?.text = item["taste"] as? String
@@ -81,15 +82,16 @@ class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     
     //header Image
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let rimage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        rimage.contentMode = UIView.ContentMode.center
-        rimage.layer.position = CGPoint(x: self.view.frame.width/2, y: 100.0)
+        let ramenimage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        //ramenimage.contentMode = UIView.ContentMode.center
+        ramenimage.contentMode = UIView.ContentMode.redraw
+        ramenimage.layer.position = CGPoint(x: self.view.frame.width/2, y: 100.0)
         
         let item = detailSnap.value as! Dictionary<String, AnyObject>
         let urlstring = String(describing: item["imageID"]!)
         let urlimage = URL(string: urlstring)
-        rimage.sd_setImage(with: urlimage)
-        return rimage
+        ramenimage.sd_setImage(with: urlimage)
+        return ramenimage
     }
 
     /*

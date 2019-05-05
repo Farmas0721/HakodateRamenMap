@@ -28,9 +28,11 @@ import FirebaseStorage
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
+        
         storeName.delegate = self as? UITextFieldDelegate
         taste.delegate = self as? UITextFieldDelegate
         ramenValue.delegate = self as? UITextFieldDelegate
+        
         view.backgroundColor =  UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
     }
 /*
@@ -76,11 +78,19 @@ import FirebaseStorage
         _ = self.navigationController?.popViewController(animated: true)
         //self.performSegue(withIdentifier: "toTl", sender: nil)
     }
-    //returnでキーボード閉じる
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+    
+    //returnでキーボード閉じる//
+    @IBAction func sto(_ sender: UITextField) {
     }
+    @IBAction func tas(_ sender: UITextField) {
+    }
+    @IBAction func value(_ sender: UITextField) {
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    ////////////////////////////
+    
     
     //データの送信のメソッド
     func create() {
