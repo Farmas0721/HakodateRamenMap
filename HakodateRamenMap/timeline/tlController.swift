@@ -27,7 +27,7 @@ import FirebaseStorage
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.isHidden = true
+        //self.tabBarController?.tabBar.isHidden = true
         
         storeName.delegate = self as? UITextFieldDelegate
         taste.delegate = self as? UITextFieldDelegate
@@ -35,21 +35,6 @@ import FirebaseStorage
         
         view.backgroundColor =  UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
     }
-/*
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //selectedSnapがnilならその後の処理をしない
-        guard let snap = self.selectedSnap else { return }
-        
-       //受け取ったselectedSnapを辞書型に変換
-        let item = snap.value as! Dictionary<String, AnyObject>
-        //textFieldに受け取ったデータのcontentを表示
-        storeName.text = item["storeName"] as? String
-        isCreateをfalseにし、更新するためであることを明示
-        isCreate = false
-
-    }
-*/
     
     func logout() {
         do {
@@ -126,29 +111,6 @@ import FirebaseStorage
         ref.keepSynced(true)
         ref.child("timeline").child((Auth.auth().currentUser?.uid)!).child("\(self.selectedSnap.key)").updateChildValues(["user": (Auth.auth().currentUser?.uid)!, "storeName": storeName.text!, "taste":taste.text!, "ramenValue":ramenValue.text!, "date": ServerValue.timestamp()])
     }
-    
-//    func upload(image: UIImage){
-//        let photoRef = storageRef.child("RamenImage")
-//        let imageRef = photoRef.child("image.jpg")
-//        let meta = StorageMetadata()
-//        meta.contentType = "image/jpeg"
-//        let user = (Auth.auth().currentUser?.uid)!
-//        let imageData = image.jpegData(compressionQuality: 1.0)!
-//        imageRef.putData(imageData, metadata: meta) { metadata, error in
-//            if error != nil {
-//                print("Uh-oh, an error occurred!")
-//            } else {
-//                //URL型をNSstring型に変更
-//                imageRef.downloadURL { (url, err) in
-//                    let data = url?.absoluteString
-//                    self.ref.keepSynced(true)
-//                    //self.ref.child("imageID").child(user).updateChildValues(["imageID":data!])
-//                }
-//                print("成功！")
-//            }
-//        }
-//    }
-    
     @IBAction func tapImage(_ sender: UITapGestureRecognizer) {
         dispAlert()
     }

@@ -36,9 +36,8 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         table.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         table.delegate = self //デリゲートをセット
         table.dataSource = self //デリゲートをセット
-        sidebarView.delegate = self
         
-        self.navigationController?.navigationBar.barTintColor = .orange//UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = .orange
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationItem.title = "タイムライン"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
@@ -94,7 +93,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ table: UITableView,heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return  320
+        return  350
     }
     
     
@@ -112,29 +111,6 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
             self.reload(snap: self.snap)
         })
     }
-    
-    
-  /*  func imageRead(){
-        let userID = Auth.auth().currentUser?.uid
-        if let user = userID {
-            
-        let imageURL = self.ref.child("imageID/\(user)/profile")
-        //print(imageURL)
-        imageURL.observe(DataEventType.value, with: { (snapshot) in
-            let url = snapshot.value as? String
-            if url == nil {
-                print("ファイルなし")
-            } else {
-                //ダウンロードURLを取得し、ImageViewに反映
-               let strURL = URL(string: url!)
-                self.urlIamge = strURL
-                //print(strURL!)
-            }
-         })
-        }
-    }
- */
-    
     
     func reload(snap: DataSnapshot) {
         if snap.exists() {
@@ -154,7 +130,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     func getDate(number: TimeInterval) -> String {
         let date = Date(timeIntervalSince1970: number)
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        formatter.dateFormat = "投稿日:" + "yyyy/MM/dd HH:mm"
         return formatter.string(from: date)
     }
     
@@ -216,47 +192,10 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         self.contentArray.remove(at: calc)
     }
     
-
-    @IBAction func sidebar(_ sender: UIBarButtonItem) {
-        addChild(sidebarView)
-        view.addSubview(sidebarView.view)
-        sidebarView.didMove(toParent: self)
-        sidebarView.showSidebar(animated: true)
-    }
-    
 }
 
 extension UIColor {
     class func rgba(red: Int, green: Int, blue: Int, alpha: CGFloat) -> UIColor{
         return UIColor(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: alpha)
  }
-}
-
-extension ListTable: sidebarViewControllerDelegate {
-    func sidebarVIewController(_ sidebarViewController: sidebarViewController, didSelectRowAt indexPath: IndexPath) {
-        sidebarView.hideSidebar(animated: true, completion: nil)
-    }
-    
-    func sidebarViewControllerRequestShow(_ sidebarViewController: sidebarViewController, animated: Bool) {
-    }
-    
-    func numberOfSection(in sidebarViewController: sidebarViewController) -> Int {
-        return 1
-    }
-    
-    func tableView(_ sidebarViewController: sidebarViewController, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func tableView(_ sidebarViewController: sidebarViewController, cellForRowAt indexPath: IndexPath, _ cell: UITableViewCell) -> UITableViewCell {
-        cell.backgroundColor = UIColor.orange
-        if indexPath.row == 0 {
-            cell.textLabel?.text = "HAKODATE ラーメンマップ"
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
-        }else {
-            cell.textLabel?.text = "Item \(indexPath.row)"
-        }
-        return cell
-    }
-    
 }
