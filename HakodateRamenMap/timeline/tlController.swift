@@ -70,11 +70,7 @@ import FirebaseStorage
         if self.isCreate {
             //投稿のためのメソッド
             self.create()
-            //self.upload(image: ramenImage.image!)
-        }/*else {
-            //更新するためのメソッド
-            self.update()
-         }*/
+        }
         _ = self.navigationController?.popViewController(animated: true)
         //self.performSegue(withIdentifier: "toTl", sender: nil)
     }
@@ -102,7 +98,7 @@ import FirebaseStorage
         let image = ramenImage.image!
         
         let photoRef = storageRef.child("RamenImage")
-        let imageRef = photoRef.child("ramen.jpg")
+        let imageRef = photoRef.child(name + ".jpg")
         let meta = StorageMetadata()
         meta.contentType = "image/jpeg"
         let user = (Auth.auth().currentUser?.uid)!
@@ -154,9 +150,7 @@ import FirebaseStorage
 //    }
     
     @IBAction func tapImage(_ sender: UITapGestureRecognizer) {
-        //print("タップ")
         dispAlert()
-        //selectPickerImage()
     }
     
 }

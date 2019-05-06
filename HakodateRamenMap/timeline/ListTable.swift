@@ -24,11 +24,12 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     
     let ref = Database.database().reference()
     let storage = Storage.storage()
+    let storageRef = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com")
+    
     
     var sidebarView = sidebarViewController()
     
     var photo = UIImageView()
-    var urlIamge:URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +94,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ table: UITableView,heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return  300
+        return  320
     }
     
     
@@ -198,6 +199,19 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     
     func delete(deleteIndexPath indexPath: IndexPath) {
         let calc = contentArray.count - indexPath.row - 1
+        let item = contentArray[calc]
+        let content = item.value as! Dictionary<String, AnyObject>
+        let name = String(describing: content["storeName"]!)
+        let photoRef = storageRef.child("RamenImage")
+        let imageRef = photoRef.child(name + ".jpg")
+        imageRef.delete { error in
+            if error != nil {
+                print("ファイル削除失敗")
+            } else {
+                print("ファイル削除")
+            }
+        }
+        
         ref.child("timeline").child((Auth.auth().currentUser?.uid)!).child(contentArray[calc].key).removeValue()
         self.contentArray.remove(at: calc)
     }

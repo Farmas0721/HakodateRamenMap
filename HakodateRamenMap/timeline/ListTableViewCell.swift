@@ -15,6 +15,7 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var content: UILabel!
     @IBOutlet weak var ramenphoto: UIImageView!
+    @IBOutlet weak var headerView: UIView!
     
     
     
@@ -26,7 +27,8 @@ class ListTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         content.font = UIFont.systemFont(ofSize: 24)
-        //content.textColor = UIColor.white
+        content.textColor = UIColor.white
+        headerView.backgroundColor = UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
         // Configure the view for the selected state
     }
     

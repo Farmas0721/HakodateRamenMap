@@ -28,7 +28,7 @@ class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor =  UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
+        view.backgroundColor = UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
         // Do any additional setup after loading the view.
         detailTable.delegate = self as UITableViewDelegate
         detailTable.dataSource = self as UITableViewDataSource
@@ -84,7 +84,9 @@ class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let ramenimage = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
         //ramenimage.contentMode = UIView.ContentMode.center
-        ramenimage.contentMode = UIView.ContentMode.redraw
+        //ramenimage.contentMode = UIView.ContentMode.redraw
+        ramenimage.clipsToBounds = true
+        ramenimage.contentMode = UIView.ContentMode.scaleAspectFill
         ramenimage.layer.position = CGPoint(x: self.view.frame.width/2, y: 100.0)
         
         let item = detailSnap.value as! Dictionary<String, AnyObject>
@@ -92,6 +94,10 @@ class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         let urlimage = URL(string: urlstring)
         ramenimage.sd_setImage(with: urlimage)
         return ramenimage
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        detailTable.deselectRow(at: indexPath, animated: true)
     }
 
     /*
