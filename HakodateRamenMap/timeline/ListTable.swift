@@ -12,7 +12,6 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseUI
 
-var getUrl:URL?
 
 class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
 
@@ -25,9 +24,12 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     
     let ref = Database.database().reference()
     let storage = Storage.storage()
+    let storageRef = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com")
     
-    var photo:UIImageView?
-    var name:String = ""
+    
+    var sidebarView = sidebarViewController()
+    
+    var photo = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +37,11 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         table.delegate = self //デリゲートをセット
         table.dataSource = self //デリゲートをセット
         
-        self.navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = .orange
         self.navigationController?.navigationBar.tintColor = .white
-        // Do any additional setup after loading the view.
+        self.navigationItem.title = "タイムライン"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+
         table.reloadData()
     }
     
@@ -45,6 +49,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
         self.read()
+        table.reloadData()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -68,25 +73,27 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //xibとカスタムクラスで作成したCellのインスタンスを作成
         let cell = table.dequeueReusableCell(withIdentifier: "cell") as! ListTableViewCell
+        let calc = contentArray.count - indexPath.row - 1
         
         //配列の該当のデータをitemという定数に代入
-        let item = contentArray[indexPath.row]
+        let item = contentArray[calc]
         //itemの中身を辞書型に変換
         let content = item.value as! Dictionary<String, AnyObject>
         //contentという添字で保存していた投稿内容を表示
         cell.content.text = String(describing: content["storeName"]!)
-        name = String(describing: content["storeName"]!)
-        cell.ramenphoto.image = UIImage(named: name + ".png")
+        let urlstring = String(describing:content["imageID"]!)
+        let urlimage = URL(string: urlstring)
+        //print("urliamge=\(urlimage!)")
+        cell.ramenphoto.sd_setImage(with: urlimage)
         //dateという添字で保存していた投稿時間をtimeという定数に代入
         let time = content["date"] as! TimeInterval
         //getDate関数を使って、時間をtimestampから年月日に変換して表示
         cell.date.text = self.getDate(number: time/1000)
-        
         return cell
     }
     
     func tableView(_ table: UITableView,heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return  200
+        return  350
     }
     
     
@@ -103,15 +110,6 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
             }
             self.reload(snap: self.snap)
         })
-    }
-    
-  //画像ダウンロード
-      func imageRead(name: String,imageView: UIImageView?){
-        let gsReference = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com").child("RamenImage")
-        let reference = gsReference.child("ramen.jpg")
-        let placeholderImage = UIImage(named: "ramens.jpg")
-        print("画像ダウンロード")
-        photo?.sd_setImage(with: reference, placeholderImage: nil)//placeholderImage
     }
     
     func reload(snap: DataSnapshot) {
@@ -132,7 +130,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     func getDate(number: TimeInterval) -> String {
         let date = Date(timeIntervalSince1970: number)
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        formatter.dateFormat = "投稿日:" + "yyyy/MM/dd HH:mm"
         return formatter.string(from: date)
     }
     
@@ -140,10 +138,11 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     func didSelectRow(selectedIndexPath indexPath: IndexPath) {
         //ルートからのchildをユーザーのIDに指定
         //ユーザーIDからのchildを選択されたCellのデータのIDに指定
-        self.selectedSnap = contentArray[indexPath.row]
-        self.transition()
+        let calc = contentArray.count - indexPath.row - 1
+        self.selectedSnap = contentArray[calc]
+        self.performSegue(withIdentifier: "toDetail", sender: nil)
     }
-    
+    //celltapした時
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.didSelectRow(selectedIndexPath: indexPath)
     }
@@ -155,9 +154,15 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
                 view.selectedSnap = snap
             }
         }
+        if segue.identifier == "toDetail" {
+            let view = segue.destination as! Detail
+            if let snap = self.selectedSnap {
+                view.detailSnap = snap
+            }
+        }
     }
     
-    ///dalete///
+    ///delete///
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         //デリートボタンを追加
         if editingStyle == .delete {
@@ -169,31 +174,28 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     }
     
     func delete(deleteIndexPath indexPath: IndexPath) {
-        ref.child("timeline").child((Auth.auth().currentUser?.uid)!).child(contentArray[indexPath.row].key).removeValue()
-        self.contentArray.remove(at: indexPath.row)
-    }
-        /*
-        let storage = Storage.storage()
-        let storageRef = storage.reference(forURL: "gs://hakodateramenapp.appspot.com/RamenImage/")
-        let desertRef = storageRef.child(name + ".jpg")
-        desertRef.delete { error in
+        let calc = contentArray.count - indexPath.row - 1
+        let item = contentArray[calc]
+        let content = item.value as! Dictionary<String, AnyObject>
+        let name = String(describing: content["storeName"]!)
+        let photoRef = storageRef.child("RamenImage")
+        let imageRef = photoRef.child(name + ".jpg")
+        imageRef.delete { error in
             if error != nil {
-                print("////////Uh-oh, an error occurred!/////")
+                print("ファイル削除失敗")
             } else {
-                print("////////File deleted successfully/////")
+                print("ファイル削除")
             }
-        }*/
-    
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        }
+        
+        ref.child("timeline").child((Auth.auth().currentUser?.uid)!).child(contentArray[calc].key).removeValue()
+        self.contentArray.remove(at: calc)
     }
-    */
+    
+}
 
+extension UIColor {
+    class func rgba(red: Int, green: Int, blue: Int, alpha: CGFloat) -> UIColor{
+        return UIColor(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: alpha)
+ }
 }
