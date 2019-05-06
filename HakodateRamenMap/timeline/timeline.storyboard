@@ -34,15 +34,15 @@
                         <viewLayoutGuide key="safeArea" id="eKk-dR-xvg"/>
                     </view>
                     <tabBarItem key="tabBarItem" image="timelineicon" id="mee-RL-Lk8"/>
-                    <navigationItem key="navigationItem" id="hJo-aI-JZi">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="sidebar" style="plain" id="4bR-xl-psH">
+                    <navigationItem key="navigationItem" id="zLE-lB-IFT">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="sidebar" style="plain" id="s2p-Qp-d00">
                             <connections>
-                                <action selector="sidebar:" destination="Bgg-8t-och" id="NW1-aM-h3B"/>
+                                <action selector="sidebar:" destination="Bgg-8t-och" id="Ur5-B4-x8t"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="45Q-TY-yg8">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="vop-j4-iqq">
                             <connections>
-                                <action selector="addTask:" destination="Bgg-8t-och" id="Tps-7W-rB8"/>
+                                <action selector="addTask:" destination="Bgg-8t-och" id="J78-EV-Fam"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

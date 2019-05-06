@@ -38,7 +38,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         table.dataSource = self //デリゲートをセット
         sidebarView.delegate = self
         
-        self.navigationController?.navigationBar.barTintColor = UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = .orange//UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationItem.title = "タイムライン"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
@@ -87,9 +87,9 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         //print("urliamge=\(urlimage!)")
         cell.ramenphoto.sd_setImage(with: urlimage)
         //dateという添字で保存していた投稿時間をtimeという定数に代入
-        //let time = content["date"] as! TimeInterval
+        let time = content["date"] as! TimeInterval
         //getDate関数を使って、時間をtimestampから年月日に変換して表示
-        //cell.date.text = self.getDate(number: time/1000)
+        cell.date.text = self.getDate(number: time/1000)
         return cell
     }
     

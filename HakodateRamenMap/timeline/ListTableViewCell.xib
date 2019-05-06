@@ -39,15 +39,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZp-NP-h6v">
+                                <rect key="frame" x="286" y="52" width="128" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="content" destination="JbI-gi-cAc" id="isI-T3-Nc7"/>
-                <outlet property="headerView" destination="zTr-cb-lut" id="Xa8-2s-I7j"/>
+                <outlet property="date" destination="qZp-NP-h6v" id="EZm-Ss-vI0"/>
+                <outlet property="hooterView" destination="zTr-cb-lut" id="13R-Es-AGH"/>
                 <outlet property="ramenphoto" destination="TeU-Iz-Ae5" id="LjY-za-RIJ"/>
                 <outlet property="userImage" destination="Vq7-3D-eFE" id="hlC-F0-BV6"/>
             </connections>
