@@ -10,15 +10,17 @@ import UIKit
 import MapKit
 import CoreLocation
 class Map: UIViewController ,MKMapViewDelegate,CLLocationManagerDelegate{
-    var location = CLLocationManager()
+    var locationManager = CLLocationManager()
     let titlelist: [String] = ["ラーメン炙","らぁめん工房かりんとう"]
     let regionlist: [String] = ["北海道函館市美原5丁目39-1","北海道函館市花園町24-21"]
-   
     @IBOutlet weak var ramenmap: MKMapView!
     
-    @IBOutlet weak var tracking: UIBarButtonItem!
+    @IBOutlet weak var tracking: UIButton!
+    var modecount = 0
     
-    
+    let image1 = UIImage(named: "trackingnone")!
+    let image2 = UIImage(named: "tracking")!
+    let image3 = UIImage(named: "trackingheading")!
     //マップ上にあらかじめピンを立てる
     func addAno(_ latitude:CLLocationDegrees,_ longitude: CLLocationDegrees,_ title:String,_ subtitle:String){
        
@@ -32,10 +34,6 @@ class Map: UIViewController ,MKMapViewDelegate,CLLocationManagerDelegate{
         self.ramenmap.addAnnotation(ano)
         ramenmap.delegate = self
     }
-    func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool){
-        tracking.image = UIImage(named: "trackingnone")
-    }
-    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation)
     -> MKAnnotationView? {
     
@@ -54,31 +52,35 @@ class Map: UIViewController ,MKMapViewDelegate,CLLocationManagerDelegate{
         return pinview
     }
     func locationManager(_ manager: CLLocationManager,didChangeAuthorization status: CLAuthorizationStatus){
-        switch status{
-        case .authorizedAlways, .authorizedWhenInUse :
-            location.startUpdatingLocation()
+      
+        
+        switch status {
+        case .notDetermined:
+              locationManager.requestWhenInUseAuthorization()
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
             tracking.isEnabled = true
+        case .restricted, .denied:
+            break
         default:
-            location.stopUpdatingLocation()
-            ramenmap.setUserTrackingMode(.none, animated: true)
-            tracking.image = UIImage(named: "trackingnone")
-            tracking.isEnabled = false
+            tracking.setImage(image1, for: .normal)
         }
     }
     
-    @IBAction func Taptracking(_ sender: UIBarButtonItem) {
-        switch ramenmap.userTrackingMode{
-        case .none:
-            ramenmap.setUserTrackingMode(.follow,animated: true)
-            tracking.image = UIImage(named: "trackingheading")
-        case .follow:
-            ramenmap.setUserTrackingMode(.followWithHeading, animated: true)
-            tracking.image = UIImage(named: "trackingheading")
-        case .followWithHeading:
-            ramenmap.setUserTrackingMode(.none, animated: true)
-            tracking.image = UIImage(named: "trackingnone")
-        }
+    @IBAction func Taptracking(_ sender: UIButton) {
+         modecount+=1
+        if(modecount%3==0){
+            ramenmap.userTrackingMode = MKUserTrackingMode.none
+           tracking.setImage(image1, for: .normal)
+        }else if(modecount%3==1){
+        ramenmap.userTrackingMode = MKUserTrackingMode.follow
+           tracking.setImage(image2, for: .normal)
+        }else if(modecount%3==2){
+             ramenmap.userTrackingMode = MKUserTrackingMode.followWithHeading
+            tracking.setImage(image3, for: .normal)
+    }else{}
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addAno(41.8268,140.7518,titlelist[0] ,regionlist[0])
@@ -90,8 +92,8 @@ class Map: UIViewController ,MKMapViewDelegate,CLLocationManagerDelegate{
         let center = CLLocationCoordinate2D(latitude: 41.7687933, longitude:140.7288103)
         let span : MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
         let region : MKCoordinateRegion = MKCoordinateRegion(center: center, span: span)
-        location.requestWhenInUseAuthorization()
-        location.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
         ramenmap.showsScale = true
         ramenmap.addAnnotation(ano)
         ramenmap.setRegion(region, animated: true)
