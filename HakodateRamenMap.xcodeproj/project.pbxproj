@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		371B123922807B0B00A7B8BB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371B123822807B0B00A7B8BB /* Model.swift */; };
 		371B123B2280890600A7B8BB /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371B123A2280890600A7B8BB /* Request.swift */; };
-		371B1272228131D200A7B8BB /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 371B1271228131D200A7B8BB /* icon.jpg */; };
 		374DBAAA227DCC380078D3A6 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374DBAA9227DCC380078D3A6 /* Detail.swift */; };
 		37E70659224CA6C500E1F827 /* ListTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E70658224CA6C500E1F827 /* ListTable.swift */; };
 		37E7065B224CA6FF00E1F827 /* tlController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7065A224CA6FF00E1F827 /* tlController.swift */; };
@@ -64,7 +63,6 @@
 		17864CD31DBE1DF0D966E997 /* Pods-HakodateRamenMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMap.debug.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMap/Pods-HakodateRamenMap.debug.xcconfig"; sourceTree = "<group>"; };
 		371B123822807B0B00A7B8BB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		371B123A2280890600A7B8BB /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		371B1271228131D200A7B8BB /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
 		374DBAA9227DCC380078D3A6 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		37E70658224CA6C500E1F827 /* ListTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTable.swift; sourceTree = "<group>"; };
 		37E7065A224CA6FF00E1F827 /* tlController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tlController.swift; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 				410E9C95221B37D600F77FAD /* Info.plist */,
 				410E9C92221B37D600F77FAD /* LaunchScreen.storyboard */,
 				41E868CF222CE62000DF3001 /* GoogleService-Info.plist */,
-				371B1271228131D200A7B8BB /* icon.jpg */,
 				410E9C90221B37D600F77FAD /* Assets.xcassets */,
 				41E868E0222D547100DF3001 /* ObjectiveC */,
 				E856B31D22299235007BDF1E /* login */,
@@ -398,7 +395,6 @@
 				410E9C94221B37D600F77FAD /* LaunchScreen.storyboard in Resources */,
 				41E868D0222CE62000DF3001 /* GoogleService-Info.plist in Resources */,
 				E856B31C22299145007BDF1E /* mypage.storyboard in Resources */,
-				371B1272228131D200A7B8BB /* icon.jpg in Resources */,
 				410E9C91221B37D600F77FAD /* Assets.xcassets in Resources */,
 				37E7065F224CA74400E1F827 /* ListTableViewCell.xib in Resources */,
 				410E9C8F221B37D200F77FAD /* Main.storyboard in Resources */,
