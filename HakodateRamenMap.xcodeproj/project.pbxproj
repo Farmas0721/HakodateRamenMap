@@ -3,14 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		37E70659224CA6C500E1F827 /* ListTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E70658224CA6C500E1F827 /* ListTable.swift */; };
-		37E7065B224CA6FF00E1F827 /* tlController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7065A224CA6FF00E1F827 /* tlController.swift */; };
-		37E7065D224CA73D00E1F827 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7065C224CA73D00E1F827 /* ListTableViewCell.swift */; };
-		37E7065F224CA74400E1F827 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E7065E224CA74300E1F827 /* ListTableViewCell.xib */; };
 		410E9C8A221B37D200F77FAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E9C89221B37D200F77FAD /* AppDelegate.swift */; };
 		410E9C8C221B37D200F77FAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E9C8B221B37D200F77FAD /* ViewController.swift */; };
 		410E9C8F221B37D200F77FAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410E9C8D221B37D200F77FAD /* Main.storyboard */; };
@@ -19,14 +15,6 @@
 		410E9C9F221B37D700F77FAD /* HakodateRamenMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E9C9E221B37D700F77FAD /* HakodateRamenMapTests.swift */; };
 		410E9CAA221B37D700F77FAD /* HakodateRamenMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E9CA9221B37D700F77FAD /* HakodateRamenMapUITests.swift */; };
 		410E9CB8221B3D4600F77FAD /* map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410E9CB7221B3D4600F77FAD /* map.storyboard */; };
-		416880112268223D00A4D321 /* sidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416880102268223D00A4D321 /* sidebarViewController.swift */; };
-		41E868D0222CE62000DF3001 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41E868CF222CE62000DF3001 /* GoogleService-Info.plist */; };
-		41E868D2222CE76000DF3001 /* inputForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E868D1222CE76000DF3001 /* inputForm.swift */; };
-		41E868D4222CE76800DF3001 /* loginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E868D3222CE76800DF3001 /* loginButton.swift */; };
-		41E868D6222CE77100DF3001 /* NewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E868D5222CE77100DF3001 /* NewAccountViewController.swift */; };
-		41E868E3222D549A00DF3001 /* UIViewController+Alerts.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E868E2222D549A00DF3001 /* UIViewController+Alerts.m */; };
-		4D33BC303596062AFAF38B6A /* Pods_HakodateRamenMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89EB8B485AB1B39BF7F42D2 /* Pods_HakodateRamenMapUITests.framework */; };
-		E5ED153FFB58EA4FD2FBDEF6 /* Pods_HakodateRamenMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DD408AB3F49E2E179AB8D3 /* Pods_HakodateRamenMapTests.framework */; };
 		E856B316222990F8007BDF1E /* TimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856B315222990F8007BDF1E /* TimeLine.swift */; };
 		E856B3182229910E007BDF1E /* timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E856B3172229910E007BDF1E /* timeline.storyboard */; };
 		E856B31A22299134007BDF1E /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856B31922299134007BDF1E /* MyPage.swift */; };
@@ -34,7 +22,6 @@
 		E856B321222992C3007BDF1E /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856B320222992C3007BDF1E /* Map.swift */; };
 		E856B32322299325007BDF1E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856B32222299325007BDF1E /* Login.swift */; };
 		E856B32522299331007BDF1E /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E856B32422299331007BDF1E /* login.storyboard */; };
-		F95C29DD236F66D84B3CA523 /* Pods_HakodateRamenMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4D332DBA7DBE22B8365D25 /* Pods_HakodateRamenMap.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,14 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06DD408AB3F49E2E179AB8D3 /* Pods_HakodateRamenMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HakodateRamenMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A4D332DBA7DBE22B8365D25 /* Pods_HakodateRamenMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HakodateRamenMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		15ECDD1C8DC5BE89482739E7 /* Pods-HakodateRamenMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMap.release.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMap/Pods-HakodateRamenMap.release.xcconfig"; sourceTree = "<group>"; };
-		17864CD31DBE1DF0D966E997 /* Pods-HakodateRamenMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMap.debug.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMap/Pods-HakodateRamenMap.debug.xcconfig"; sourceTree = "<group>"; };
-		37E70658224CA6C500E1F827 /* ListTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTable.swift; sourceTree = "<group>"; };
-		37E7065A224CA6FF00E1F827 /* tlController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tlController.swift; sourceTree = "<group>"; };
-		37E7065C224CA73D00E1F827 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
-		37E7065E224CA74300E1F827 /* ListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		410E9C86221B37D200F77FAD /* HakodateRamenMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HakodateRamenMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		410E9C89221B37D200F77FAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		410E9C8B221B37D200F77FAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,22 +56,6 @@
 		410E9CA9221B37D700F77FAD /* HakodateRamenMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HakodateRamenMapUITests.swift; sourceTree = "<group>"; };
 		410E9CAB221B37D700F77FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		410E9CB7221B3D4600F77FAD /* map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = map.storyboard; sourceTree = "<group>"; };
-		416880102268223D00A4D321 /* sidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sidebarViewController.swift; sourceTree = "<group>"; };
-		41E868CF222CE62000DF3001 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		41E868D1222CE76000DF3001 /* inputForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = inputForm.swift; sourceTree = "<group>"; };
-		41E868D3222CE76800DF3001 /* loginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginButton.swift; sourceTree = "<group>"; };
-		41E868D5222CE77100DF3001 /* NewAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAccountViewController.swift; sourceTree = "<group>"; };
-		41E868D7222D262E00DF3001 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		41E868D9222D265300DF3001 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		41E868DB222D265900DF3001 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		41E868E1222D549A00DF3001 /* HakodateRamenMap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HakodateRamenMap-Bridging-Header.h"; sourceTree = "<group>"; };
-		41E868E2222D549A00DF3001 /* UIViewController+Alerts.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Alerts.m"; sourceTree = "<group>"; };
-		41E868E4222D54A700DF3001 /* UIViewController+Alerts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Alerts.h"; sourceTree = "<group>"; };
-		470C303285A879AA3977DFE5 /* Pods-HakodateRamenMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapTests.debug.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapTests/Pods-HakodateRamenMapTests.debug.xcconfig"; sourceTree = "<group>"; };
-		68FF3D8FE3BC141DF59C85DA /* Pods-HakodateRamenMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapTests.release.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapTests/Pods-HakodateRamenMapTests.release.xcconfig"; sourceTree = "<group>"; };
-		B89EB8B485AB1B39BF7F42D2 /* Pods_HakodateRamenMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HakodateRamenMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC565CDF15C1CFC021ED509F /* Pods-HakodateRamenMapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapUITests.release.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapUITests/Pods-HakodateRamenMapUITests.release.xcconfig"; sourceTree = "<group>"; };
-		C752988B5957CE81E6EC2F89 /* Pods-HakodateRamenMapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapUITests.debug.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapUITests/Pods-HakodateRamenMapUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E856B315222990F8007BDF1E /* TimeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeLine.swift; path = HakodateRamenMap/mypage/TimeLine.swift; sourceTree = SOURCE_ROOT; };
 		E856B3172229910E007BDF1E /* timeline.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = timeline.storyboard; sourceTree = "<group>"; };
 		E856B31922299134007BDF1E /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
@@ -107,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F95C29DD236F66D84B3CA523 /* Pods_HakodateRamenMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +77,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5ED153FFB58EA4FD2FBDEF6 /* Pods_HakodateRamenMapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,39 +84,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D33BC303596062AFAF38B6A /* Pods_HakodateRamenMapUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		112F90B9E8BA73FA74968DF6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				17864CD31DBE1DF0D966E997 /* Pods-HakodateRamenMap.debug.xcconfig */,
-				15ECDD1C8DC5BE89482739E7 /* Pods-HakodateRamenMap.release.xcconfig */,
-				470C303285A879AA3977DFE5 /* Pods-HakodateRamenMapTests.debug.xcconfig */,
-				68FF3D8FE3BC141DF59C85DA /* Pods-HakodateRamenMapTests.release.xcconfig */,
-				C752988B5957CE81E6EC2F89 /* Pods-HakodateRamenMapUITests.debug.xcconfig */,
-				BC565CDF15C1CFC021ED509F /* Pods-HakodateRamenMapUITests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		40936AD389D469964C2E4C1D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				41E868DB222D265900DF3001 /* FirebaseCore.framework */,
-				41E868D9222D265300DF3001 /* FirebaseAuth.framework */,
-				41E868D7222D262E00DF3001 /* FirebaseAuth.framework */,
-				0A4D332DBA7DBE22B8365D25 /* Pods_HakodateRamenMap.framework */,
-				06DD408AB3F49E2E179AB8D3 /* Pods_HakodateRamenMapTests.framework */,
-				B89EB8B485AB1B39BF7F42D2 /* Pods_HakodateRamenMapUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		410E9C7D221B37D100F77FAD = {
 			isa = PBXGroup;
 			children = (
@@ -163,8 +97,6 @@
 				410E9C9D221B37D700F77FAD /* HakodateRamenMapTests */,
 				410E9CA8221B37D700F77FAD /* HakodateRamenMapUITests */,
 				410E9C87221B37D200F77FAD /* Products */,
-				112F90B9E8BA73FA74968DF6 /* Pods */,
-				40936AD389D469964C2E4C1D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,9 +115,7 @@
 			children = (
 				410E9C95221B37D600F77FAD /* Info.plist */,
 				410E9C92221B37D600F77FAD /* LaunchScreen.storyboard */,
-				41E868CF222CE62000DF3001 /* GoogleService-Info.plist */,
 				410E9C90221B37D600F77FAD /* Assets.xcassets */,
-				41E868E0222D547100DF3001 /* ObjectiveC */,
 				E856B31D22299235007BDF1E /* login */,
 				410E9CB9221B3D4E00F77FAD /* map */,
 				E856B3132229909C007BDF1E /* timeline */,
@@ -222,24 +152,10 @@
 			path = map;
 			sourceTree = "<group>";
 		};
-		41E868E0222D547100DF3001 /* ObjectiveC */ = {
-			isa = PBXGroup;
-			children = (
-				41E868E2222D549A00DF3001 /* UIViewController+Alerts.m */,
-				41E868E1222D549A00DF3001 /* HakodateRamenMap-Bridging-Header.h */,
-				41E868E4222D54A700DF3001 /* UIViewController+Alerts.h */,
-			);
-			path = ObjectiveC;
-			sourceTree = "<group>";
-		};
 		E856B3132229909C007BDF1E /* timeline */ = {
 			isa = PBXGroup;
 			children = (
-				37E7065A224CA6FF00E1F827 /* tlController.swift */,
-				37E70658224CA6C500E1F827 /* ListTable.swift */,
-				37E7065C224CA73D00E1F827 /* ListTableViewCell.swift */,
 				E856B315222990F8007BDF1E /* TimeLine.swift */,
-				37E7065E224CA74300E1F827 /* ListTableViewCell.xib */,
 				E856B3172229910E007BDF1E /* timeline.storyboard */,
 			);
 			path = timeline;
@@ -248,8 +164,8 @@
 		E856B314222990BC007BDF1E /* mypage */ = {
 			isa = PBXGroup;
 			children = (
-				E856B31B22299145007BDF1E /* mypage.storyboard */,
 				E856B31922299134007BDF1E /* MyPage.swift */,
+				E856B31B22299145007BDF1E /* mypage.storyboard */,
 			);
 			path = mypage;
 			sourceTree = "<group>";
@@ -257,9 +173,6 @@
 		E856B31D22299235007BDF1E /* login */ = {
 			isa = PBXGroup;
 			children = (
-				41E868D5222CE77100DF3001 /* NewAccountViewController.swift */,
-				41E868D1222CE76000DF3001 /* inputForm.swift */,
-				41E868D3222CE76800DF3001 /* loginButton.swift */,
 				E856B32222299325007BDF1E /* Login.swift */,
 				E856B32422299331007BDF1E /* login.storyboard */,
 			);
@@ -272,7 +185,6 @@
 				410E9C8D221B37D200F77FAD /* Main.storyboard */,
 				410E9C8B221B37D200F77FAD /* ViewController.swift */,
 				410E9C89221B37D200F77FAD /* AppDelegate.swift */,
-				416880102268223D00A4D321 /* sidebarViewController.swift */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -284,11 +196,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 410E9CAE221B37D700F77FAD /* Build configuration list for PBXNativeTarget "HakodateRamenMap" */;
 			buildPhases = (
-				E92096A9712D91F76661657A /* [CP] Check Pods Manifest.lock */,
 				410E9C82221B37D200F77FAD /* Sources */,
 				410E9C83221B37D200F77FAD /* Frameworks */,
 				410E9C84221B37D200F77FAD /* Resources */,
-				EB3E2DFB1A65B737D32014E3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,7 +213,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 410E9CB1221B37D700F77FAD /* Build configuration list for PBXNativeTarget "HakodateRamenMapTests" */;
 			buildPhases = (
-				0493080C118D07B87C69BEDD /* [CP] Check Pods Manifest.lock */,
 				410E9C96221B37D700F77FAD /* Sources */,
 				410E9C97221B37D700F77FAD /* Frameworks */,
 				410E9C98221B37D700F77FAD /* Resources */,
@@ -322,7 +231,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 410E9CB4221B37D700F77FAD /* Build configuration list for PBXNativeTarget "HakodateRamenMapUITests" */;
 			buildPhases = (
-				9BDA2C940F300CEAAB8426FC /* [CP] Check Pods Manifest.lock */,
 				410E9CA1221B37D700F77FAD /* Sources */,
 				410E9CA2221B37D700F77FAD /* Frameworks */,
 				410E9CA3221B37D700F77FAD /* Resources */,
@@ -349,7 +257,6 @@
 				TargetAttributes = {
 					410E9C85221B37D200F77FAD = {
 						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
 					};
 					410E9C99221B37D700F77FAD = {
 						CreatedOnToolsVersion = 10.1;
@@ -387,10 +294,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				410E9C94221B37D600F77FAD /* LaunchScreen.storyboard in Resources */,
-				41E868D0222CE62000DF3001 /* GoogleService-Info.plist in Resources */,
 				E856B31C22299145007BDF1E /* mypage.storyboard in Resources */,
 				410E9C91221B37D600F77FAD /* Assets.xcassets in Resources */,
-				37E7065F224CA74400E1F827 /* ListTableViewCell.xib in Resources */,
 				410E9C8F221B37D200F77FAD /* Main.storyboard in Resources */,
 				E856B3182229910E007BDF1E /* timeline.storyboard in Resources */,
 				410E9CB8221B3D4600F77FAD /* map.storyboard in Resources */,
@@ -414,118 +319,15 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		0493080C118D07B87C69BEDD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HakodateRamenMapTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9BDA2C940F300CEAAB8426FC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HakodateRamenMapUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E92096A9712D91F76661657A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HakodateRamenMap-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EB3E2DFB1A65B737D32014E3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HakodateRamenMap/Pods-HakodateRamenMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HakodateRamenMap/Pods-HakodateRamenMap-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HakodateRamenMap/Pods-HakodateRamenMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HakodateRamenMap/Pods-HakodateRamenMap-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		410E9C82221B37D200F77FAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E856B321222992C3007BDF1E /* Map.swift in Sources */,
-				41E868E3222D549A00DF3001 /* UIViewController+Alerts.m in Sources */,
-				41E868D4222CE76800DF3001 /* loginButton.swift in Sources */,
 				E856B32322299325007BDF1E /* Login.swift in Sources */,
 				410E9C8C221B37D200F77FAD /* ViewController.swift in Sources */,
-				37E7065B224CA6FF00E1F827 /* tlController.swift in Sources */,
-				37E7065D224CA73D00E1F827 /* ListTableViewCell.swift in Sources */,
-				41E868D2222CE76000DF3001 /* inputForm.swift in Sources */,
-				41E868D6222CE77100DF3001 /* NewAccountViewController.swift in Sources */,
 				E856B316222990F8007BDF1E /* TimeLine.swift in Sources */,
-				37E70659224CA6C500E1F827 /* ListTable.swift in Sources */,
-				416880112268223D00A4D321 /* sidebarViewController.swift in Sources */,
 				E856B31A22299134007BDF1E /* MyPage.swift in Sources */,
 				410E9C8A221B37D200F77FAD /* AppDelegate.swift in Sources */,
 			);
@@ -700,10 +502,8 @@
 		};
 		410E9CAF221B37D700F77FAD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17864CD31DBE1DF0D966E997 /* Pods-HakodateRamenMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CXL7F9J64Z;
 				INFOPLIST_FILE = HakodateRamenMap/Info.plist;
@@ -713,8 +513,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = asahi.HakodateRamenMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HakodateRamenMap/ObjectiveC/HakodateRamenMap-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -722,10 +520,8 @@
 		};
 		410E9CB0221B37D700F77FAD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15ECDD1C8DC5BE89482739E7 /* Pods-HakodateRamenMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CXL7F9J64Z;
 				INFOPLIST_FILE = HakodateRamenMap/Info.plist;
@@ -735,7 +531,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = asahi.HakodateRamenMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HakodateRamenMap/ObjectiveC/HakodateRamenMap-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -743,7 +538,6 @@
 		};
 		410E9CB2221B37D700F77FAD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 470C303285A879AA3977DFE5 /* Pods-HakodateRamenMapTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -765,7 +559,6 @@
 		};
 		410E9CB3221B37D700F77FAD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 68FF3D8FE3BC141DF59C85DA /* Pods-HakodateRamenMapTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -787,7 +580,6 @@
 		};
 		410E9CB5221B37D700F77FAD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C752988B5957CE81E6EC2F89 /* Pods-HakodateRamenMapUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -808,7 +600,6 @@
 		};
 		410E9CB6221B37D700F77FAD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC565CDF15C1CFC021ED509F /* Pods-HakodateRamenMapUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -7,50 +7,13 @@
 //
 
 import UIKit
-import Firebase
-
 
 class Login: UIViewController {
-    
-    
-    @IBOutlet weak var userName: UITextField!
-    @IBOutlet weak var passWord: UITextField!
-    
-    @IBAction func loginButton(_ sender: Any) {
-        if let email = self.userName.text, let password = self.passWord.text {
-            showSpinner {
-                // [START headless_email_auth]
-                Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-                    // [START_EXCLUDE]
-                    self.hideSpinner {
-                        if let error = error {
-                            self.showMessagePrompt(error.localizedDescription)
-                            return
-                        }
-                        self.showMessagePrompt("OK. Your Account is activated!!")
-                        self.navigationController!.popViewController(animated: true)
-                    }
-                    // [END_EXCLUDE]
-                }
-                // [END headless_email_auth]
-            }
-        } else {
-            self.showMessagePrompt("email/password can't be empty")
-        }
-    }
-    
-    @IBAction func newAccountButton(_ sender: Any) {
-        
-    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
     }
     
 

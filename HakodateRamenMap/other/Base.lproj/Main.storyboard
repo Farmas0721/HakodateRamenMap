@@ -33,16 +33,16 @@
         <scene sceneID="nsY-1e-LLg">
             <objects>
                 <viewControllerPlaceholder storyboardName="mypage" id="RPm-Tz-Qn3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="mypageicon" selectedImage="mypageicon" id="AzI-Y8-Mfn"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="AzI-Y8-Mfn"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSi-gW-JCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="484" y="66"/>
         </scene>
-        <!--View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="WIj-Pp-bNV">
             <objects>
-                <tabBarController id="G5H-oL-hh4" customClass="ViewController" customModule="HakodateRamenMap" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="G5H-oL-hh4" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Npr-jy-py5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -59,7 +59,4 @@
             <point key="canvasLocation" x="-341" y="-118"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="mypageicon" width="20" height="20"/>
-    </resources>
 </document>
