@@ -30,6 +30,8 @@ class Map: UIViewController ,MKMapViewDelegate,UIPopoverControllerDelegate{
         // mapViewに追加
         self.ramenmap.addAnnotation(ano)
         ramenmap.delegate = self
+        let request = Request()
+        request.get(url:"https://images-api.nasa.gov/search?media_type=image")
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation)
