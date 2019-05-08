@@ -49,12 +49,13 @@ class MyPage: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let rgba = UIColor(red: 210/255, green: 255/255, blue: 255/255, alpha: 1.0) // ボタン背景色設定
+        self.navigationController?.navigationBar.barTintColor = .orange
         sidebarView.delegate = self
-      view.backgroundColor = UIColor.orange
-        profileimage.backgroundColor = rgba
+        view.backgroundColor = UIColor.orange
+        profileImage.backgroundColor = rgba
         username.backgroundColor = UIColor.clear
-        profileimage.setTitleColor(UIColor.cyan, for: UIControl.State.normal)          // Do any additional setup after loading the view.
+        profileImage.setTitleColor(UIColor.cyan, for: UIControl.State.normal)          // Do any additional setup after loading the view.
         
         // Do any additional setup after loading the view.
     }

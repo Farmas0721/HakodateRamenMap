@@ -8,34 +8,32 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 @IBDesignable class tlController: UIViewController{
     
-    let ref = Database.database().reference()
+    var ref = Database.database().reference()
     var isCreate = true //データの作成か更新かを判定、trueなら作成、falseなら更新
+    let storageRef = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com")
    
+    @IBOutlet weak var ramenImage: UIImageView!
     @IBOutlet weak var doneLabel: UIButton!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var storeName: UITextField!
+    @IBOutlet weak var taste: UITextField!
+    @IBOutlet weak var ramenValue: UITextField!
+    
     var selectedSnap: DataSnapshot! //ListViewControllerからのデータの受け取りのための変数
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.delegate = self as? UITextFieldDelegate //デリゲートをセット
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //selectedSnapがnilならその後の処理をしない
-        guard let snap = self.selectedSnap else { return }
+        //self.tabBarController?.tabBar.isHidden = true
         
-        //受け取ったselectedSnapを辞書型に変換
-        let item = snap.value as! Dictionary<String, AnyObject>
-        //textFieldに受け取ったデータのcontentを表示
-        textField.text = item["content"] as? String
-        //isCreateをfalseにし、更新するためであることを明示
-        isCreate = false
+        storeName.delegate = self as? UITextFieldDelegate
+        taste.delegate = self as? UITextFieldDelegate
+        ramenValue.delegate = self as? UITextFieldDelegate
+        
+        view.backgroundColor =  UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
     }
     
     func logout() {
@@ -52,33 +50,58 @@ import Firebase
         
     }
 
+    
     @IBAction func post(_ sender: UIButton) {
-        if isCreate {
+        if self.isCreate {
             //投稿のためのメソッド
-            create()
-        }else {
-            //更新するためのメソッド
-            update()
+            self.create()
         }
         _ = self.navigationController?.popViewController(animated: true)
+        //self.performSegue(withIdentifier: "toTl", sender: nil)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+    //returnでキーボード閉じる//
+    @IBAction func sto(_ sender: UITextField) {
     }
+    @IBAction func tas(_ sender: UITextField) {
+    }
+    @IBAction func value(_ sender: UITextField) {
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    ////////////////////////////
+    
     
     //データの送信のメソッド
     func create() {
         //何もしない
-        guard let text = textField.text else { return }
+        guard let name = storeName.text else { return }
+        guard let taste = taste.text else { return }
+        guard let ramenvalue = ramenValue.text else { return }
         
-        //ロートからログインしているユーザーのIDをchildにしてデータを作成
-        //childByAutoId()でユーザーIDの下に、IDを自動生成してその中にデータを入れる
-        //setValueでデータを送信する。第一引数に送信したいデータを辞書型で入れる
-        //今回は記入内容と一緒にユーザーIDと時間を入れる
-        //FIRServerValue.timestamp()で現在時間を取る
-        self.ref.child((Auth.auth().currentUser?.uid)!).childByAutoId().setValue(["user": (Auth.auth().currentUser?.uid)!, "content": text, "date": ServerValue.timestamp()])
+        let image = ramenImage.image!
+        
+        let photoRef = storageRef.child("RamenImage")
+        let imageRef = photoRef.child(name + ".jpg")
+        let meta = StorageMetadata()
+        meta.contentType = "image/jpeg"
+        let user = (Auth.auth().currentUser?.uid)!
+        let imageData = image.jpegData(compressionQuality: 1.0)!
+        imageRef.putData(imageData, metadata: meta) { metadata, error in
+            if error != nil {
+                print("Uh-oh, an error occurred!")
+            } else {
+                //URL型をNSstring型に変更
+                imageRef.downloadURL { (url, err) in
+                    let data = url?.absoluteString
+                    self.ref.keepSynced(true)
+                    self.ref.child("timeline").child(user).childByAutoId().setValue(["user": (Auth.auth().currentUser?.uid)!, "storeName": name, "taste":taste, "ramenValue":ramenvalue, "date": ServerValue.timestamp(),"imageID":data!])
+                }
+                print("成功！")
+            }
+        }
+        
     }
     
     func update() {
@@ -86,17 +109,88 @@ import Firebase
         //ユーザーIDからのchildを受け取ったデータのIDに指定
         //updateChildValueを使って更新
         ref.keepSynced(true)
-        ref.child((Auth.auth().currentUser?.uid)!).child("\(self.selectedSnap.key)").updateChildValues(["user": (Auth.auth().currentUser?.uid)!,"content": self.textField.text!, "date": ServerValue.timestamp()])
+        ref.child("timeline").child((Auth.auth().currentUser?.uid)!).child("\(self.selectedSnap.key)").updateChildValues(["user": (Auth.auth().currentUser?.uid)!, "storeName": storeName.text!, "taste":taste.text!, "ramenValue":ramenValue.text!, "date": ServerValue.timestamp()])
+    }
+    @IBAction func tapImage(_ sender: UITapGestureRecognizer) {
+        dispAlert()
     }
     
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+extension tlController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    //library
+    func selectPickerImage(){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            // 写真を選ぶビュー
+            let pickerView = UIImagePickerController()
+            // 写真の選択元をカメラロールにする
+            // 「.camera」にすればカメラを起動できる
+            pickerView.sourceType = .photoLibrary
+            // デリゲート
+            pickerView.delegate = self
+            // ビューに表示
+            self.present(pickerView, animated: true)
+        }
     }
-    */
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // 選択した写真を取得する
+        let image = info[.originalImage] as! UIImage
+        ramenImage.contentMode = .scaleAspectFit
+        ramenImage.image = image
+        // 写真を選ぶビューを引っ込める
+        self.dismiss(animated: true)
+    }
+    
+    
+    //camera
+    func startCamera() {
+        let sourceType:UIImagePickerController.SourceType =
+            UIImagePickerController.SourceType.camera
+        // カメラが利用可能かチェック
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerController.SourceType.camera){
+            // インスタンスの作成
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+        }
+        else{
+            print("errorrrrrrr")
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+}
 
+extension tlController{
+    func dispAlert() {
+        let alert: UIAlertController = UIAlertController(title: "表示方法", message: "どちらか選んでね", preferredStyle:  UIAlertController.Style.actionSheet)
+        
+        let camera: UIAlertAction = UIAlertAction(title: "写真を撮る", style: UIAlertAction.Style.default, handler:{
+            (action: UIAlertAction!) -> Void in
+            self.startCamera()
+        })
+        
+        let library: UIAlertAction = UIAlertAction(title: "カメラロール", style: UIAlertAction.Style.default, handler:{
+            (action: UIAlertAction!) -> Void in
+            self.selectPickerImage()
+        })
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "cancel", style: UIAlertAction.Style.cancel, handler:{
+            (action: UIAlertAction!) -> Void in
+        })
+        
+        alert.addAction(cancelAction)
+        alert.addAction(camera)
+        alert.addAction(library)
+        
+        present(alert, animated: true, completion: nil)
+    }
 }

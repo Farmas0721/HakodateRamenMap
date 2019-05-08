@@ -27,8 +27,11 @@ class Login: UIViewController {
                             self.showMessagePrompt(error.localizedDescription)
                             return
                         }
-                        self.showMessagePrompt("OK. Your Account is activated!!")
-                        self.navigationController!.popViewController(animated: true)
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        //get isInitial view
+                        let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainTab")
+                        self.present(mainViewController, animated: true, completion: nil)
+                        //self.navigationController!.popViewController(animated: true)
                     }
                     // [END_EXCLUDE]
                 }
@@ -37,6 +40,10 @@ class Login: UIViewController {
         } else {
             self.showMessagePrompt("email/password can't be empty")
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     @IBAction func newAccountButton(_ sender: Any) {

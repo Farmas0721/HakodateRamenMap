@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "581D6DCB3D684265679AF39204DCCECE"
+               BlueprintIdentifier = "0BBC5D00801EA4F103BB436BBB73B80F"
                BuildableName = "Pods_HakodateRamenMap.framework"
                BlueprintName = "Pods-HakodateRamenMap"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "581D6DCB3D684265679AF39204DCCECE"
+            BlueprintIdentifier = "0BBC5D00801EA4F103BB436BBB73B80F"
             BuildableName = "Pods_HakodateRamenMap.framework"
             BlueprintName = "Pods-HakodateRamenMap"
             ReferencedContainer = "container:Pods.xcodeproj">
