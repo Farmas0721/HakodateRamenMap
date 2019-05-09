@@ -23,7 +23,7 @@
                                 <gestureRecognizers/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9W-qK-nPY">
-                                <rect key="frame" x="258" y="505" width="101" height="113"/>
+                                <rect key="frame" x="273" y="457" width="86" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
                                 <state key="normal" title="button" image="trackingnone">
