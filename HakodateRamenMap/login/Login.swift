@@ -49,17 +49,34 @@ class Login: UIViewController {
     @IBAction func newAccountButton(_ sender: Any) {
         
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if isLogin(){
+            segueToMain()
+        }
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         
     }
     
+    func isLogin() -> Bool{
+        if Auth.auth().currentUser != nil{
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    func segueToMain(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController()
+        self.present(viewController!, animated: false, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

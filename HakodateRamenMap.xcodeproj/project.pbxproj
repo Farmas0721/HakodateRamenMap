@@ -96,7 +96,6 @@
 		BC565CDF15C1CFC021ED509F /* Pods-HakodateRamenMapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapUITests.release.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapUITests/Pods-HakodateRamenMapUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C752988B5957CE81E6EC2F89 /* Pods-HakodateRamenMapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapUITests.debug.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapUITests/Pods-HakodateRamenMapUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB0FEFCC2271C011001A5BC2 /* ReregisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReregisterViewController.swift; sourceTree = "<group>"; };
-		E856B315222990F8007BDF1E /* TimeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeLine.swift; path = HakodateRamenMap/mypage/TimeLine.swift; sourceTree = SOURCE_ROOT; };
 		E856B3172229910E007BDF1E /* timeline.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = timeline.storyboard; sourceTree = "<group>"; };
 		E856B31922299134007BDF1E /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
 		E856B31B22299145007BDF1E /* mypage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = mypage.storyboard; sourceTree = "<group>"; };
@@ -264,8 +263,8 @@
 				41E868D1222CE76000DF3001 /* inputForm.swift */,
 				41E868D3222CE76800DF3001 /* loginButton.swift */,
 				E856B32222299325007BDF1E /* Login.swift */,
-				E856B32422299331007BDF1E /* login.storyboard */,
 				DB0FEFCC2271C011001A5BC2 /* ReregisterViewController.swift */,
+				E856B32422299331007BDF1E /* login.storyboard */,
 			);
 			path = login;
 			sourceTree = "<group>";
