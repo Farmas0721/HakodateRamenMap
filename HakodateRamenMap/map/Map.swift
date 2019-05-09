@@ -36,20 +36,22 @@ class Map: UIViewController ,MKMapViewDelegate,CLLocationManagerDelegate{
     }
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation)
     -> MKAnnotationView? {
-    
-        if annotation is MKUserLocation {
+    if annotation is MKUserLocation {
             return nil
-        }
-        let pinview = MKPinAnnotationView(annotation: annotation, reuseIdentifier:nil)
-        
-        pinview.animatesDrop = true
-        pinview.pinTintColor = UIColor.orange
-        
-        //右ボタンをアノテーションビューに追加する。
-         pinview.canShowCallout = true
+        }else{
+            // CustomAnnotationの場合に画像を配置
+            let identifier = "Pin"
+        var pinview = MKAnnotationView(annotation: annotation, reuseIdentifier:nil)
+            if pinview == nil {
+                pinview = MKAnnotationView.init(annotation: annotation, reuseIdentifier: identifier)
+            }
+            pinview.image = UIImage.init(named: "ramenpin") // 任意の画像名
+            pinview.annotation = annotation
+            pinview.canShowCallout = true  // タップで吹き出しを表示
         pinview.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.infoLight)
-        
         return pinview
+        }
+
     }
     func locationManager(_ manager: CLLocationManager,didChangeAuthorization status: CLAuthorizationStatus){
       
