@@ -266,11 +266,33 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="leftIconImage" value="timelineicon"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lM9-AW-QzU" customClass="ButtonSettings" customModule="HakodateRamenMap" customModuleProvider="target">
+                                <rect key="frame" x="7" y="375" width="361" height="46"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.67843137249999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="ログイン">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radious">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendReregisterMailButton:" destination="Zvb-3A-Cu3" eventType="touchUpInside" id="IJl-Ap-2uT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.83271939766839376" green="0.65622236389655009" blue="0.20399423737770497" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="EWs-IS-z4z"/>
                     </view>
                     <navigationItem key="navigationItem" id="gVf-On-7Ee"/>
+                    <connections>
+                        <outlet property="mailTextField" destination="InU-9g-O8d" id="wLi-yS-F0w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h6w-Im-h8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -303,6 +325,7 @@
         <image name="karintou" width="4032" height="3024"/>
         <image name="mail" width="32" height="32"/>
         <image name="password" width="14" height="16"/>
+        <image name="timelineicon" width="20" height="20"/>
     </resources>
     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
 </document>

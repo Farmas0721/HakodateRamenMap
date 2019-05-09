@@ -7,9 +7,21 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ReregisterViewController: UIViewController {
 
+    
+    @IBOutlet var mailTextField: TextFieldSettings!
+    
+    @IBAction func sendReregisterMailButton(_ sender: Any) {
+        if let mailAddress = mailTextField.text {
+            Auth.auth().sendPasswordReset(withEmail: mailAddress, completion: {error in
+                print(error)
+            })
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +33,8 @@ class ReregisterViewController: UIViewController {
         print("viewWillAppear")
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
+    
+    
     
 
     /*
