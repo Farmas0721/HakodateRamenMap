@@ -105,14 +105,13 @@
                     <connections>
                         <outlet property="Followernum" destination="BAj-lT-unt" id="q86-Om-fcG"/>
                         <outlet property="Follownum" destination="mOf-Yo-OOa" id="Vpl-Xg-Aup"/>
-                        <outlet property="profileImage" destination="MrA-LR-E9I" id="eMT-lu-nJ9"/>
-                        <outlet property="username" destination="d3q-G9-2FA" id="gq0-yP-UeT"/>
+                        <outlet property="profileimage" destination="MrA-LR-E9I" id="PcB-1M-nJf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kcd-1z-kSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="2K1-Zr-uQA"/>
             </objects>
-            <point key="canvasLocation" x="812" y="35.532233883058474"/>
+            <point key="canvasLocation" x="0.80000000000000004" y="-54.422788605697157"/>
         </scene>
         <!--Followimage-->
         <scene sceneID="DLS-hy-uHD">
@@ -201,7 +200,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zat-Jz-ggj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-127.2" y="35.532233883058474"/>
+            <point key="canvasLocation" x="-1234" y="-54"/>
         </scene>
     </scenes>
     <resources>

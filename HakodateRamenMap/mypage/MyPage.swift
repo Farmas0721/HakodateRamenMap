@@ -8,8 +8,21 @@
 
 import UIKit
 
-class MyPage: UIViewController {
-
+class Mypage: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UICollectionViewDataSource, UICollectionViewDelegate {//UICollectionViewDelegateFlowLayout{
+   
+    @IBOutlet weak var collectionView: UICollectionView!
+  //  @IBOutlet weak var picture: UICollectionViewCell!
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 30
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pictureCell", for: indexPath)
+        cell.backgroundColor = .red  // セルの色
+        return cell
+        
+    }
+    
     var sidebarView = sidebarViewController()
     
     @IBOutlet var username: UITextField!
@@ -26,7 +39,7 @@ class MyPage: UIViewController {
             // 「.camera」にすればカメラを起動できる
             pickerView.sourceType = .photoLibrary
             // デリゲート
-            pickerView.delegate = self
+            pickerView.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
             // ビューに表示
             self.present(pickerView, animated: true)
         }
@@ -41,12 +54,17 @@ class MyPage: UIViewController {
         
     }
     
+    @IBOutlet weak var username: UITextField!
+    var rgba = UIColor(red: 210/255, green: 255/255, blue: 255/255, alpha: 1.0) // ボタン背景色設定
+
     @IBAction func openSIdeber(_ sender: Any) {
         addChild(sidebarView)
         view.addSubview(sidebarView.view)
         sidebarView.didMove(toParent: self)
         sidebarView.showSidebar(animated: true)
     }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let rgba = UIColor(red: 210/255, green: 255/255, blue: 255/255, alpha: 1.0) // ボタン背景色設定
@@ -57,7 +75,8 @@ class MyPage: UIViewController {
         username.backgroundColor = UIColor.clear
         profileImage.setTitleColor(UIColor.cyan, for: UIControl.State.normal)          // Do any additional setup after loading the view.
         
-        // Do any additional setup after loading the view.
+        self.icon.layer.cornerRadius = 100*0.5
+        self.icon.clipsToBounds = true
     }
     
     func usernameShouldReturn(username: UITextField) -> Bool {
@@ -77,7 +96,7 @@ class MyPage: UIViewController {
     
 }
 
-extension MyPage: sidebarViewControllerDelegate {
+extension Mypage: sidebarViewControllerDelegate {
     func sidebarVIewController(_ sidebarViewController: sidebarViewController, didSelectRowAt indexPath: IndexPath) {
         sidebarView.hideSidebar(animated: true, completion: nil)
     }
@@ -106,7 +125,7 @@ extension MyPage: sidebarViewControllerDelegate {
     
 }
 
-extension MyPage: UIImagePickerControllerDelegate ,UINavigationControllerDelegate{
+extension Mypage: UIImagePickerControllerDelegate ,UINavigationControllerDelegate{
     
     //画像が選択された時に呼ばれる.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
