@@ -13,7 +13,7 @@
         <!--Mypage-->
         <scene sceneID="0Pj-dE-qdL">
             <objects>
-                <viewController title="Mypage" id="eKr-DM-cwz" customClass="MyPage" customModule="HakodateRamenMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Mypage" id="eKr-DM-cwz" customClass="Mypage" customModule="HakodateRamenMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S4p-RZ-xHF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +33,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="followpage:" destination="eKr-DM-cwz" eventType="touchUpInside" id="U1J-8H-Y1y"/>
+                                    <action selector="followpage:" destination="eKr-DM-cwz" eventType="touchUpInside" id="Qyu-dL-TfU"/>
                                     <segue destination="nD4-Ot-0gV" kind="show" id="Yje-Xk-ddb"/>
                                 </connections>
                             </button>
@@ -45,24 +45,10 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="followerpage:" destination="eKr-DM-cwz" eventType="touchUpInside" id="Jil-Oo-YR0"/>
+                                    <action selector="followerpage:" destination="eKr-DM-cwz" eventType="touchUpInside" id="meB-LH-yoJ"/>
                                     <segue destination="Sf1-Mm-Iw6" kind="show" id="fsn-2D-I5g"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOf-Yo-OOa">
-                                <rect key="frame" x="315" y="164" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAj-lT-unt">
-                                <rect key="frame" x="315" y="202" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MrA-LR-E9I">
                                 <rect key="frame" x="16" y="102" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -77,9 +63,44 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="tapImage:" destination="eKr-DM-cwz" eventType="touchUpInside" id="Jkc-yR-Slx"/>
+                                    <action selector="tapImage:" destination="eKr-DM-cwz" eventType="touchUpInside" id="6fD-b3-EUu"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9j-Bb-nii">
+                                <rect key="frame" x="317" y="207" width="39" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8WK-if-cQs">
+                                <rect key="frame" x="317" y="169" width="29" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="145-l5-yyx">
+                                <rect key="frame" x="0.0" y="257" width="375" height="361"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="K4e-nB-dLB">
+                                    <size key="itemSize" width="104" height="101"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pictureCell" id="4Aw-ht-SbO">
+                                        <rect key="frame" x="0.0" y="0.0" width="104" height="101"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="104" height="101"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -96,16 +117,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="openSIdeber:" destination="eKr-DM-cwz" eventType="touchUpInside" id="Cda-Nf-Xme"/>
+                                    <action selector="openSIdeber:" destination="eKr-DM-cwz" eventType="touchUpInside" id="uBT-Sz-Vd9"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="Followernum" destination="BAj-lT-unt" id="q86-Om-fcG"/>
-                        <outlet property="Follownum" destination="mOf-Yo-OOa" id="Vpl-Xg-Aup"/>
-                        <outlet property="profileimage" destination="MrA-LR-E9I" id="PcB-1M-nJf"/>
+                        <outlet property="collectionView" destination="145-l5-yyx" id="aPi-Ds-3Ha"/>
+                        <outlet property="followenum" destination="U9j-Bb-nii" id="0Pa-m3-TUw"/>
+                        <outlet property="follownum" destination="8WK-if-cQs" id="ogd-dr-lhi"/>
+                        <outlet property="profileImage" destination="MrA-LR-E9I" id="bYw-oz-756"/>
+                        <outlet property="username" destination="d3q-G9-2FA" id="6CK-yZ-G7o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kcd-1z-kSD" userLabel="First Responder" sceneMemberID="firstResponder"/>

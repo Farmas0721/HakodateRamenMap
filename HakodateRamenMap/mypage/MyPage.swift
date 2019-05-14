@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Mypage: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UICollectionViewDataSource, UICollectionViewDelegate {//UICollectionViewDelegateFlowLayout{
+class Mypage: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate {//UICollectionViewDelegateFlowLayout{
    
     @IBOutlet weak var collectionView: UICollectionView!
   //  @IBOutlet weak var picture: UICollectionViewCell!
@@ -25,10 +25,10 @@ class Mypage: UIViewController, UITextFieldDelegate, UIImagePickerControllerDele
     
     var sidebarView = sidebarViewController()
     
-    @IBOutlet var username: UITextField!
-    @IBOutlet var Follownum: UILabel!
-    @IBOutlet var Followernum: UILabel!
-    @IBOutlet var profileImage: UIButton!
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var profileImage: UIButton!
+    @IBOutlet weak var follownum: UILabel!
+    @IBOutlet weak var followenum: UILabel!
     
     @IBAction func tapImage(_ sender: Any) {
         // カメラロールが利用可能か？
@@ -54,7 +54,6 @@ class Mypage: UIViewController, UITextFieldDelegate, UIImagePickerControllerDele
         
     }
     
-    @IBOutlet weak var username: UITextField!
     var rgba = UIColor(red: 210/255, green: 255/255, blue: 255/255, alpha: 1.0) // ボタン背景色設定
 
     @IBAction func openSIdeber(_ sender: Any) {
@@ -70,13 +69,15 @@ class Mypage: UIViewController, UITextFieldDelegate, UIImagePickerControllerDele
         let rgba = UIColor(red: 210/255, green: 255/255, blue: 255/255, alpha: 1.0) // ボタン背景色設定
         self.navigationController?.navigationBar.barTintColor = .orange
         sidebarView.delegate = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
         view.backgroundColor = UIColor.orange
         profileImage.backgroundColor = rgba
         username.backgroundColor = UIColor.clear
         profileImage.setTitleColor(UIColor.cyan, for: UIControl.State.normal)          // Do any additional setup after loading the view.
         
-        self.icon.layer.cornerRadius = 100*0.5
-        self.icon.clipsToBounds = true
+        self.profileImage.layer.cornerRadius = 100*0.5
+        self.profileImage.clipsToBounds = true
     }
     
     func usernameShouldReturn(username: UITextField) -> Bool {
