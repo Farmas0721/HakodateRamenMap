@@ -13,7 +13,7 @@ class Mypage: UIViewController, UITextFieldDelegate, UICollectionViewDataSource,
     @IBOutlet weak var collectionView: UICollectionView!
   //  @IBOutlet weak var picture: UICollectionViewCell!
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return 45
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
