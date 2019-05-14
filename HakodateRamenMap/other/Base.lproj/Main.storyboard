@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G5H-oL-hh4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G5H-oL-hh4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,7 +33,7 @@
         <scene sceneID="nsY-1e-LLg">
             <objects>
                 <viewControllerPlaceholder storyboardName="mypage" id="RPm-Tz-Qn3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="AzI-Y8-Mfn"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="mypageicon" selectedImage="mypageicon" id="AzI-Y8-Mfn"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSi-gW-JCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,4 +59,7 @@
             <point key="canvasLocation" x="-341" y="-118"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mypageicon" width="20" height="20"/>
+    </resources>
 </document>

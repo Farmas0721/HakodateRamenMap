@@ -13,27 +13,11 @@
         <!--Mypage-->
         <scene sceneID="0Pj-dE-qdL">
             <objects>
-                <viewController title="Mypage" id="eKr-DM-cwz" customClass="Mypage" customModule="HakodateRamenMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Mypage" id="eKr-DM-cwz" customClass="MyPage" customModule="HakodateRamenMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S4p-RZ-xHF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MrA-LR-E9I">
-                                <rect key="frame" x="51" y="91" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="no Image">
-                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="50"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="profileimage:" destination="eKr-DM-cwz" eventType="touchUpInside" id="9wB-pH-VN8"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d3q-G9-2FA">
                                 <rect key="frame" x="209" y="126" width="129" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -79,15 +63,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qer-Iu-15r">
-                                <rect key="frame" x="51" y="91" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MrA-LR-E9I">
+                                <rect key="frame" x="16" y="102" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="50"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+<<<<<<< HEAD
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="87s-7K-8tJ">
                                 <rect key="frame" x="0.0" y="303" width="375" height="305"/>
@@ -120,22 +109,54 @@
                                     <outlet property="delegate" destination="eKr-DM-cwz" id="xSu-R6-UNb"/>
                                 </connections>
                             </collectionView>
+=======
+                                <connections>
+                                    <action selector="tapImage:" destination="eKr-DM-cwz" eventType="touchUpInside" id="Jkc-yR-Slx"/>
+                                </connections>
+                            </button>
+>>>>>>> 290cf29f74c8e64fce3f6131a96a72f2178b8c2d
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="hTg-vZ-r3c"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="2K1-Zr-uQA" appends="YES" id="rtz-eP-Ror"/>
+                        </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="hvJ-ry-40z">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Q8T-Xu-5g9">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lJf-Xh-wDb">
+                                <rect key="frame" x="0.0" y="64" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="openSIdeber:" destination="eKr-DM-cwz" eventType="touchUpInside" id="Cda-Nf-Xme"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="Followernum" destination="BAj-lT-unt" id="Cpj-BV-XpQ"/>
+                        <outlet property="Followernum" destination="BAj-lT-unt" id="q86-Om-fcG"/>
                         <outlet property="Follownum" destination="mOf-Yo-OOa" id="Vpl-Xg-Aup"/>
+<<<<<<< HEAD
                         <outlet property="collectionView" destination="87s-7K-8tJ" id="KKO-Z4-M1s"/>
                         <outlet property="icon" destination="qer-Iu-15r" id="SoL-Mz-olc"/>
                         <outlet property="profileimage" destination="MrA-LR-E9I" id="PcB-1M-nJf"/>
                         <outlet property="username" destination="d3q-G9-2FA" id="4XE-sj-w1R"/>
+=======
+                        <outlet property="profileImage" destination="MrA-LR-E9I" id="eMT-lu-nJ9"/>
+                        <outlet property="username" destination="d3q-G9-2FA" id="gq0-yP-UeT"/>
+>>>>>>> 290cf29f74c8e64fce3f6131a96a72f2178b8c2d
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kcd-1z-kSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="2K1-Zr-uQA"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="0.80000000000000004" y="-54.422788605697157"/>
+=======
+            <point key="canvasLocation" x="812" y="35.532233883058474"/>
+>>>>>>> 290cf29f74c8e64fce3f6131a96a72f2178b8c2d
         </scene>
         <!--Followimage-->
         <scene sceneID="DLS-hy-uHD">
@@ -177,16 +198,6 @@
                                     </view>
                                 </subviews>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBj-G0-ien">
-                                <rect key="frame" x="16" y="20" width="72" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="67"/>
-                                <state key="normal" title="&lt;"/>
-                                <connections>
-                                    <action selector="ki:" destination="ylY-bg-9aZ" eventType="touchUpInside" id="Z8d-s4-rFD"/>
-                                    <segue destination="eKr-DM-cwz" kind="show" id="I1D-CZ-KcI"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="フォロー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Okj-8j-QPz">
                                 <rect key="frame" x="150" y="33" width="108" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -200,7 +211,6 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p9U-iO-Hez" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="ylY-bg-9aZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-554.39999999999998" y="1035.832083958021"/>
         </scene>
@@ -218,6 +228,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RL6-aJ-Ni9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="148" y="1036"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XQv-aT-jHV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6W9-Uj-yr0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VbU-AF-Av6">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eKr-DM-cwz" kind="relationship" relationship="rootViewController" id="sc3-Ni-lQO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zat-Jz-ggj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-127.2" y="35.532233883058474"/>
         </scene>
     </scenes>
     <resources>
