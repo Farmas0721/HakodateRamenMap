@@ -9,18 +9,26 @@
 import UIKit
 import MapKit
 import CoreLocation
-class Map: UIViewController ,MKMapViewDelegate,CLLocationManagerDelegate{
+import Foundation
+class Map: UIViewController ,MKMapViewDelegate,CLLocationManagerDelegate,UIGestureRecognizerDelegate{
     var locationManager = CLLocationManager()
     let titlelist: [String] = ["ラーメン炙","らぁめん工房かりんとう"]
     let regionlist: [String] = ["北海道函館市美原5丁目39-1","北海道函館市花園町24-21"]
+    struct information: Codable{
+        let id: Int
+        let storeid: Int
+        let address: String
+        let code: Int
+        let url: URL
+    }
+
+    @IBOutlet var name: UILabel!
     @IBOutlet weak var ramenmap: MKMapView!
-    
     @IBOutlet weak var tracking: UIButton!
-    var modecount = 0
-    
     let image1 = UIImage(named: "trackingnone")!
     let image2 = UIImage(named: "tracking")!
     let image3 = UIImage(named: "trackingheading")!
+       var modecount = 0
     //マップ上にあらかじめピンを立てる
     func addAno(_ latitude:CLLocationDegrees,_ longitude: CLLocationDegrees,_ title:String,_ subtitle:String){
        
@@ -49,8 +57,10 @@ class Map: UIViewController ,MKMapViewDelegate,CLLocationManagerDelegate{
             pinview.annotation = annotation
             pinview.canShowCallout = true  // タップで吹き出しを表示
         pinview.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.infoLight)
+        
         return pinview
         }
+        
 
     }
     func locationManager(_ manager: CLLocationManager,didChangeAuthorization status: CLAuthorizationStatus){
@@ -80,20 +90,33 @@ class Map: UIViewController ,MKMapViewDelegate,CLLocationManagerDelegate{
         }else if(modecount%3==2){
              ramenmap.userTrackingMode = MKUserTrackingMode.followWithHeading
             tracking.setImage(image3, for: .normal)
-    }else{}
+        }else{}
     }
-
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        do {
+            let data = try Data(contentsOf: url, options: [])
+            let rss = try decoder.decode(information.self, from: data)
+            print(rss)
+        } catch {
+            print("error:")
+        }
+        print("hello")
+      
         addAno(41.8268,140.7518,titlelist[0] ,regionlist[0])
         addAno(41.7913,140.7794,titlelist[1],regionlist[1])
         self.navigationController?.navigationBar.barTintColor = .orange
         self.navigationController?.navigationBar.tintColor = .white
+        self.navigationItem.title = "マップ"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
 
         let ano = MKPointAnnotation()
         let center = CLLocationCoordinate2D(latitude: 41.7687933, longitude:140.7288103)
         let span : MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
         let region : MKCoordinateRegion = MKCoordinateRegion(center: center, span: span)
+    
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         ramenmap.showsScale = true
