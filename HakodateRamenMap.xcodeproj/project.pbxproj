@@ -20,7 +20,10 @@
 		410E9C9F221B37D700F77FAD /* HakodateRamenMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E9C9E221B37D700F77FAD /* HakodateRamenMapTests.swift */; };
 		410E9CAA221B37D700F77FAD /* HakodateRamenMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410E9CA9221B37D700F77FAD /* HakodateRamenMapUITests.swift */; };
 		410E9CB8221B3D4600F77FAD /* map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 410E9CB7221B3D4600F77FAD /* map.storyboard */; };
+		414040C322A65783001F6898 /* FollowPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414040C222A65783001F6898 /* FollowPageViewController.swift */; };
 		416880112268223D00A4D321 /* sidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416880102268223D00A4D321 /* sidebarViewController.swift */; };
+		41B8699E22A68FCB009153C1 /* FollowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41B8699D22A68FCA009153C1 /* FollowTableViewCell.xib */; };
+		41B869A022A6A0F7009153C1 /* FollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B8699F22A6A0F7009153C1 /* FollowTableViewCell.swift */; };
 		41E868D0222CE62000DF3001 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41E868CF222CE62000DF3001 /* GoogleService-Info.plist */; };
 		41E868D2222CE76000DF3001 /* inputForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E868D1222CE76000DF3001 /* inputForm.swift */; };
 		41E868D4222CE76800DF3001 /* loginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E868D3222CE76800DF3001 /* loginButton.swift */; };
@@ -79,7 +82,10 @@
 		410E9CA9221B37D700F77FAD /* HakodateRamenMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HakodateRamenMapUITests.swift; sourceTree = "<group>"; };
 		410E9CAB221B37D700F77FAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		410E9CB7221B3D4600F77FAD /* map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = map.storyboard; sourceTree = "<group>"; };
+		414040C222A65783001F6898 /* FollowPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowPageViewController.swift; sourceTree = "<group>"; };
 		416880102268223D00A4D321 /* sidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sidebarViewController.swift; sourceTree = "<group>"; };
+		41B8699D22A68FCA009153C1 /* FollowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowTableViewCell.xib; sourceTree = "<group>"; };
+		41B8699F22A6A0F7009153C1 /* FollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowTableViewCell.swift; sourceTree = "<group>"; };
 		41E868CF222CE62000DF3001 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41E868D1222CE76000DF3001 /* inputForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = inputForm.swift; sourceTree = "<group>"; };
 		41E868D3222CE76800DF3001 /* loginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginButton.swift; sourceTree = "<group>"; };
@@ -252,6 +258,9 @@
 			children = (
 				E856B31B22299145007BDF1E /* mypage.storyboard */,
 				E856B31922299134007BDF1E /* MyPage.swift */,
+				414040C222A65783001F6898 /* FollowPageViewController.swift */,
+				41B8699D22A68FCA009153C1 /* FollowTableViewCell.xib */,
+				41B8699F22A6A0F7009153C1 /* FollowTableViewCell.swift */,
 			);
 			path = mypage;
 			sourceTree = "<group>";
@@ -389,6 +398,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41B8699E22A68FCB009153C1 /* FollowTableViewCell.xib in Resources */,
 				410E9C94221B37D600F77FAD /* LaunchScreen.storyboard in Resources */,
 				41E868D0222CE62000DF3001 /* GoogleService-Info.plist in Resources */,
 				E856B31C22299145007BDF1E /* mypage.storyboard in Resources */,
@@ -526,11 +536,13 @@
 				DB0FEFCD2271C011001A5BC2 /* ReregisterViewController.swift in Sources */,
 				37E7065B224CA6FF00E1F827 /* tlController.swift in Sources */,
 				37E7065D224CA73D00E1F827 /* ListTableViewCell.swift in Sources */,
+				414040C322A65783001F6898 /* FollowPageViewController.swift in Sources */,
 				41E868D2222CE76000DF3001 /* inputForm.swift in Sources */,
 				41E868D6222CE77100DF3001 /* NewAccountViewController.swift in Sources */,
 				37E70659224CA6C500E1F827 /* ListTable.swift in Sources */,
 				374DBAAA227DCC380078D3A6 /* Detail.swift in Sources */,
 				416880112268223D00A4D321 /* sidebarViewController.swift in Sources */,
+				41B869A022A6A0F7009153C1 /* FollowTableViewCell.swift in Sources */,
 				E856B31A22299134007BDF1E /* MyPage.swift in Sources */,
 				410E9C8A221B37D200F77FAD /* AppDelegate.swift in Sources */,
 			);
@@ -710,13 +722,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 65Z68H8WQ6;
+				DEVELOPMENT_TEAM = CXL7F9J64Z;
 				INFOPLIST_FILE = HakodateRamenMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = asahi.HakodateRamenMa;
+				PRODUCT_BUNDLE_IDENTIFIER = asahi.HakodateRamenMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HakodateRamenMap/ObjectiveC/HakodateRamenMap-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -732,13 +744,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 65Z68H8WQ6;
+				DEVELOPMENT_TEAM = CXL7F9J64Z;
 				INFOPLIST_FILE = HakodateRamenMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = asahi.HakodateRamenMa;
+				PRODUCT_BUNDLE_IDENTIFIER = asahi.HakodateRamenMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HakodateRamenMap/ObjectiveC/HakodateRamenMap-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
