@@ -8,9 +8,9 @@
 
 import UIKit
 
-class FollowPageViewController: UIViewController {
-
-    @IBOutlet var tableView: UITableView!
+class FollowBaseViewController: UIViewController {
+    
+    var tableView: UITableView = UITableView(frame: .zero, style: .plain)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +18,8 @@ class FollowPageViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.register(UINib(nibName: "FollowTableViewCell", bundle: nil), forCellReuseIdentifier: "FollowTableViewCell")
+        tableView.frame = self.view.bounds
+        view.addSubview(tableView)
         self.tableView.rowHeight = 45
         
 
@@ -25,7 +27,7 @@ class FollowPageViewController: UIViewController {
     
 }
 
-extension FollowPageViewController: UITableViewDelegate, UITableViewDataSource {
+extension FollowBaseViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }

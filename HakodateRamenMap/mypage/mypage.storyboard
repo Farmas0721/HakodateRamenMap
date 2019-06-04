@@ -139,54 +139,26 @@
         <!--Followimage-->
         <scene sceneID="DLS-hy-uHD">
             <objects>
-                <viewController title="Followimage" id="nD4-Ot-0gV" customClass="FollowPageViewController" customModule="HakodateRamenMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Followimage" id="nD4-Ot-0gV" customClass="FollowViewController" customModule="HakodateRamenMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fSh-Kg-WjN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vh8-i0-8EB">
-                                <rect key="frame" x="0.0" y="7.5" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="vh8-i0-8EB" firstAttribute="height" secondItem="fSh-Kg-WjN" secondAttribute="height" id="M8A-7r-MxJ"/>
-                            <constraint firstItem="vh8-i0-8EB" firstAttribute="centerX" secondItem="q9v-v5-EJq" secondAttribute="centerX" id="iGb-dq-gdA"/>
-                            <constraint firstItem="vh8-i0-8EB" firstAttribute="width" secondItem="fSh-Kg-WjN" secondAttribute="width" id="wg3-wT-v4a"/>
-                            <constraint firstItem="vh8-i0-8EB" firstAttribute="centerY" secondItem="q9v-v5-EJq" secondAttribute="centerY" id="zWr-Au-0e1"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="q9v-v5-EJq"/>
                     </view>
-                    <connections>
-                        <outlet property="tableView" destination="vh8-i0-8EB" id="IHr-Mu-R4p"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p9U-iO-Hez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-514" y="796"/>
         </scene>
-        <!--Follow Page View Controller-->
+        <!--Follower View Controller-->
         <scene sceneID="aLM-pc-WTU">
             <objects>
-                <viewController id="Sf1-Mm-Iw6" customClass="FollowPageViewController" customModule="HakodateRamenMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Sf1-Mm-Iw6" customClass="FollowerViewController" customModule="HakodateRamenMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J5O-1z-sIH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QQ1-zo-3jc">
-                                <rect key="frame" x="0.0" y="7.5" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="QQ1-zo-3jc" firstAttribute="width" secondItem="J5O-1z-sIH" secondAttribute="width" id="UYr-wr-eFC"/>
-                            <constraint firstItem="QQ1-zo-3jc" firstAttribute="height" secondItem="J5O-1z-sIH" secondAttribute="height" id="ac3-vY-SNl"/>
-                            <constraint firstItem="QQ1-zo-3jc" firstAttribute="leading" secondItem="MaS-jv-j3I" secondAttribute="leading" id="iR6-SJ-GnD"/>
-                            <constraint firstItem="QQ1-zo-3jc" firstAttribute="centerY" secondItem="MaS-jv-j3I" secondAttribute="centerY" id="nsC-GA-xtG"/>
-                            <constraint firstItem="QQ1-zo-3jc" firstAttribute="centerX" secondItem="MaS-jv-j3I" secondAttribute="centerX" id="oBL-V2-DrS"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MaS-jv-j3I"/>
                     </view>
                 </viewController>
