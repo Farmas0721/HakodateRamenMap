@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FollowTableViewCell" rowHeight="94" id="q1S-OE-RFd" customClass="FollowTableViewCell" customModule="HakodateRamenMap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="516" height="94"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q1S-OE-RFd" id="lcQ-B6-2kd">
+                <rect key="frame" x="0.0" y="0.0" width="516" height="93.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcD-BJ-0Cm">
+                        <rect key="frame" x="94" y="0.0" width="219" height="93.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Goy-ey-nw9">
+                        <rect key="frame" x="321" y="0.0" width="187" height="93.5"/>
+                        <state key="normal" title="フォロー解除"/>
+                    </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l53-hi-0L2">
+                        <rect key="frame" x="3" y="9.5" width="75" height="74.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="l53-hi-0L2" firstAttribute="width" secondItem="lcQ-B6-2kd" secondAttribute="height" multiplier="0.8" id="7EN-tD-cVP"/>
+                    <constraint firstItem="Goy-ey-nw9" firstAttribute="height" secondItem="lcQ-B6-2kd" secondAttribute="height" id="CO0-jy-6Kw"/>
+                    <constraint firstItem="Goy-ey-nw9" firstAttribute="centerY" secondItem="lcQ-B6-2kd" secondAttribute="centerY" id="Wud-Md-a5u"/>
+                    <constraint firstItem="l53-hi-0L2" firstAttribute="height" secondItem="lcQ-B6-2kd" secondAttribute="height" multiplier="0.8" id="bSc-1k-5ls"/>
+                    <constraint firstItem="KcD-BJ-0Cm" firstAttribute="centerY" secondItem="lcQ-B6-2kd" secondAttribute="centerY" id="dmK-ga-P48"/>
+                    <constraint firstItem="KcD-BJ-0Cm" firstAttribute="height" secondItem="lcQ-B6-2kd" secondAttribute="height" id="f1f-v2-nGR"/>
+                    <constraint firstItem="Goy-ey-nw9" firstAttribute="width" secondItem="lcQ-B6-2kd" secondAttribute="height" multiplier="2" id="fmz-y0-KQg"/>
+                    <constraint firstItem="KcD-BJ-0Cm" firstAttribute="leading" secondItem="l53-hi-0L2" secondAttribute="trailing" constant="16" id="nCc-3n-0OV"/>
+                    <constraint firstItem="Goy-ey-nw9" firstAttribute="leading" secondItem="KcD-BJ-0Cm" secondAttribute="trailing" constant="8" id="nGh-gZ-CdT"/>
+                    <constraint firstAttribute="trailing" secondItem="Goy-ey-nw9" secondAttribute="trailing" constant="8" id="nRi-bJ-0hv"/>
+                    <constraint firstItem="l53-hi-0L2" firstAttribute="leading" secondItem="lcQ-B6-2kd" secondAttribute="leading" constant="3" id="r6y-eA-drM"/>
+                    <constraint firstItem="l53-hi-0L2" firstAttribute="centerY" secondItem="lcQ-B6-2kd" secondAttribute="centerY" id="tDc-Ef-d4q"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="followButton" destination="Goy-ey-nw9" id="a3O-Jp-Eu5"/>
+                <outlet property="iconImage" destination="l53-hi-0L2" id="WfK-A6-LHn"/>
+                <outlet property="nameLabel" destination="KcD-BJ-0Cm" id="wJd-j6-i1x"/>
+            </connections>
+            <point key="canvasLocation" x="-124.6376811594203" y="-1075.4464285714284"/>
+        </tableViewCell>
+    </objects>
+</document>
