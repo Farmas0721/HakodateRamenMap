@@ -46,6 +46,7 @@ class Mypage: UIViewController, UITextFieldDelegate, UICollectionViewDataSource,
 
     }
     
+    @IBOutlet weak var change: UIButton!
     @IBAction func followpage(_ sender: Any) {
         
     }
@@ -66,7 +67,8 @@ class Mypage: UIViewController, UITextFieldDelegate, UICollectionViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rgba = UIColor(red: 210/255, green: 255/255, blue: 255/255, alpha: 1.0) // ボタン背景色設定
+        self.change.layer.borderColor = UIColor.blue.cgColor
+            let rgba = UIColor(red: 210/255, green: 255/255, blue: 255/255, alpha: 1.0) // ボタン背景色設定
         self.navigationController?.navigationBar.barTintColor = .orange
         sidebarView.delegate = self
         collectionView.delegate = self
