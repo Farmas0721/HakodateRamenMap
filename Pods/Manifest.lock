@@ -71,6 +71,7 @@ PODS:
   - GoogleUtilities/UserDefaults (5.5.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.1)
+  - Kanna (5.0.0)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -87,6 +88,7 @@ DEPENDENCIES:
   - Firebase/Database
   - FirebaseStorage
   - FirebaseUI/Storage
+  - Kanna
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -102,6 +104,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - GTMSessionFetcher
+    - Kanna
     - leveldb-library
     - nanopb
     - SDWebImage
@@ -119,10 +122,11 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 1624046ab1bcc5e170061a56ef5679000b079c8e
   GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  Kanna: a32875df62975f8f4b871e933b4ea1a5c3b8be0f
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
 
-PODFILE CHECKSUM: 973028c86ac5afd670d8cce1401054fac9b646c9
+PODFILE CHECKSUM: c322d14b898c042e58f7230f6f1fb2be648d259c
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.1

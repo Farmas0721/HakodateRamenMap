@@ -4,13 +4,13 @@
 target 'HakodateRamenMap' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-
   # Pods for HakodateRamenMap
   pod 'Firebase/Database'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'FirebaseStorage'
   pod 'FirebaseUI/Storage'
+  pod 'Kanna'
   target 'HakodateRamenMapTests' do
     inherit! :search_paths
     # Pods for testing
