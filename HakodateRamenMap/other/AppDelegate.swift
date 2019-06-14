@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let ramen = AuthRamenServer()
         ramen.login(email: "test@test.com", password: "123456")
+        ramen.getStoreDetail()
         
     }
 
