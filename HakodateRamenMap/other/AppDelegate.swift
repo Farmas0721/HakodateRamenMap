@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     override init() {//tracking対処
         super.init()
         FirebaseApp.configure()
+        let root = "https://ramen-map-server.herokuapp.com/login"
+        
+        //AuthRamenServer().get(url: root)
+        let ramen = AuthRamenServer()
+        ramen.login(email: "test@test.com", password: "123456")
+        ramen.getStoreDetail()
+        
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
