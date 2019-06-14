@@ -11,7 +11,7 @@ import Kanna
 
 class AuthRamenServer{
     //static variable
-    static private var isLogin = false
+    static var isLogin: Bool = false
     
     //
     private let root = "https://ramen-map-server.herokuapp.com"
@@ -56,8 +56,7 @@ class AuthRamenServer{
     }
     
     func login(email: String, password: String){
-        //let url = "https://ramen-map-server.herokuapp.com/login"
-        let url = "http://localhost:3000/login"
+        let url = "https://ramen-map-server.herokuapp.com/login"
         var token: String?
         
         get(url: url, completion: { data, response, error in
@@ -76,10 +75,11 @@ class AuthRamenServer{
                 print("error")
             }
         })
+        AuthRamenServer.isLogin = true
     }
     
     func getRamenStore(id :Int? = nil) -> Array<RamenStoreModel>{
-        let ramenStoreUrl = "http://localhost:3000/ramen_stores.json"
+        let ramenStoreUrl = "https://ramen-map-server.herokuapp.com/ramen_stores.json"
         let cookie = getCookie(name: self.cookieKey, url: URL(string: self.root)!)
         var ramenStoreModels = Array<RamenStoreModel>()
         get(url: ramenStoreUrl, cookie: cookie, completion: { data, response, error in
@@ -99,7 +99,7 @@ class AuthRamenServer{
     }
     
     func getStoreDetail(id :Int? = nil) -> Array<StoreDetailModel>{
-        let ramenStoreUrl = "http://localhost:3000/store_details.json"
+        let ramenStoreUrl = "https://ramen-map-server.herokuapp.com/store_details.json"
         let cookie = getCookie(name: self.cookieKey, url: URL(string: self.root)!)
         var storeDetailModels = Array<StoreDetailModel>()
         get(url: ramenStoreUrl, cookie: cookie, completion: { data, response, error in
@@ -119,7 +119,7 @@ class AuthRamenServer{
     }
     
     func getRamen(id :Int? = nil) -> Array<RamenModel>{
-        let ramenStoreUrl = "http://localhost:3000/ramen.json"
+        let ramenStoreUrl = "https://ramen-map-server.herokuapp.com/ramen.json"
         let cookie = getCookie(name: self.cookieKey, url: URL(string: self.root)!)
         var ramenModels = Array<RamenModel>()
         get(url: ramenStoreUrl, cookie: cookie, completion: { data, response, error in
