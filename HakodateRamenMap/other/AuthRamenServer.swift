@@ -63,7 +63,7 @@ class AuthRamenServer{
             token = self.createKannaObj(data: data)
             })
         
-        let jsonurl = "http://localhost:3000/login.json"
+        let jsonurl = "https://ramen-map-server.herokuapp.com/login.json"
         let json = toSessionJSON(email: email, password: password, token: token!)!
         let cookies = getCookie(name: cookieKey, url: URL(string: url)!)
         
