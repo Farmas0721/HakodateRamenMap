@@ -21,7 +21,7 @@ class RamenStoreModel: NSObject {
         self.id = item["id"] as? Int
         self.store_name = item["store_name"] as? String
         self.latitude = item["latitude"] as? Float
-        self.longitude = item["logitude"] as? Float
+        self.longitude = item["longitude"] as? Float
         self.url = item["url"] as? String
     }
     
