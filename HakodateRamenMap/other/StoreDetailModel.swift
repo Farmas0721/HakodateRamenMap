@@ -21,7 +21,7 @@ class StoreDetailModel: NSObject {
     
     init(item: Dictionary<String, Any>) {
         self.id = item["id"] as? Int
-        self.business_hours = item["business_hours"] as? Float
+        self.business_hours = item["business_hours"].map{ ( Float($0 as! String )) } ?? 0.0
         self.address = item["address"] as? Float
         self.url = item["url"] as? String
         self.regular_holiday = item["regular_holiday"] as? String
