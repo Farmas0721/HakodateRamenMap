@@ -55,23 +55,16 @@
             </objects>
             <point key="canvasLocation" x="746.39999999999998" y="-104.7976011994003"/>
         </scene>
-        <!--Store Detail View Controller-->
+        <!--StoreDetailView-->
         <scene sceneID="N8t-dj-fJx">
             <objects>
-                <viewController storyboardIdentifier="DetailData" id="7cn-Z4-rRJ" customClass="storeDetailViewController" customModule="HakodateRamenMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailData" id="7cn-Z4-rRJ" userLabel="StoreDetailView" customClass="StoreDetailView" customModule="HakodateRamenMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XYG-nY-h7B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ラーメン詳細" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6u-EG-TxY">
-                                <rect key="frame" x="128" y="38" width="119" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="かりんとうスペシャル:1000円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgo-UD-Ttq">
-                                <rect key="frame" x="81" y="129" width="234" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Storename" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6f-ZO-5fQ" userLabel="Storename">
+                                <rect key="frame" x="35" y="31" width="305" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -81,10 +74,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="aQd-HJ-987"/>
                     </view>
+                    <connections>
+                        <outlet property="Storename" destination="U6f-ZO-5fQ" id="7IH-eJ-v4V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zmb-wi-hIl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1681" y="-105"/>
+            <point key="canvasLocation" x="1680.8" y="-105.69715142428787"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pkK-cq-PjZ">

@@ -17,19 +17,19 @@ class Map: UIViewController ,MKMapViewDelegate,CLLocationManagerDelegate{
     
     @IBOutlet weak var tracking: UIButton!
     var modecount = 0
-    
+    let Ramenserver = AuthRamenServer()
     let image1 = UIImage(named: "trackingnone")!
     let image2 = UIImage(named: "tracking")!
     let image3 = UIImage(named: "trackingheading")!
     //マップ上にあらかじめピンを立てる
-    func addAno(_ latitude:CLLocationDegrees,_ longitude: CLLocationDegrees,_ title:String,_ subtitle:String){
+    func addAno(_ latitude:CLLocationDegrees,_ longitude: CLLocationDegrees,_ title:String,_ address:String){
        
          let ano = MKPointAnnotation()
         // 緯度経度を指定
         ano.coordinate = CLLocationCoordinate2DMake(latitude,longitude)
         // タイトル、サブタイトルを設定
         ano.title = title
-        ano.subtitle = subtitle
+        ano.subtitle = address
         // mapViewに追加
         self.ramenmap.addAnnotation(ano)
         ramenmap.delegate = self
@@ -85,8 +85,23 @@ class Map: UIViewController ,MKMapViewDelegate,CLLocationManagerDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addAno(41.8268,140.7518,titlelist[0] ,regionlist[0])
-        addAno(41.7913,140.7794,titlelist[1],regionlist[1])
+        let StoreDetailModel = Ramenserver.getStoreDetail()
+       let RamenstoreModel = Ramenserver.getRamenStore()
+       
+        for StoreDetailModel in StoreDetailModel{
+            let address:String =  StoreDetailModel.address ?? ""
+           for RamenstoreModel in RamenstoreModel{
+            let store = RamenstoreModel.store_name ?? ""
+                let lati = Double(RamenstoreModel.latitude!)
+                let long = Double(RamenstoreModel.longitude!)
+            
+                addAno(lati,long,store,address)
+                print(address)
+                print(lati)
+            print(long)
+            }
+        }
+       
         self.navigationController?.navigationBar.barTintColor = .orange
         self.navigationController?.navigationBar.tintColor = .white
 

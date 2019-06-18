@@ -36,6 +36,7 @@
 		41E868D6222CE77100DF3001 /* NewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E868D5222CE77100DF3001 /* NewAccountViewController.swift */; };
 		41E868E3222D549A00DF3001 /* UIViewController+Alerts.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E868E2222D549A00DF3001 /* UIViewController+Alerts.m */; };
 		4D33BC303596062AFAF38B6A /* Pods_HakodateRamenMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89EB8B485AB1B39BF7F42D2 /* Pods_HakodateRamenMapUITests.framework */; };
+		4FCC85A522B70C7A00CFD158 /* StoreDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC85A422B70C7A00CFD158 /* StoreDetailView.swift */; };
 		DB0FEFCD2271C011001A5BC2 /* ReregisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0FEFCC2271C011001A5BC2 /* ReregisterViewController.swift */; };
 		E5ED153FFB58EA4FD2FBDEF6 /* Pods_HakodateRamenMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DD408AB3F49E2E179AB8D3 /* Pods_HakodateRamenMapTests.framework */; };
 		E856B3182229910E007BDF1E /* timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E856B3172229910E007BDF1E /* timeline.storyboard */; };
@@ -109,6 +110,7 @@
 		41E868E2222D549A00DF3001 /* UIViewController+Alerts.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Alerts.m"; sourceTree = "<group>"; };
 		41E868E4222D54A700DF3001 /* UIViewController+Alerts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Alerts.h"; sourceTree = "<group>"; };
 		470C303285A879AA3977DFE5 /* Pods-HakodateRamenMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapTests.debug.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapTests/Pods-HakodateRamenMapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4FCC85A422B70C7A00CFD158 /* StoreDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailView.swift; sourceTree = "<group>"; };
 		68FF3D8FE3BC141DF59C85DA /* Pods-HakodateRamenMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapTests.release.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapTests/Pods-HakodateRamenMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		B89EB8B485AB1B39BF7F42D2 /* Pods_HakodateRamenMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HakodateRamenMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC565CDF15C1CFC021ED509F /* Pods-HakodateRamenMapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakodateRamenMapUITests.release.xcconfig"; path = "Target Support Files/Pods-HakodateRamenMapUITests/Pods-HakodateRamenMapUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				E856B320222992C3007BDF1E /* Map.swift */,
+				4FCC85A422B70C7A00CFD158 /* StoreDetailView.swift */,
 				410E9CB7221B3D4600F77FAD /* map.storyboard */,
 			);
 			path = map;
@@ -549,6 +552,7 @@
 				41E868D2222CE76000DF3001 /* inputForm.swift in Sources */,
 				41B869A222A6B176009153C1 /* FollowerViewController.swift in Sources */,
 				41E868D6222CE77100DF3001 /* NewAccountViewController.swift in Sources */,
+				4FCC85A522B70C7A00CFD158 /* StoreDetailView.swift in Sources */,
 				37E70659224CA6C500E1F827 /* ListTable.swift in Sources */,
 				178B7D3222B3D0F10030AE58 /* StoreDetailModel.swift in Sources */,
 				374DBAAA227DCC380078D3A6 /* Detail.swift in Sources */,
