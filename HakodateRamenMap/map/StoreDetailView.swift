@@ -12,10 +12,15 @@ import UIKit
 class StoreDetailView: UIViewController{
    
     
-    
-    
-    
     override func viewDidLoad() {
         
     }
+}
+
+struct ramenStoreModel {
+    var id:Int
+    var store_name:Int
+    var longitude:Int
+    var latitude:Int
+    var url:String
 }
