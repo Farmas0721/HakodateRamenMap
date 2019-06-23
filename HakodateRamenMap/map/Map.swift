@@ -25,6 +25,30 @@ class Map:UIViewController,MKMapViewDelegate,CLLocationManagerDelegate{
     let image2 = UIImage(named: "tracking")!
     let image3 = UIImage(named: "trackingheading")!
     
+    override func viewDidLoad(){
+        
+        super.viewDidLoad()
+        let ramenStoreModels = AuthRamenServer().getRamenStore()
+        for ramenStoreModel in ramenStoreModels {
+            print("これはラーメンのid\(ramenStoreModel.id!)")
+            print(ramenStoreModel.store_name!)
+        }
+        
+        self.navigationController?.navigationBar.barTintColor = .orange
+        self.navigationController?.navigationBar.tintColor = .white
+        
+        let ano = MKPointAnnotation()
+        let center = CLLocationCoordinate2D(latitude: 41.7687933, longitude:140.7288103)
+        let span : MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+        let region : MKCoordinateRegion = MKCoordinateRegion(center: center, span: span)
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        ramenmap.showsScale = true
+        ramenmap.addAnnotation(ano)
+        ramenmap.setRegion(region, animated: true)
+        ramenmap.delegate = self
+    }
+    
     
     //マップ上にあらかじめピンを立てる
     func addAno(_ latitude:CLLocationDegrees,_ longitude: CLLocationDegrees,_ title:String,_ address:String){
@@ -91,15 +115,7 @@ class Map:UIViewController,MKMapViewDelegate,CLLocationManagerDelegate{
             ramenmap.userTrackingMode = MKUserTrackingMode.followWithHeading
             tracking.setImage(image3, for: .normal)
         }
-        
-        func viewDidLoad() {
-            
-            super.viewDidLoad()
-            let ramenStoreModels = AuthRamenServer().getRamenStore()
-            for ramenStoreModel in ramenStoreModels {
-                print("これはラーメンのid\(ramenStoreModel.id!)")
-                print(ramenStoreModel.store_name!)
-            }
+    }
             
    /*         let StoreDetailModel = Ramenserver.getStoreDetail()
             let RamenstoreModel = Ramenserver.getRamenStore()
@@ -118,23 +134,8 @@ class Map:UIViewController,MKMapViewDelegate,CLLocationManagerDelegate{
                     print(long)
                 }
  */
-            }
             
-            self.navigationController?.navigationBar.barTintColor = .orange
-            self.navigationController?.navigationBar.tintColor = .white
-            
-            let ano = MKPointAnnotation()
-            let center = CLLocationCoordinate2D(latitude: 41.7687933, longitude:140.7288103)
-            let span : MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
-            let region : MKCoordinateRegion = MKCoordinateRegion(center: center, span: span)
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.delegate = self
-            ramenmap.showsScale = true
-            ramenmap.addAnnotation(ano)
-            ramenmap.setRegion(region, animated: true)
-            ramenmap.delegate = self
-        }
-        
+
     override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
         }
@@ -145,8 +146,6 @@ class Map:UIViewController,MKMapViewDelegate,CLLocationManagerDelegate{
             //viewにつけた名前を指定
             let vc = storyboard.instantiateViewController(withIdentifier: "DetailData")
             self.navigationController?.pushViewController(vc, animated: true)
-            
-            print(control)
             
         }
     }

@@ -72,7 +72,7 @@ class AuthRamenServer{
                 _ = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
             } catch {
                 //NSCocoaErrorDomain
-                print("error")
+                print("loginでerror")
             }
         })
         AuthRamenServer.isLogin = true
@@ -91,7 +91,7 @@ class AuthRamenServer{
                     ramenStoreModels.append(RamenStoreModel(item: item))
                 }
             } catch {
-                print(error)
+                print("getramenstoreでeroor\(error)")
             }
         })
         
