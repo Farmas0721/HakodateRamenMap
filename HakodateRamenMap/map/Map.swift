@@ -17,13 +17,14 @@ class Map:UIViewController,MKMapViewDelegate,CLLocationManagerDelegate{
     let regionlist: [String] = ["北海道函館市美原5丁目39-1","北海道函館市花園町24-21"]
     
     @IBOutlet weak var ramenmap: MKMapView!
-    @IBOutlet weak var tracking: UIButton!
     
     var modecount = 0
     let Ramenserver = AuthRamenServer()
-    let image1 = UIImage(named: "trackingnone")!
+    
+   /* let image1 = UIImage(named: "trackingnone")!
     let image2 = UIImage(named: "tracking")!
     let image3 = UIImage(named: "trackingheading")!
+   */
     
     override func viewDidLoad(){
         
@@ -84,7 +85,7 @@ class Map:UIViewController,MKMapViewDelegate,CLLocationManagerDelegate{
         
     }
     
-    
+    /*
     func locationManager(_ manager: CLLocationManager,didChangeAuthorization status: CLAuthorizationStatus){
         
         switch status {
@@ -103,6 +104,7 @@ class Map:UIViewController,MKMapViewDelegate,CLLocationManagerDelegate{
         }
     }
     
+
     @IBAction func Taptracking(_ sender: UIButton) {
         modecount+=1
         if(modecount%3==0){
@@ -116,39 +118,20 @@ class Map:UIViewController,MKMapViewDelegate,CLLocationManagerDelegate{
             tracking.setImage(image3, for: .normal)
         }
     }
-            
-   /*         let StoreDetailModel = Ramenserver.getStoreDetail()
-            let RamenstoreModel = Ramenserver.getRamenStore()
-            
-            for StoreDetailModel in StoreDetailModel{
-                let address:String =  StoreDetailModel.address ?? ""
-                
-                for RamenstoreModel in RamenstoreModel{
-                    let store = RamenstoreModel.store_name ?? ""
-                    let lati = Double(RamenstoreModel.latitude!)
-                    let long = Double(RamenstoreModel.longitude!)
-                    
-                    addAno(lati,long,store,address)
-                    print(address)
-                    print(lati)
-                    print(long)
-                }
  */
-            
-
     override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
-        }
-        
-        //吹き出しアクササリー押下時の呼び出しメソッド
-        func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-            let storyboard = UIStoryboard(name: "map", bundle: nil)
-            //viewにつけた名前を指定
-            let vc = storyboard.instantiateViewController(withIdentifier: "DetailData")
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-        }
+        super.didReceiveMemoryWarning()
     }
     
+    //吹き出しアクササリー押下時の呼び出しメソッド
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let storyboard = UIStoryboard(name: "map", bundle: nil)
+        //viewにつけた名前を指定
+        let vc = storyboard.instantiateViewController(withIdentifier: "DetailData")
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+}
+
 
 
