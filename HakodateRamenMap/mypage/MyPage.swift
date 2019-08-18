@@ -18,17 +18,25 @@ class Mypage: UIViewController, UITextFieldDelegate, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pictureCell", for: indexPath)
-        cell.backgroundColor = .red  // セルの色
+        cell.backgroundColor = .white  // セルの色
         return cell
         
     }
     
     var sidebarView = sidebarViewController()
     
-    @IBOutlet weak var username: UITextField!
+
+    @IBOutlet weak var username: UILabel!
     @IBOutlet weak var profileImage: UIButton!
+    @IBOutlet weak var FollowButton: UIButton!
+    @IBOutlet weak var FollowerButton: UIButton!
     @IBOutlet weak var follownum: UILabel!
     @IBOutlet weak var followenum: UILabel!
+    @IBOutlet weak var RamenNum: UILabel!
+    @IBOutlet weak var RamenNumberButton: UIButton!
+    @IBOutlet weak var MessageButton: UIButton!
+    @IBOutlet weak var MessageEditButton: UIButton!
+    
     
     @IBAction func tapImage(_ sender: Any) {
         // カメラロールが利用可能か？
@@ -76,8 +84,27 @@ class Mypage: UIViewController, UITextFieldDelegate, UICollectionViewDataSource,
         username.backgroundColor = UIColor.clear
         profileImage.setTitleColor(UIColor.cyan, for: UIControl.State.normal)          // Do any additional setup after loading the view.
         
-        self.profileImage.layer.cornerRadius = 100*0.5
+        self.profileImage.layer.cornerRadius = 35
         self.profileImage.clipsToBounds = true
+        FollowButton.layer.borderWidth = 3
+        FollowButton.layer.borderColor = UIColor.white.cgColor
+        FollowButton.layer.cornerRadius = 35
+        
+        FollowerButton.layer.borderWidth = 3
+        FollowerButton.layer.borderColor = UIColor.white.cgColor
+        FollowerButton.layer.cornerRadius = 35
+
+        RamenNumberButton.layer.borderWidth = 3
+        RamenNumberButton.layer.borderColor = UIColor.white.cgColor
+        RamenNumberButton.layer.cornerRadius = 35
+        
+        MessageButton.layer.borderWidth = 3
+        MessageButton.layer.borderColor = UIColor.white.cgColor
+        MessageButton.layer.cornerRadius = 5
+        
+        MessageEditButton.layer.borderWidth = 3
+        MessageEditButton.layer.borderColor = UIColor.white.cgColor
+        MessageEditButton.layer.cornerRadius = 5
     }
     
     func usernameShouldReturn(username: UITextField) -> Bool {
