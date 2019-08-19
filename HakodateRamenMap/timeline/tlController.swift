@@ -36,6 +36,12 @@ import FirebaseStorage
         view.backgroundColor =  UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        ramenImage.layer.cornerRadius = ramenImage.frame.size.width * 0.1
+        ramenImage.clipsToBounds = true
+        
+    }
+    
     func logout() {
         do {
             //do-try-catchの中で、Auth.auth().signOut()を呼ぶだけで、ログアウトが完了

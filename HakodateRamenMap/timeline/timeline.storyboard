@@ -21,6 +21,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ERd-aa-HFt">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="EN6-kq-kBb"/>
+                                    <constraint firstAttribute="height" constant="725" id="PQQ-6M-fhj"/>
+                                </constraints>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -210,7 +214,7 @@
                                     <action selector="tas:" destination="HMJ-Hz-XuN" eventType="editingDidEnd" id="F6M-4h-YDj"/>
                                 </connections>
                             </textField>
-                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EFC-Uh-p2g">
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ramenBackImage" translatesAutoresizingMaskIntoConstraints="NO" id="EFC-Uh-p2g">
                                 <rect key="frame" x="57" y="442" width="300" height="250"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <gestureRecognizers/>
@@ -282,6 +286,7 @@
     </scenes>
     <resources>
         <image name="post" width="40" height="40"/>
+        <image name="ramenBackImage" width="300" height="250"/>
         <image name="timelineicon" width="20" height="20"/>
     </resources>
 </document>
