@@ -13,7 +13,7 @@ import FirebaseStorage
 import FirebaseUI
 
 class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
-  
+    
     @IBOutlet weak var detailTable: UITableView!
     
     var contentArray: [DataSnapshot] = []
@@ -25,7 +25,7 @@ class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     let storage = Storage.storage()
     
     var detailSnap: DataSnapshot! //ListTableからのデータの受け取りのための変数
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
@@ -44,7 +44,7 @@ class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         
         detailTable.reloadData()
     }
-
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
@@ -59,22 +59,22 @@ class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         
         //受け取ったselectedSnapを辞書型に変換
         let item = detailSnap.value as! Dictionary<String, AnyObject>
-          switch indexPath.row{
-          case 0:
+        switch indexPath.row{
+        case 0:
             namecell.textLabel?.text = "Fuya"
             namecell.imageView?.image = UIImage(named: "acount")
             return namecell
-          case 1:
+        case 1:
             storecell.textLabel?.text = item["storeName"] as? String
             storecell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
             return storecell
-          case 2:
+        case 2:
             tastecell.textLabel?.text = item["taste"] as? String
             return tastecell
-          case 3:
+        case 3:
             valuecell.textLabel?.text = item["ramenValue"] as? String
             return valuecell
-          default:
+        default:
             namecell.textLabel?.text = item["storeName"] as? String
             return namecell
         }
@@ -99,15 +99,5 @@ class Detail: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         detailTable.deselectRow(at: indexPath, animated: true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+ 
 }

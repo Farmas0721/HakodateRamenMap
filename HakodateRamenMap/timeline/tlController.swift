@@ -15,7 +15,7 @@ import FirebaseStorage
     var ref = Database.database().reference()
     var isCreate = true //データの作成か更新かを判定、trueなら作成、falseなら更新
     let storageRef = Storage.storage().reference(forURL: "gs://hakodateramenapp.appspot.com")
-   
+    
     @IBOutlet weak var ramenImage: UIImageView!
     @IBOutlet weak var doneLabel: UIButton!
     @IBOutlet weak var storeName: UITextField!
@@ -23,7 +23,7 @@ import FirebaseStorage
     @IBOutlet weak var ramenValue: UITextField!
     
     var selectedSnap: DataSnapshot! //ListViewControllerからのデータの受け取りのための変数
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,12 @@ import FirebaseStorage
         ramenValue.delegate = self as? UITextFieldDelegate
         
         view.backgroundColor =  UIColor.rgba(red: 242, green: 92, blue: 0, alpha: 1)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        ramenImage.layer.cornerRadius = ramenImage.frame.size.width * 0.1
+        ramenImage.clipsToBounds = true
+        
     }
     
     func logout() {
@@ -49,7 +55,7 @@ import FirebaseStorage
         }
         
     }
-
+    
     
     @IBAction func post(_ sender: UIButton) {
         if self.isCreate {

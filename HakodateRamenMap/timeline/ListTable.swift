@@ -14,7 +14,7 @@ import FirebaseUI
 
 
 class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
-
+    
     @IBOutlet var table: UITableView!
     
     var contentArray: [DataSnapshot] = []
@@ -41,7 +41,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationItem.title = "タイムライン"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-
+        
         table.reloadData()
     }
     
@@ -59,7 +59,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     }
     
     @IBAction func addTask(_ sender: Any) {
-         self.transition()
+        self.transition()
     }
     
     func transition() {
@@ -67,7 +67,7 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return contentArray.count
+        return contentArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,9 +102,9 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
         //今回は、childでユーザーIDを指定することで、ユーザーが投稿したデータの一つ上のchildまで指定することになる
         ref.child("timeline").child((Auth.auth().currentUser?.uid)!).observe(.value, with: {(snapShots) in
             if snapShots.children.allObjects is [DataSnapshot] {
-               // print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
+                // print("snapShots.children...\(snapShots.childrenCount)") //いくつのデータがあるかプリント
                 
-              //  print("snapShot...\(snapShots)") //読み込んだデータをプリント
+                //  print("snapShot...\(snapShots)") //読み込んだデータをプリント
                 
                 self.snap = snapShots
             }
@@ -197,5 +197,5 @@ class ListTable: UIViewController ,UITableViewDelegate, UITableViewDataSource{
 extension UIColor {
     class func rgba(red: Int, green: Int, blue: Int, alpha: CGFloat) -> UIColor{
         return UIColor(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: alpha)
- }
+    }
 }
