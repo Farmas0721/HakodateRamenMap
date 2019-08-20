@@ -10,8 +10,8 @@ import UIKit
 import FirebaseStorage
 
 class ListTableViewCell: UITableViewCell {
-
-
+    
+    
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var content: UILabel!
     @IBOutlet weak var ramenphoto: UIImageView!
@@ -24,7 +24,7 @@ class ListTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         content.font = UIFont.systemFont(ofSize: 24)
