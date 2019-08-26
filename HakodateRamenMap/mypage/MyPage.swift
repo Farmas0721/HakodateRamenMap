@@ -11,17 +11,27 @@ import UIKit
 class Mypage: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate {//UICollectionViewDelegateFlowLayout{
    
     @IBOutlet weak var collectionView: UICollectionView!
-  //  @IBOutlet weak var picture: UICollectionViewCell!
+    private let sectionInsets = UIEdgeInsets(top: 10.0, left: 2.0, bottom: 2.0, right: 2.0)
+    private let itemsPerRow: CGFloat = 3
+    //  @IBOutlet weak var picture: UICollectionViewCell!
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return 18 // 表示するセルの数
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pictureCell", for: indexPath)
-        cell.backgroundColor = .white  // セルの色
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) // 表示するセルを登録(先程命名した"Cell")
+        cell.backgroundColor = .orange  // セルの色
         return cell
-        
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        return CGSize(width: widthPerItem, height: widthPerItem + 42)
+    }
+    
     
     var sidebarView = sidebarViewController()
     
@@ -76,9 +86,10 @@ class Mypage: UIViewController, UITextFieldDelegate, UICollectionViewDataSource,
         super.viewDidLoad()
         let rgba = UIColor(red: 210/255, green: 255/255, blue: 255/255, alpha: 1.0) // ボタン背景色設定
         self.navigationController?.navigationBar.barTintColor = .orange
+        self.navigationItem.title = "マイページ"
+        self.navigationController?.navigationBar.barStyle = .default
+        
         sidebarView.delegate = self
-        collectionView.delegate = self
-        collectionView.dataSource = self
         view.backgroundColor = UIColor.orange
         profileImage.backgroundColor = rgba
         username.backgroundColor = UIColor.clear
@@ -178,4 +189,14 @@ extension Mypage: UIImagePickerControllerDelegate ,UINavigationControllerDelegat
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+extension ViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // スタンプが押された時の処理を書く
+    }
+}
+
+
+
+
 

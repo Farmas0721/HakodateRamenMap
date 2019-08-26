@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ud-mu-GiY">
-                                <rect key="frame" x="40" y="160" width="70" height="70"/>
+                                <rect key="frame" x="20" y="160" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="1Bq-8d-6Vf"/>
                                     <constraint firstAttribute="height" constant="70" id="Mzv-Ka-dT3"/>
@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bd5-bg-5Hp">
-                                <rect key="frame" x="120" y="160" width="70" height="70"/>
+                                <rect key="frame" x="100" y="160" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="OZm-n6-GZ5"/>
                                     <constraint firstAttribute="width" constant="70" id="aE0-T5-N7f"/>
@@ -49,7 +49,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tw7-Uo-aIy">
-                                <rect key="frame" x="200" y="160" width="70" height="70"/>
+                                <rect key="frame" x="180" y="160" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="eSI-Vd-wXN"/>
                                     <constraint firstAttribute="height" constant="70" id="vvH-VP-Zv7"/>
@@ -80,7 +80,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8WK-if-cQs">
-                                <rect key="frame" x="145" y="201" width="30" height="20"/>
+                                <rect key="frame" x="125" y="201" width="30" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Hw6-ze-UvT"/>
                                     <constraint firstAttribute="width" constant="30" id="hSi-qz-bHK"/>
@@ -89,7 +89,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9j-Bb-nii">
-                                <rect key="frame" x="60" y="201" width="30" height="20"/>
+                                <rect key="frame" x="40" y="201" width="30" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="7oo-ps-MLn"/>
                                     <constraint firstAttribute="height" constant="20" id="U3Z-NP-4Qw"/>
@@ -126,7 +126,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ik-aS-NlY">
-                                <rect key="frame" x="230" y="201" width="30" height="20"/>
+                                <rect key="frame" x="210" y="201" width="30" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="DWH-d0-mX2"/>
                                     <constraint firstAttribute="height" constant="20" id="q8L-gb-S3m"/>
@@ -135,26 +135,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" contentInsetAdjustmentBehavior="always" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="145-l5-yyx">
-                                <rect key="frame" x="0.0" y="229" width="375" height="389"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IWR-wp-dTw">
+                                <rect key="frame" x="0.0" y="251" width="375" height="367"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="K4e-nB-dLB">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="nUP-M3-p6d">
                                     <size key="itemSize" width="124" height="124"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pictureCell" id="4Aw-ht-SbO">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="qQw-Hq-a1h">
                                         <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ramenimage" translatesAutoresizingMaskIntoConstraints="NO" id="Zuj-oU-SZy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="eKr-DM-cwz" id="0hW-kf-eeY"/>
+                                    <outlet property="delegate" destination="eKr-DM-cwz" id="Xel-ui-3jG"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -163,20 +172,26 @@
                             <constraint firstItem="tkZ-RJ-eKr" firstAttribute="top" secondItem="hTg-vZ-r3c" secondAttribute="top" constant="40" id="0hp-mm-r24"/>
                             <constraint firstItem="3ik-aS-NlY" firstAttribute="top" secondItem="hTg-vZ-r3c" secondAttribute="top" constant="137" id="1ef-xw-rBE"/>
                             <constraint firstItem="hTg-vZ-r3c" firstAttribute="trailing" secondItem="YlE-6g-kUx" secondAttribute="trailing" constant="10" id="7Xt-Da-IIV"/>
-                            <constraint firstItem="U9j-Bb-nii" firstAttribute="leading" secondItem="hTg-vZ-r3c" secondAttribute="leading" constant="60" id="Ast-cF-QEj"/>
+                            <constraint firstItem="IWR-wp-dTw" firstAttribute="bottom" secondItem="hTg-vZ-r3c" secondAttribute="bottom" id="A2G-KQ-jgf"/>
+                            <constraint firstItem="U9j-Bb-nii" firstAttribute="leading" secondItem="hTg-vZ-r3c" secondAttribute="leading" constant="40" id="Ast-cF-QEj"/>
                             <constraint firstItem="rd7-Sl-TQn" firstAttribute="leading" secondItem="MrA-LR-E9I" secondAttribute="trailing" constant="25" id="BOn-lh-Wxd"/>
                             <constraint firstItem="tw7-Uo-aIy" firstAttribute="leading" secondItem="bd5-bg-5Hp" secondAttribute="trailing" constant="10" id="CUa-xL-oGm"/>
                             <constraint firstItem="hTg-vZ-r3c" firstAttribute="trailing" secondItem="tkZ-RJ-eKr" secondAttribute="trailing" constant="10" id="EGa-f6-Rey"/>
+                            <constraint firstItem="IWR-wp-dTw" firstAttribute="leading" secondItem="hTg-vZ-r3c" secondAttribute="leading" id="Fbv-Yp-Pht"/>
                             <constraint firstItem="bd5-bg-5Hp" firstAttribute="leading" secondItem="8Ud-mu-GiY" secondAttribute="trailing" constant="10" id="GMT-JL-l33"/>
+                            <constraint firstItem="IWR-wp-dTw" firstAttribute="width" secondItem="S4p-RZ-xHF" secondAttribute="width" id="INX-0o-EI8"/>
                             <constraint firstItem="MrA-LR-E9I" firstAttribute="leading" secondItem="hTg-vZ-r3c" secondAttribute="leading" constant="5" id="Jzv-hK-OcH"/>
-                            <constraint firstItem="8Ud-mu-GiY" firstAttribute="leading" secondItem="hTg-vZ-r3c" secondAttribute="leading" constant="40" id="Pvk-ug-XTI"/>
+                            <constraint firstItem="hTg-vZ-r3c" firstAttribute="trailing" secondItem="IWR-wp-dTw" secondAttribute="trailing" id="MgJ-JR-X9U"/>
+                            <constraint firstItem="8Ud-mu-GiY" firstAttribute="leading" secondItem="hTg-vZ-r3c" secondAttribute="leading" constant="20" id="Pvk-ug-XTI"/>
                             <constraint firstItem="tw7-Uo-aIy" firstAttribute="top" secondItem="rd7-Sl-TQn" secondAttribute="bottom" constant="30.5" id="Q9o-Ih-LUp"/>
+                            <constraint firstItem="YlE-6g-kUx" firstAttribute="leading" secondItem="tw7-Uo-aIy" secondAttribute="trailing" constant="5" id="Qd2-Oa-PnL"/>
                             <constraint firstItem="8WK-if-cQs" firstAttribute="leading" secondItem="8Ud-mu-GiY" secondAttribute="trailing" constant="35" id="Vda-Af-oRM"/>
                             <constraint firstItem="8WK-if-cQs" firstAttribute="top" secondItem="rd7-Sl-TQn" secondAttribute="bottom" constant="71.5" id="XAe-Ad-5mB"/>
                             <constraint firstItem="YlE-6g-kUx" firstAttribute="top" secondItem="tkZ-RJ-eKr" secondAttribute="bottom" constant="38" id="YQr-Sy-5lz"/>
                             <constraint firstItem="MrA-LR-E9I" firstAttribute="top" secondItem="hTg-vZ-r3c" secondAttribute="top" constant="20" id="e1z-lO-pt1"/>
                             <constraint firstItem="U9j-Bb-nii" firstAttribute="top" secondItem="MrA-LR-E9I" secondAttribute="bottom" constant="47" id="f5T-Kp-tdJ"/>
                             <constraint firstItem="3ik-aS-NlY" firstAttribute="leading" secondItem="bd5-bg-5Hp" secondAttribute="trailing" constant="40" id="fJL-Oh-7Tb"/>
+                            <constraint firstItem="IWR-wp-dTw" firstAttribute="top" secondItem="8Ud-mu-GiY" secondAttribute="bottom" constant="21" id="giF-hz-cS2"/>
                             <constraint firstItem="8Ud-mu-GiY" firstAttribute="top" secondItem="MrA-LR-E9I" secondAttribute="bottom" constant="6" id="jLN-PF-idO"/>
                             <constraint firstItem="rd7-Sl-TQn" firstAttribute="top" secondItem="hTg-vZ-r3c" secondAttribute="top" constant="45" id="lto-Lg-5qE"/>
                             <constraint firstItem="bd5-bg-5Hp" firstAttribute="top" secondItem="rd7-Sl-TQn" secondAttribute="bottom" constant="30.5" id="qCx-Iz-Gwr"/>
@@ -207,7 +222,7 @@
                         <outlet property="MessageEditButton" destination="YlE-6g-kUx" id="3o1-iu-oWB"/>
                         <outlet property="RamenNum" destination="3ik-aS-NlY" id="iwt-aW-bgE"/>
                         <outlet property="RamenNumberButton" destination="tw7-Uo-aIy" id="Hr4-sp-guM"/>
-                        <outlet property="collectionView" destination="145-l5-yyx" id="aPi-Ds-3Ha"/>
+                        <outlet property="collectionView" destination="IWR-wp-dTw" id="GyO-2Y-UDI"/>
                         <outlet property="followenum" destination="U9j-Bb-nii" id="0Pa-m3-TUw"/>
                         <outlet property="follownum" destination="8WK-if-cQs" id="ogd-dr-lhi"/>
                         <outlet property="profileImage" destination="MrA-LR-E9I" id="bYw-oz-756"/>
@@ -270,5 +285,6 @@
     </scenes>
     <resources>
         <image name="mypageicon" width="20" height="20"/>
+        <image name="ramenimage" width="277" height="278"/>
     </resources>
 </document>
